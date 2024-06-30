@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="login&Signup.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="welcome-message"></h1>
+        <div class="form-container">
+            <h2>Create an account</h2>
+            <form id="signup-form">
+                <label for="signup-email">Email address</label>
+                <input type="email" id="signup-email" name="email" required>
+                <label for="">Password</label>
+                <input type="password" name="password" id="password" required>
+                <button type="submit">Continue</button>
+                <div class="login-link">
+                    <p>Already have an account? <a href="login.html">Login</a></p>
+                </div>
+                <div class="separator">
+                    <hr class="left">
+                    <span>OR</span>
+                    <hr class="right">
+                </div>
+                <button type="button" class="google-btn">
+                    <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
