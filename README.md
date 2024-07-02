@@ -1,2 +1,0 @@
-# geminiAI-Python-Django
- 
