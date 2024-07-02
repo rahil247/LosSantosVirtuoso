@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from google import generativeai as genai
 import textwrap
 
-genai.configure(api_key="Your Gemini Api Key ")
+genai.configure(api_key="AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo")
 
 def to_markdown(text):
     text = text.replace('•', '  *')

@@ -29,11 +29,22 @@ function signIn() {
     form.setAttribute('action',oauthendpoint)
 
     let params = {
-        "client_id" : " ",
-        "redirect_uri" : " ",
+        "client_id" : "133402870707-nhuffft968a6jolttuq1b2b6jg42rk3p.apps.googleusercontent.com",
+        "redirect_uri" : "http://127.0.0.1:8000/",
         "response_type" : "token",
-        "scope" : "https://googleapis.com/auth/userinfo.profile ",
+        "scope" : "https://www.googleapis.com/auth/drive.metadata.readonly",
         "include_granted_scopes" : "true",
         "state" : "pass-through-value"
     }
+
+    for(var p in params){
+        let input = document.createElement('input')
+        input.setAttribute('type', 'hidden')
+        input.setAttribute('name', p)
+        input.setAttribute('value', params[p])
+        form.appendChild(input)
+    }
+
+    document.body.appendChild(form)
+    form.submit()
 }
