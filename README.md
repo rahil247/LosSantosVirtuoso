@@ -1,1 +1,2 @@
-# WMC-5.0
+# geminiAI-Python-Django
+ 
