@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const message = "Welcome to Chatbot";
     let i = 0;
-    const speed = 100; // Speed of typing effect
+    const speed = 170; // Speed of typing effect
     const delay = 1000; // Delay before restarting the typing effect
 
     function typeWriter() {
