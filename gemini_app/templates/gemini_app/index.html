@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gemini AI Sohbet</title>
+    <title>chatbot</title>
 </head>
 <body>
-    <h1>Gemini AI Sohbet</h1>
+    <h1>chatbot</h1>
     <form action="/" method="post">
         {% csrf_token %}
-        <label for="input_text">Sorunu Yaz:</label>
+        <label for="input_text">Enter your Prompt</label>
         <style>
             #input_text {
                 resize: none;
@@ -25,8 +25,8 @@
         <textarea name="input_text" id="input_text" cols="100" rows="8" required></textarea>
         <br>
         <br>
-        <button type="submit">Gönder</button>
-        <button type="submit" name="clear_history" value="true">Sohbet Geçmişini Temizle</button>
+        <button type="submit">Submit</button>
+        <button type="submit" name="clear_history" value="true">Clear history</button>
     </form>
     <div id="chat-history">
         {% for message in chat_history %}
