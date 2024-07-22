@@ -1,0 +1,307 @@
+<!-- <html>
+    <h1>Login Here</h1>
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{loginform.as_p}}
+        <input type="submit" value="Login">
+    </form>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .login-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .login-container form {
+            display: flex;
+            flex-direction: column;
+        }
+        .login-container input[type="text"],
+        .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .login-container input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #5cb85c;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-container input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login Here</h1>
+        <form method="POST" autocomplete="off">
+            {% csrf_token %}
+            {{ loginform.as_p }}
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+            background: url('./GTA.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            opacity: 0.95;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5); /* Adjust the opacity here (0.6 is 60%) */
+            z-index: 0;
+        }
+
+        .container {
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #signup-form, #login-form {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background-color: rgba(72, 61, 139, 0.85); /* Dark purple background with 85% opacity */
+            width: 300px;
+            animation: slideIn 1s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #FFA500; /* Soft orange color */
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+            color: #FFA500; /* Soft orange color */
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #D3D3D3; /* Light grey color */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #D3D3D3; /* Light grey border */
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.2); /* Light transparent background */
+            color: #fff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #FFA500; /* Soft orange background */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #FFA500; /* Darker orange on hover */
+        }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #ccc;
+        }
+
+        .google-btn img {
+            margin-right: 10px;
+        }
+
+        .login-link, .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #d3d3d3; /* Light grey color */
+        }
+
+        a {
+            color: #d3d3d3;
+        }
+
+        .separator {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 10px 0;
+            color: #D3D3D3; /* Light grey color */
+        }
+
+        .separator hr {
+            flex: 1;
+            border: 0;
+            height: 1px;
+            background: #D3D3D3; /* Light grey color */
+        }
+
+        .separator span {
+            padding: 0 10px;
+            color: #D3D3D3; /* Light grey color */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome back</h1>
+        <div class="form-container">
+            <h2>Login</h2>
+            <form id="login-form" method="POST" autocomplete="off">
+                {% csrf_token %}
+                {{loginform.as_p}}
+                <button type="submit">Continue</button>
+                <div class="signup-link">
+                    <p>Don't have an account? <a href="register">Sign Up</a></p>
+                </div>
+                <div class="separator">
+                    <hr class="left">
+                    <span>OR</span>
+                    <hr class="right">
+                </div>
+                <button type="button" class="google-btn" onclick="signIn()">
+                    <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
+                </button>
+            </form>
+        </div>
+    </div>
+    <script >
+        document.addEventListener('DOMContentLoaded', () => {
+    const message = "Welcome to Chatbot";
+    let i = 0;
+    const speed = 170; // Speed of typing effect
+    const delay = 1000; // Delay before restarting the typing effect
+
+    function typeWriter() {
+        if (i < message.length) {
+            document.getElementById("welcome-message").innerHTML += message.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+        } else {
+            setTimeout(() => {
+                document.getElementById("welcome-message").innerHTML = "";
+                i = 0;
+                typeWriter();
+            }, delay);
+        }
+    }
+
+    typeWriter();
+});
+
+function signIn() {
+    let oauthendpoint = "https://accounts.google.com/o/oauth2/v2/auth"
+
+    let form = document.createElement('form')
+    form.setAttribute('method', 'GET')
+    form.setAttribute('action',oauthendpoint)
+
+    let params = {
+        "client_id" : "133402870707-nhuffft968a6jolttuq1b2b6jg42rk3p.apps.googleusercontent.com",
+        "redirect_uri" : "http://127.0.0.1:8000/index",
+        "response_type" : "token",
+        "scope" : "https://www.googleapis.com/auth/drive.metadata.readonly",
+        "include_granted_scopes" : "true",
+        "state" : "pass-through-value"
+    }
+
+    for(var p in params){
+        let input = document.createElement('input')
+        input.setAttribute('type', 'hidden')
+        input.setAttribute('name', p)
+        input.setAttribute('value', params[p])
+        form.appendChild(input)
+    }
+
+    document.body.appendChild(form)
+    form.submit()
+}
+
+    </script>
+</body>
+</html>

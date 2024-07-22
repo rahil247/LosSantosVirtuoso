@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Name</title>
+</head>
+<body>
+    <h1>Name</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="input_text">Input your text here</label>
+        <style>
+            #input_text {
+                resize: none;
+            }
+            pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        </style>
+        <textarea name="input_text" id="input_text" cols="100" rows="8" required></textarea>
+        <br>
+        <br>
+        <button type="submit">Submit</button>
+        <button type="submit" name="clear_history" value="true">Clear History</button>
+    </form>
+    <div id="chat-history">
+        {% for message in chat_history %}
+            <pre><strong>{{ message.role }}:</strong> {{ message.text }}</pre>
+        {% endfor %}
+    </div>
+</body>
+</html>
