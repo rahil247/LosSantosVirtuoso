@@ -1,0 +1,15 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+</head>
+<body>
+    <h1>Contact Us</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

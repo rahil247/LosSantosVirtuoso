@@ -1,0 +1,132 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        #input_text {
+            resize: none;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="personality">Select Personality:</label>
+        <select name="personality" id="personality">
+            <option value="michel" {% if current_personality == 'michel' %}selected{% endif %}>Michel</option>
+            <option value="trevor" {% if current_personality == 'trevor' %}selected{% endif %}>Trevor</option>
+            <option value="franklin" {% if current_personality == 'franklin' %}selected{% endif %}>Franklin</option>
+        </select>
+        <br><br>
+        <label for="input_text">Ask anything:</label>
+        <textarea name="input_text" id="input_text" cols="100" rows="8" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+        <button type="submit" name="clear_history" value="true">Clear History</button>
+    </form>
+    <div id="chat-history">
+        {% for message in chat_history %}
+            <pre><strong>{{ message.role }}:</strong> {{ message.text }}</pre>
+        {% endfor %}
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        #input_text {
+            resize: none;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="personality">Select Personality:</label>
+        <select name="personality" id="personality">
+            <option value="michel" {% if current_personality == 'michel' %}selected{% endif %}>Michel</option>
+            <option value="trevor" {% if current_personality == 'trevor' %}selected{% endif %}>Trevor</option>
+            <option value="franklin" {% if current_personality == 'franklin' %}selected{% endif %}>Franklin</option>
+        </select>
+        <br><br>
+        <label for="input_text">Ask anything:</label>
+        <textarea name="input_text" id="input_text" cols="100" rows="8" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+        <button type="submit" name="clear_history" value="true">Clear History</button>
+    </form>
+    <div id="chat-history">
+        {% for message in chat_history %}
+            <pre><strong>{{ message.role }}:</strong> {{ message.text }}</pre>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        #input_text {
+            resize: none;
+            width: 100%;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            white-space: pre-wrap;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <form action="/" method="post">
+        {% csrf_token %}
+        <label for="personality">Select Personality:</label>
+        <select name="personality" id="personality">
+            <option value="michel" {% if current_personality == 'michel' %}selected{% endif %}>Michel</option>
+            <option value="trevor" {% if current_personality == 'trevor' %}selected{% endif %}>Trevor</option>
+            <option value="franklin" {% if current_personality == 'franklin' %}selected{% endif %}>Franklin</option>
+        </select>
+        <br><br>
+        <label for="input_text">Ask anything:</label>
+        <textarea name="input_text" id="input_text" cols="100" rows="8" required></textarea>
+        <br><br>
+        <button type="submit">Submit</button>
+        <button type="submit" name="clear_history" value="true">Clear History</button>
+    </form>
+    <div id="chat-history">
+        {% for message in chat_history %}
+            <pre><strong>{{ message.role }}:</strong> {{ message.text }}</pre>
+        {% endfor %}
+    </div>
+</body>
+</html> -->
