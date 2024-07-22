@@ -126,17 +126,4 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 RAZORPAY_API_KEY = 'rzp_live_2DWZBQ5mIimbcX'
-<<<<<<< Updated upstream
 RAZORPAY_API_SECRET_KEY = 'jy8T9rW0uIhp25NXxy67IhVE'
-=======
-RAZORPAY_API_SECRET_KEY = 'jy8T9rW0uIhp25NXxy67IhVE'
-
-
-
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = "aryansukhadia334@gmail.com"
-EMAIL_HOST_PASSWORD = "Aryan@2511"
->>>>>>> Stashed changes

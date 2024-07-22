@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from . forms import CreateUserForm, Loginform
+from . forms import Loginform, CustomUserCreationForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -23,15 +23,28 @@ from elevate.settings import RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY
 #     return render(request, 'crm/index.html')
 
 
+# def register(request):
+#     form = CreateUserForm()
+#     if request.method == "POST":
+#         form = CreateUserForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("my_log")
+#     context = {'registerform':form}
+#     return render(request, 'crm/register.html', context=context)
+
+from .forms import CustomUserCreationForm
+
 def register(request):
-    form = CreateUserForm()
-    if request.method == "POST":
-        form = CreateUserForm(request.POST)
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("my_log")
-    context = {'registerform':form}
-    return render(request, 'crm/register.html', context=context)
+            return redirect('')
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'crm/register.html', {'registerform': form})
+
 def my_log(request):
     form = Loginform()
     if request.method =="POST":
@@ -43,7 +56,7 @@ def my_log(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth.login(request,user)
-                return redirect("dashboard")
+                return redirect('index')
     context = {'loginform':form}
     return render(request, 'crm/my_log.html',context=context)
 def user_logout(request):
@@ -122,29 +135,29 @@ def index(request):
         'current_personality': current_chat_session.personality if current_chat_session else 'michel'
     })
 
-def register(request):
-    form = CreateUserForm()
-    if request.method == "POST":
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("my_log")
-    context = {'registerform':form}
-    return render(request, 'crm/register.html', context=context)
-def my_log(request):
-    form = Loginform()
-    if request.method =="POST":
-        form = Loginform(request, data=request.POST)
-        if form.is_valid():
-            username = request.POST.get('username')
-            password = request.POST.get('password')
+# def register(request):
+#     form = CustomUserCreationForm()
+#     if request.method == "POST":
+#         form = CustomUserCreationForm   (request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("my_log")
+#     context = {'registerform':form}
+#     return render(request, 'crm/register.html', context=context)
+# def my_log(request):
+#     form = Loginform()
+#     if request.method =="POST":
+#         form = Loginform(request, data=request.POST)
+#         if form.is_valid():
+#             username = request.POST.get('username')
+#             password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                auth.login(request,user)
-                return redirect("dashboard")
-    context = {'loginform':form}
-    return render(request, 'crm/my_log.html',context=context)
-def user_logout(request):
-    auth.logout(request)
-    return redirect('index')
+#             user = authenticate(request, username=username, password=password)
+#             if user is not None:
+#                 auth.login(request,user)
+#                 return redirect("dashboard")
+#     context = {'loginform':form}
+#     return render(request, 'crm/my_log.html',context=context)
+# def user_logout(request):
+#     auth.logout(request)
+#     return redirect('index')
