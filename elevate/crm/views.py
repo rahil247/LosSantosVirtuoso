@@ -5,12 +5,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import razorpay
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.http import JsonResponse
 from .utils import send_email_to_clients
 from google import generativeai as genai
 import textwrap
 from .models import ChatSession, Message
+
+
+
 
 def send_email(request):
     send_email_to_clients()
@@ -40,7 +43,7 @@ def register(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('')
+            return redirect('/')
     else:
         form = CustomUserCreationForm()
     return render(request, 'crm/register.html', {'registerform': form})
@@ -89,7 +92,7 @@ def to_markdown(text):
     text = text.replace('•', '  *')
     return textwrap.indent(text, '> ', predicate=lambda _: True)
 
-class ChatSession:
+class ChatSessionm:
     def __init__(self, personality):
         self.model = genai.GenerativeModel('gemini-pro')
         self.chat = self.model.start_chat(history=[])
@@ -99,65 +102,197 @@ class ChatSession:
         # Customize the prompt based on the personality
         personality_prompt = {
             'michel': "You are Michel from GTA V, a balanced and rational character.",
-            'trevor': "You are Trevor from GTA V, known for your wild and unpredictable nature.",
+            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
+            # 'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
+        }
+
+        full_question = f"{personality_prompt[self.personality]} {question}"
+        response = self.chat.send_message(full_question)
+        return response
+current_chat_session = None
+chat_history = []
+
+
+class ChatSessionf:
+    def __init__(self, personality):
+        self.model = genai.GenerativeModel('gemini-pro')
+        self.chat = self.model.start_chat(history=[])
+        self.personality = personality
+
+    def ask_question(self, question):
+        # Customize the prompt based on the personality
+        personality_prompt = {
+            # 'michel': "You are Michel from GTA V, a balanced and rational character.",
+            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
             'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
         }
 
         full_question = f"{personality_prompt[self.personality]} {question}"
         response = self.chat.send_message(full_question)
         return response
-
-# Store the current chat session and history
 current_chat_session = None
 chat_history = []
 
-@csrf_exempt
-def index(request):
+
+
+class ChatSessiont:
+    def __init__(self, personality):
+        self.model = genai.GenerativeModel('gemini-pro')
+        self.chat = self.model.start_chat(history=[])
+        self.personality = personality
+
+    def ask_question(self, question):
+        # Customize the prompt based on the personality
+        personality_prompt = {
+            # 'michel': "You are Michel from GTA V, a balanced and rational character.",
+            'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
+            # 'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
+        }
+
+        full_question = f"{personality_prompt[self.personality]} {question}"
+        response = self.chat.send_message(full_question)
+        return response
+
+
+current_chat_session = None
+chat_history = []
+
+# @csrf_exempt
+# @csrf_protect
+# def index(request):
+#     global chat_history, current_chat_session
+
+#     if request.method == 'POST':
+#         input_text = request.POST.get('input_text')
+#         selected_personality = request.POST.get('personality','michel')  # Default personality
+
+        # if request.POST.get('clear_history'):
+        #     chat_history = [] 
+        #     current_chat_session = None
+        # else:
+        #     if not current_chat_session or current_chat_session.personality != selected_personality:
+        #         current_chat_session = ChatSession(selected_personality)
+
+        #     response = current_chat_session.ask_question(input_text)
+
+        #     chat_history.append({"role": "Sen", "text": input_text})
+        #     chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+    #     if not current_chat_session or current_chat_session.personality != selected_personality:
+    #         chat_history = []
+    #         current_chat_session = ChatSession(selected_personality)
+
+    #     response = current_chat_session.ask_question(input_text)
+
+    #     chat_history.append({"role": "User", "text": input_text})
+    #     chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+
+
+    # return render(request, 'crm/index.html', {
+    #     'chat_history': chat_history,
+    #     'current_personality': current_chat_session.personality if current_chat_session else 'michel'
+    # })
+
+def welcome(request):
+    if request.method == 'POST':
+        selected_personality = request.POST.get('personality','michel')
+    return render(request,'crm/welcome.html')
+
+@csrf_protect
+def twt(request):
     global chat_history, current_chat_session
 
     if request.method == 'POST':
         input_text = request.POST.get('input_text')
-        selected_personality = request.POST.get('personality', 'michel')  # Default personality
+        selected_personality = request.POST.get('personality','trevor')  # Default personality
 
-        if request.POST.get('clear_history'):
-            chat_history = [] 
-        else:
-            if not current_chat_session or current_chat_session.personality != selected_personality:
-                current_chat_session = ChatSession(selected_personality)
+        # if request.POST.get('clear_history'):
+        #     chat_history = [] 
+        #     current_chat_session = None
+        # else:
+        #     if not current_chat_session or current_chat_session.personality != selected_personality:
+        #         current_chat_session = ChatSession(selected_personality)
 
-            response = current_chat_session.ask_question(input_text)
+        #     response = current_chat_session.ask_question(input_text)
 
-            chat_history.append({"role": "Sen", "text": input_text})
-            chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        #     chat_history.append({"role": "Sen", "text": input_text})
+        #     chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        if not current_chat_session or current_chat_session.personality != selected_personality:
+            chat_history = []
+            current_chat_session = ChatSessiont(selected_personality)
 
-    return render(request, 'crm/index.html', {
+        response = current_chat_session.ask_question(input_text)
+
+        chat_history.append({"role": "User", "text": input_text})
+        chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        
+    return render(request, 'crm/twt.html', {
         'chat_history': chat_history,
         'current_personality': current_chat_session.personality if current_chat_session else 'michel'
     })
 
-# def register(request):
-#     form = CustomUserCreationForm()
-#     if request.method == "POST":
-#         form = CustomUserCreationForm   (request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect("my_log")
-#     context = {'registerform':form}
-#     return render(request, 'crm/register.html', context=context)
-# def my_log(request):
-#     form = Loginform()
-#     if request.method =="POST":
-#         form = Loginform(request, data=request.POST)
-#         if form.is_valid():
-#             username = request.POST.get('username')
-#             password = request.POST.get('password')
 
-#             user = authenticate(request, username=username, password=password)
-#             if user is not None:
-#                 auth.login(request,user)
-#                 return redirect("dashboard")
-#     context = {'loginform':form}
-#     return render(request, 'crm/my_log.html',context=context)
-# def user_logout(request):
-#     auth.logout(request)
-#     return redirect('index')
+def twm(request):
+    global chat_history, current_chat_session
+
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text')
+        selected_personality = request.POST.get('personality','michel')  # Default personality
+
+        # if request.POST.get('clear_history'):
+        #     chat_history = [] 
+        #     current_chat_session = None
+        # else:
+        #     if not current_chat_session or current_chat_session.personality != selected_personality:
+        #         current_chat_session = ChatSession(selected_personality)
+
+        #     response = current_chat_session.ask_question(input_text)
+
+        #     chat_history.append({"role": "Sen", "text": input_text})
+        #     chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        if not current_chat_session or current_chat_session.personality != selected_personality:
+            chat_history = []
+            current_chat_session = ChatSessionm(selected_personality)
+
+        response = current_chat_session.ask_question(input_text)
+
+        chat_history.append({"role": "User", "text": input_text})
+        chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        
+    return render(request, 'crm/twm.html', {
+        'chat_history': chat_history,
+        'current_personality': current_chat_session.personality if current_chat_session else 'michel'
+    })
+
+
+
+def twf(request):
+    global chat_history, current_chat_session
+
+    if request.method == 'POST':
+        input_text = request.POST.get('input_text')
+        selected_personality = request.POST.get('personality','franklin')  # Default personality
+
+        # if request.POST.get('clear_history'):
+        #     chat_history = [] 
+        #     current_chat_session = None
+        # else:
+        #     if not current_chat_session or current_chat_session.personality != selected_personality:
+        #         current_chat_session = ChatSession(selected_personality)
+
+        #     response = current_chat_session.ask_question(input_text)
+
+        #     chat_history.append({"role": "Sen", "text": input_text})
+        #     chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        if not current_chat_session or current_chat_session.personality != selected_personality:
+            chat_history = []
+            current_chat_session = ChatSessionf(selected_personality)
+
+        response = current_chat_session.ask_question(input_text)
+
+        chat_history.append({"role": "User", "text": input_text})
+        chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        
+    return render(request, 'crm/twf.html', {
+        'chat_history': chat_history,
+        'current_personality': current_chat_session.personality if current_chat_session else 'michel'
+    })

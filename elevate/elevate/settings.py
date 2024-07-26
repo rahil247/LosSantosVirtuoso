@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
+    # "django_google_sso",
     "django.contrib.staticfiles",
     "crm",
 ]
