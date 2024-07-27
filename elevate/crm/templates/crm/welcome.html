@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,4 +11,197 @@
     <button onclick="window.location.href='{% url 'twm' %}'">Talk with Michael</button>
     <button onclick="window.location.href='{% url 'twf' %}'">Talk with Franklin</button>
 </body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background: url('../../static/img/gta_char_bckgnd.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #FFD700;
+            margin-top: 50px;
+            margin-bottom: 140px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0); /* Semi-transparent background */
+            padding: 30px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .button:hover {
+            transform: translateY(-40px);
+            background-color: rgba(68, 68, 68, 0); /* Semi-transparent background on hover */
+        }
+
+        .button img {
+            width: 300px;
+            height: 400px;
+            border-radius: 10%;
+            margin-bottom: 10px;
+        }
+
+        .button span {
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Talk with GTA Characters</h1>
+    <div class="button-container">
+        <button class="button" >
+            <img src="../../static/img/Trevor_img.jpeg" alt="Trevor">
+             <span>Talk with Trevor</span>  
+        </button>
+        <button class="button">
+            <img src="../../static/img/Michael_img.jpeg" alt="Michael">
+            <span>Talk with Michael</span>
+        </button>
+        <button class="button">
+            <img src="../../static/img/Franklin2_img.jpeg" alt="Franklin">
+             <span>Talk with Franklin</span>  
+        </button>
+    </div>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background: url('../../static/img/gta_char_bckgnd.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #FFD700;
+            margin-top: 50px;
+            margin-bottom: 140px;
+            text-align: center;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(51, 51, 51, 0); /* Semi-transparent background */
+            padding: 30px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .button:hover {
+            transform: translateY(-40px);
+            background-color: rgba(68, 68, 68, 0); /* Semi-transparent background on hover */
+        }
+
+        .button img {
+            width: 300px;
+            height: 400px;
+            border-radius: 10%;
+            margin-bottom: 10px;
+        }
+
+        .button span {
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Talk with GTA Characters</h1>
+    <div class="button-container">
+        <a href="twt" class="button">
+            <img src="../../static/img/Trevor_img.jpeg" alt="Trevor">
+            <!-- <span>Talk with Trevor</span> -->
+        </a>
+        <a href="twm" class="button">
+            <img src="../../static/img/Michael_img.jpeg" alt="Michael">
+            <!-- <span>Talk with Michael</span> -->
+        </a>
+        <a href="twf" class="button">
+            <img src="../../static/img/Franklin2_img.jpeg" alt="Franklin">
+            <!-- <span>Talk with Franklin</span> -->
+        </a>
+    </div>
+</body>
 </html>
+

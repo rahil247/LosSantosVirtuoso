@@ -11,6 +11,7 @@ urlpatterns = [
     path('twf', views.twf, name='twf'),
     path('',views.home,name='home'),
     path('user_logout',views.user_logout,name='user_logout'),
+    path('twf', views.twf, name='twf'), 
     #path('send_email', views.send_email,name='send_email'),
     #path('send_email_to_clients', utils.send_email_to_clients,name='send_email_to_clients'),
     path('contact/', views.contact_view, name='contact'),
