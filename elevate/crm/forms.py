@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 from django.forms.widgets import PasswordInput, TextInput
-from .models import ChatSession, Message
+from .models import ChatSession, Message, Contact
 # from .models import Contact
 
 #create/register a user(model form)
@@ -60,3 +60,9 @@ class Messagq(forms.ModelForm):
     class Meta:
         model = Message
         fields = ['chat_session','role','text']
+
+class ContactForm(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = ['name', 'email', 'message']
+        

@@ -244,6 +244,8 @@
                     <span>OR</span>
                     <hr class="right">
                 </div>
+                {% load socialaccount %}
+                <a href="{% provider_login_url 'google' %}?next=/">Continue with Google</a>
                 <button type="button" class="google-btn" onclick="signIn()">
                     <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
                 </button>

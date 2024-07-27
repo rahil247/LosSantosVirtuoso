@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>History</title>
+</head>
+<body>
+    {% for history in history_list%}
+        <tr>
+            <td>{{history.content_object}}</td>
+            <td>{{history.viewed_on}}</td>
+            <td><a href="" class="btn btn-danger">Delete</a></td>
+
+
+        </tr>
+</body>
+</html>

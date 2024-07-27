@@ -1,19 +1,19 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render,redirect
 from . forms import Loginform, CustomUserCreationForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import razorpay
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.http import JsonResponse
 from .utils import send_email_to_clients
 from google import generativeai as genai
 import textwrap
+
 from .models import ChatSession, Message
-
-
-
 
 def send_email(request):
     send_email_to_clients()
@@ -48,7 +48,7 @@ def register(request):
         form = CustomUserCreationForm()
     return render(request, 'crm/register.html', {'registerform': form})
 
-def my_log(request):
+def home(request):
     form = Loginform()
     if request.method =="POST":
         form = Loginform(request, data=request.POST)
@@ -61,10 +61,11 @@ def my_log(request):
                 auth.login(request,user)
                 return redirect('index')
     context = {'loginform':form}
-    return render(request, 'crm/my_log.html',context=context)
+    return render(request, 'crm/home.html',context=context)
+    # return render(request, 'crm/home.html')
 def user_logout(request):
     auth.logout(request)
-    return redirect('index')
+    return redirect('')
 
 
 # @login_required(login_url="my_log")
@@ -296,3 +297,15 @@ def twf(request):
         'chat_history': chat_history,
         'current_personality': current_chat_session.personality if current_chat_session else 'michel'
     })
+
+from .forms import ContactForm
+def contact_view(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Thank you for your message.')
+    else:
+        form = ContactForm()
+    context = {'form': form}
+    return render(request, 'crm/contact.html',context=context)
