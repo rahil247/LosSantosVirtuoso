@@ -62,10 +62,9 @@ def home(request):
                 return redirect('index')
     context = {'loginform':form}
     return render(request, 'crm/home.html',context=context)
-    # return render(request, 'crm/home.html')
 def user_logout(request):
-    auth.logout(request)
-    return redirect('')
+    user_logout(request)
+    return redirect('/')
 
 
 # @login_required(login_url="my_log")

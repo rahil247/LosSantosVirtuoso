@@ -386,6 +386,7 @@ function signIn() {
     </style>
 </head>
 <body>
+    {% load socialaccount %}
     <div class="container">
         <h1 id="welcome-message"></h1>
         <div class="form-container">
@@ -402,9 +403,9 @@ function signIn() {
                     <span>OR</span>
                     <hr class="right">
                 </div>
-                <button type="button" class="google-btn" onclick="signIn()">
+                <button type="button" class="google-btn" onclick="signInWithGoogle()">
                     <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
-                </button>
+                </button>                
             </form>
         </div>
     </div>
@@ -431,6 +432,11 @@ function signIn() {
 
             typeWriter();
         });
+        function signInWithGoogle() {
+            const googleLoginUrl = "{% provider_login_url 'google' %}?next=/";
+            window.location.href = googleLoginUrl;
+        }
+
 
         function signIn() {
             let oauthendpoint = "https://accounts.google.com/o/oauth2/v2/auth"

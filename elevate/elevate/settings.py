@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -29,7 +28,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-SITE_ID=1
+SITE_ID=2
 INSTALLED_APPS = [
     "material",
     "material.admin",
@@ -46,7 +45,7 @@ INSTALLED_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "allauth.socialaccount.providers.google",
-    "users",
+    # "users",
 ]
 SOCIALACCOUNT_PROVIDERS={
     "google":{
@@ -147,7 +146,7 @@ RAZORPAY_API_SECRET_KEY = 'jy8T9rW0uIhp25NXxy67IhVE'
 
 AUTHENTICATION_BACKENDS=(
     "django.contrib.auth.backends.ModelBackend",
-    "allauth.accounts.auth_backends.AuthenticationBackend"
+    "allauth.account.auth_backends.AuthenticationBackend"
 )
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
