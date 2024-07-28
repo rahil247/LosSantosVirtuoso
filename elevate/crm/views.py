@@ -59,15 +59,15 @@ def home(request):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 auth.login(request,user)
-                return redirect('index')
+                return redirect('welcome')
     context = {'loginform':form}
     return render(request, 'crm/home.html',context=context)
 def user_logout(request):
-    user_logout(request)
-    return redirect('/')
+    logout(request)
+    return redirect('welcome')
 
 
-# @login_required(login_url="my_log")
+# @login_required(login_url="")
 client = razorpay.Client(auth=(RAZORPAY_API_KEY,RAZORPAY_API_SECRET_KEY ))
 def dashboard(request):
     # if request.method=='POST':
@@ -230,7 +230,7 @@ def twt(request):
         'current_personality': current_chat_session.personality if current_chat_session else 'michel'
     })
 
-
+@csrf_protect
 def twm(request):
     global chat_history, current_chat_session
 
@@ -264,7 +264,7 @@ def twm(request):
     })
 
 
-
+@csrf_protect
 def twf(request):
     global chat_history, current_chat_session
 
