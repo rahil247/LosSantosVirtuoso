@@ -433,7 +433,7 @@ function signIn() {
             typeWriter();
         });
         function signInWithGoogle() {
-            const googleLoginUrl = "{% provider_login_url 'google' %}?next=/";
+            const googleLoginUrl = "{% url 'google_login' %}";
             window.location.href = googleLoginUrl;
         }
 

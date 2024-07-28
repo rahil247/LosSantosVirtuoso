@@ -12,8 +12,14 @@ from django.http import JsonResponse
 from .utils import send_email_to_clients
 from google import generativeai as genai
 import textwrap
-
 from .models import ChatSession, Message
+from django.conf import settings
+from django.shortcuts import redirect
+from django.views import View
+from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
+from allauth.socialaccount.providers.oauth2.client import OAuth2Client
+from django.conf import settings
+from django.views.generic import RedirectView
 
 def send_email(request):
     send_email_to_clients()
@@ -308,3 +314,24 @@ def contact_view(request):
         form = ContactForm()
     context = {'form': form}
     return render(request, 'crm/contact.html',context=context)
+
+
+
+class GoogleLoginView(View):
+    def get(self, request, *args, **kwargs):
+        provider = 'google'
+        client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
+        redirect_uri = request.build_absolute_uri('http://127.0.0.1:8000/index')
+        scope = " ".join(settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE'])
+        auth_params = "&".join(f"{k}={v}" for k, v in settings.SOCIALACCOUNT_PROVIDERS['google']['AUTH_PARAMS'].items())
+
+        google_auth_url = (f"https://accounts.google.com/o/oauth2/auth?"
+                           f"client_id={client_id}&response_type=code&scope={scope}&redirect_uri={redirect_uri}&{auth_params}")
+
+        # google_auth_url = http://127.0.0.1:8000/index
+        
+        return redirect(google_auth_url)
+
+# class GoogleLoginView(RedirectView):
+#     def get_redirect_url(self, *args, **kwargs):
+#         return self.request.build_absolute_uri('/accounts/google/login/')
