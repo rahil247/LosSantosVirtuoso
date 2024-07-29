@@ -157,14 +157,15 @@
 # LOGOUT_REDIRECT_URL = "/"
 
 # settings.py
-
+import os
+import dj_database_url
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi"
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 
 SITE_ID = 2
 
@@ -237,6 +238,20 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     "default": {
+#         "URL": "postgresql://postgres:LJrgnjNGxIFJwZXKgvadismERHsIGxUU@roundhouse.proxy.rlwy.net:50714/railway",
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": "railway",
+#         "USER": "postgres",
+#         "PASSWORD": "LJrgnjNGxIFJwZXKgvadismERHsIGxUU",
+#         "HOST": "postgres.railway.internal",
+#         "PORT": "5432",
+#     }
+# }
+
+DATABASES["default"] = dj_database_url.parse("postgresql://chatbot_wmc_user:6EMiBvj0z0xY3NHwlCg8WIUzMYt6EWhs@dpg-cqja3maj1k6c739pguag-a.oregon-postgres.render.com/chatbot_wmc")
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -258,6 +273,8 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+STATIC_FILES = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles_build','static')
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
