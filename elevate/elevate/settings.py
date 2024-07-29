@@ -238,17 +238,7 @@ DATABASES = {
     }
 }
 
-# DATABASES = {
-#     "default": {
-#         "URL": "mysql://avnadmin:AVNS_MC9pJexeUopA37T5pAE@mysql-36f76dc3-wmc-5.e.aivencloud.com:12277/defaultdb?ssl-mode=REQUIRED",
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": "defaultdb",
-#         "USER": "avnadmin",
-#         "PASSWORD": "AVNS_MC9pJexeUopA37T5pAE",
-#         "HOST": "mysql-36f76dc3-wmc-5.e.aivencloud.com",
-#         "PORT": "12277",
-#     }
-# }
+
 
 # DATABASES["default"] = dj_database_url.parse("postgresql://chatbot_wmc_user:6EMiBvj0z0xY3NHwlCg8WIUzMYt6EWhs@dpg-cqja3maj1k6c739pguag-a.oregon-postgres.render.com/chatbot_wmc")
 
