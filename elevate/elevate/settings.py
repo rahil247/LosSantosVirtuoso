@@ -165,7 +165,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi"
 DEBUG = True
-ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['*']
 
 SITE_ID = 2
 
@@ -209,6 +209,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
+    'crm.middleware.NoCacheMiddleware',
 ]
 
 ROOT_URLCONF = "elevate.urls"
@@ -231,12 +232,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "elevate.wsgi.application"
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
+
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "URL": "mysql://avnadmin:AVNS_MC9pJexeUopA37T5pAE@mysql-36f76dc3-wmc-5.e.aivencloud.com:12277/defaultdb?ssl-mode=REQUIRED",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "defaultdb",
+        "USER": "avnadmin",
+        "PASSWORD": "AVNS_MC9pJexeUopA37T5pAE",
+        "HOST": "mysql-36f76dc3-wmc-5.e.aivencloud.com",
+        "PORT": "12277",
     }
 }
+
+
 
 
 

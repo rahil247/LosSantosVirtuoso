@@ -2,7 +2,8 @@ from django.urls import path
 from . import views
 from . import utils
 from django.urls import path
-from .views import GoogleLoginView
+from django.urls import path
+from .views import GoogleLoginView, GoogleCallbackView,login_view
 urlpatterns = [
     # path('index',views.index,name='index'),
     path('register.html',views.register,name='register'),
@@ -18,4 +19,7 @@ urlpatterns = [
     #path('send_email_to_clients', utils.send_email_to_clients,name='send_email_to_clients'),
     path('contact/', views.contact_view, name='contact'),
     path('accounts/google/login/', GoogleLoginView.as_view(), name='google_login'),
+    path('auth/callback/', GoogleCallbackView.as_view(), name='google_callback'),
+    path('index', views.welcome, name='welcome'),
+    path('login/', login_view, name='login'),
 ]

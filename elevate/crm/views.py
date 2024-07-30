@@ -316,21 +316,132 @@ def contact_view(request):
     return render(request, 'crm/contact.html',context=context)
 
 
+# aa junu che...uncomment aan ekarvanu che
+# class GoogleLoginView(View):
+#     def get(self, request, *args, **kwargs):
+#         provider = 'google'
+#         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
+#         redirect_uri = request.build_absolute_uri('http://127.0.0.1:8000/index')
+#         scope = " ".join(settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE'])
+#         auth_params = "&".join(f"{k}={v}" for k, v in settings.SOCIALACCOUNT_PROVIDERS['google']['AUTH_PARAMS'].items())
+
+#         google_auth_url = (f"https://accounts.google.com/o/oauth2/auth?"
+#                            f"client_id={client_id}&response_type=code&scope={scope}&redirect_uri={redirect_uri}&{auth_params}")
+
+#         # google_auth_url = http://127.0.0.1:8000/index
+        
+#         return redirect(google_auth_url)
+
+from django.conf import settings
+from django.conf import settings
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.views import View
 
 class GoogleLoginView(View):
     def get(self, request, *args, **kwargs):
-        provider = 'google'
         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
-        redirect_uri = request.build_absolute_uri('http://127.0.0.1:8000/index')
+        redirect_uri = request.build_absolute_uri(reverse('google_callback'))
         scope = " ".join(settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE'])
         auth_params = "&".join(f"{k}={v}" for k, v in settings.SOCIALACCOUNT_PROVIDERS['google']['AUTH_PARAMS'].items())
 
         google_auth_url = (f"https://accounts.google.com/o/oauth2/auth?"
                            f"client_id={client_id}&response_type=code&scope={scope}&redirect_uri={redirect_uri}&{auth_params}")
 
-        # google_auth_url = http://127.0.0.1:8000/index
-        
         return redirect(google_auth_url)
+
+
+import requests
+from django.shortcuts import redirect
+from django.urls import reverse
+from django.views import View
+from django.conf import settings
+from django.contrib.auth.models import User
+
+class GoogleCallbackView(View):
+    def get(self, request, *args, **kwargs):
+        code = request.GET.get('code')
+        client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
+        client_secret = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['secret']
+        redirect_uri = request.build_absolute_uri(reverse('google_callback'))
+
+        token_url = 'https://oauth2.googleapis.com/token'
+        token_data = {
+            'code': code,
+            'client_id': client_id,
+            'client_secret': client_secret,
+            'redirect_uri': redirect_uri,
+            'grant_type': 'authorization_code'
+        }
+        token_response = requests.post(token_url, data=token_data)
+        token_json = token_response.json()
+        access_token = token_json.get('access_token')
+
+        user_info_url = 'https://www.googleapis.com/oauth2/v1/userinfo'
+        user_info_params = {'access_token': access_token}
+        user_info_response = requests.get(user_info_url, params=user_info_params)
+        user_info = user_info_response.json()
+
+        user_id = user_info['id']
+        user_name = user_info['name']
+        user_email = user_info['email']
+
+        # Save user info to database
+        self.save_user_to_db(user_id, user_name, user_email)
+
+        # Redirect to /index after successful login
+        return redirect('/index')
+
+    def save_user_to_db(self, user_id, user_name, user_email):
+        user, created = User.objects.get_or_create(username=user_id, defaults={'first_name': user_name, 'email': user_email})
+        if not created:
+            user.first_name = user_name
+            user.email = user_email
+            user.save()
+
+# from django.shortcuts import render, redirect
+# from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth import login as auth_login
+
+# def login_view(request):
+#     if request.user.is_authenticated:
+#         return redirect('/index')
+#     if request.method == 'POST':
+#         # Handle login form submission
+#         form = AuthenticationForm(request, data=request.POST)
+#         if form.is_valid():
+#             # Log the user in
+#             auth_login(request, form.get_user())
+#             return redirect('/index')
+#     else:
+#         form = AuthenticationForm()
+#     return render(request, 'home.html', {'loginform': form})
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as auth_login
+from django.http import HttpResponse
+
+def login_view(request):
+    if request.user.is_authenticated:
+        return redirect('/index')  # Redirect authenticated users to the index page
+
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            # Log the user in
+            auth_login(request, form.get_user())
+            return redirect('/index')
+    else:
+        form = AuthenticationForm()
+
+    response = render(request, 'home.html', {'loginform': form})
+    response['Cache-Control'] = 'no-cache, no-store, must-revalidate'  # HTTP 1.1.
+    response['Pragma'] = 'no-cache'  # HTTP 1.0.
+    response['Expires'] = '0'  # Proxies.
+    return response
+
+
 
 # class GoogleLoginView(RedirectView):
 #     def get_redirect_url(self, *args, **kwargs):
