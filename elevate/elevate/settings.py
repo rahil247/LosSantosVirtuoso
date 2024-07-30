@@ -158,7 +158,6 @@
 
 # settings.py
 import os
-import dj_database_url
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -252,11 +251,13 @@ DATABASES = {
 }
 
 
+<<<<<<< Updated upstream
 
 
 
+=======
+>>>>>>> Stashed changes
 # DATABASES["default"] = dj_database_url.parse("postgresql://chatbot_wmc_user:6EMiBvj0z0xY3NHwlCg8WIUzMYt6EWhs@dpg-cqja3maj1k6c739pguag-a.oregon-postgres.render.com/chatbot_wmc")
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",

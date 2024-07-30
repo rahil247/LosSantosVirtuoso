@@ -98,7 +98,7 @@ def to_markdown(text):
     text = text.replace('•', '  *')
     return textwrap.indent(text, '> ', predicate=lambda _: True)
 
-class ChatSessionm:
+class ChatSession:
     def __init__(self, personality):
         self.model = genai.GenerativeModel('gemini-pro')
         self.chat = self.model.start_chat(history=[])
@@ -107,35 +107,14 @@ class ChatSessionm:
     def ask_question(self, question):
         # Customize the prompt based on the personality
         personality_prompt = {
-            'michel': "You are Michel from GTA V, a balanced and rational character.",
-            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
-            # 'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
+            'michel': "You are Michel from GTA V, a balanced and rational character. Only respond to questions related to GTA V. you are a character from gta 5 not an ai model. Reply to game related questions only.",
+            'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal. Only respond to questions related to GTA V. you are a character from gta 5 not an ai model. Reply to game related questions only.",
+            'franklin': "You are Franklin from GTA V, a clever and street-smart individual.Only respond to questions related to GTA V. you are a character from gta 5 not an ai model. Reply to game related questions only."
         }
-
         full_question = f"{personality_prompt[self.personality]} {question}"
         response = self.chat.send_message(full_question)
         return response
-current_chat_session = None
-chat_history = []
 
-
-class ChatSessionf:
-    def __init__(self, personality):
-        self.model = genai.GenerativeModel('gemini-pro')
-        self.chat = self.model.start_chat(history=[])
-        self.personality = personality
-
-    def ask_question(self, question):
-        # Customize the prompt based on the personality
-        personality_prompt = {
-            # 'michel': "You are Michel from GTA V, a balanced and rational character.",
-            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
-            'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
-        }
-
-        full_question = f"{personality_prompt[self.personality]} {question}"
-        response = self.chat.send_message(full_question)
-        return response
 current_chat_session = None
 chat_history = []
 
@@ -151,8 +130,50 @@ class ChatSessiont:
         # Customize the prompt based on the personality
         personality_prompt = {
             # 'michel': "You are Michel from GTA V, a balanced and rational character.",
-            'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
+            'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.Only respond to questions related to GTA V.you are a character from gta 5 not an ai model. Reply to game related questions only.",
             # 'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
+        }
+
+        full_question = f"{personality_prompt[self.personality]} {question}"
+        response = self.chat.send_message(full_question)
+        return response
+current_chat_session = None
+chat_history = []
+
+
+class ChatSessionm:
+    def __init__(self, personality):
+        self.model = genai.GenerativeModel('gemini-pro')
+        self.chat = self.model.start_chat(history=[])
+        self.personality = personality
+
+    def ask_question(self, question):
+        # Customize the prompt based on the personality
+        personality_prompt = {
+            'michel': "You are Michel from GTA V, a balanced and rational character. Only respond to questions related to GTA V.you are a character from gta 5 not an ai model. Reply to game related questions only.",
+            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.",
+            # 'franklin': "You are Franklin from GTA V, a clever and street-smart individual."
+        }
+        full_question = f"{personality_prompt[self.personality]} {question}"
+        response = self.chat.send_message(full_question)
+        return response
+
+current_chat_session = None
+chat_history = []
+
+
+class ChatSessionf:
+    def __init__(self, personality):
+        self.model = genai.GenerativeModel('gemini-pro')
+        self.chat = self.model.start_chat(history=[])
+        self.personality = personality
+
+    def ask_question(self, question):
+        # Customize the prompt based on the personality
+        personality_prompt = {
+            # 'michel': "You are Michel from GTA V, a balanced and rational character.",
+            # 'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal.Only respond to questions related to GTA V.",
+            'franklin': "You are Franklin from GTA V, a clever and street-smart individual.Only respond to questions related to GTA V.you are a character from gta 5 not an ai model. Reply to game related questions only."
         }
 
         full_question = f"{personality_prompt[self.personality]} {question}"
@@ -162,6 +183,9 @@ class ChatSessiont:
 
 current_chat_session = None
 chat_history = []
+
+
+
 
 # @csrf_exempt
 # @csrf_protect
@@ -262,7 +286,8 @@ def twm(request):
         response = current_chat_session.ask_question(input_text)
 
         chat_history.append({"role": "User", "text": input_text})
-        chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        # chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+
         
     return render(request, 'crm/twm.html', {
         'chat_history': chat_history,
@@ -297,6 +322,13 @@ def twf(request):
 
         chat_history.append({"role": "User", "text": input_text})
         chat_history.append({"role": selected_personality.capitalize(), "text": response.text})
+        if not current_chat_session or current_chat_session.personality != selected_personality:
+            chat_history = []
+            current_chat_session = ChatSessionm(selected_personality)
+
+        response = current_chat_session.ask_question(input_text)
+
+        chat_history.append({"role": "User", "text": input_text})
         
     return render(request, 'crm/twf.html', {
         'chat_history': chat_history,
