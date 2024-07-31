@@ -95,30 +95,30 @@ class Message(models.Model):
 #     def __str__(self):
 #         return self.name
 
-from django.db import models
-from django.contrib.auth.models import User
-
+# from django.db import models
+# from django.contrib.auth.models import User
+# 102,105,107
 # Defining a model for chat sessions.
-class ChatSession(models.Model):
+# class ChatSession(models.Model):
     # A foreign key relationship to the User model.
     # If a user is deleted, all related chat sessions will also be deleted (CASCADE).
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # user = models.ForeignKey(User, on_delete=models.CASCADE)
     # A field to store the personality type or identifier for the chat session.
-    personality = models.CharField(max_length=50)
+    # personality = models.CharField(max_length=50)
     # A field to automatically record the creation time of the chat session.
     # Uncomment the following line if you want to include the creation timestamp.
     # created_at = models.DateTimeField(auto_now_add=True)
 
 # Defining a model for messages within a chat session.
-class Message(models.Model):
+# class Message(models.Model):
     # A foreign key relationship to the ChatSession model.
     # If a chat session is deleted, all related messages will also be deleted (CASCADE).
     # The related_name attribute allows reverse lookup from ChatSession to Message.
-    chat_session = models.ForeignKey(ChatSession, on_delete=models.CASCADE, related_name='messages')
+    # chat_session = models.ForeignKey(ChatSession, on_delete=models.CASCADE, related_name='messages')
     # A field to store the role of the message sender (e.g., user, bot).
-    role = models.CharField(max_length=50)
+    # role = models.CharField(max_length=50)
     # A field to store the content of the message.
-    text = models.TextField()
+    # text = models.TextField()
     # A field to automatically record the timestamp of the message creation.
     # Uncomment the following line if you want to include the timestamp.
     # timestamp = models.DateTimeField(auto_now_add=True)

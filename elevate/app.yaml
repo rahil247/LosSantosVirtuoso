@@ -1,0 +1,5 @@
+runtime: python39
+
+basic_scaling:
+  idle_timeout:1m
+  max_instance:1
