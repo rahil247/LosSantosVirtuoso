@@ -71,7 +71,7 @@ loguru==0.7.2
 lz4==4.3.3
 MarkupSafe==2.1.5
 mistune==3.0.2
-multidict==5.0.0  # Adjusted version to resolve conflict
+multidict==5.1.0  # Adjusted version to resolve conflict
 nbclient==0.10.0
 nbconvert==7.16.4
 nbformat==5.10.4
@@ -142,4 +142,3 @@ webcolors==24.6.0
 webencodings==0.5.1
 websocket-client==1.8.0
 yarl==1.9.4
-sanic==19.6.0
