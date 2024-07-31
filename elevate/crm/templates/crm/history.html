@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>History</title>
 </head>
 <body>
-    {% for history in history_list%}
+    
         <tr>
             <td>{{history.content_object}}</td>
             <td>{{history.viewed_on}}</td>
@@ -15,4 +15,117 @@
 
         </tr>
 </body>
-</html>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="path_to_your_stylesheet.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <button><a href="dashboard">Upgrade your Plan</a></button>
+            <div class="account" id="account">
+                <img src="path_to_user_image" alt="User Image">
+                <span>U</span>
+            </div>
+            <div class="dropdown" id="account-dropdown">
+                <a href="{% url 'user_logout' %}">Logout</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Chat History</h1>
+            </div>
+            <div class="history-section">
+                {% for session in chat_sessions %}
+                    <h2>Session with {{ session.personality }} on {{ session.created_at }}</h2>
+                    <ul>
+                        {% for message in session.messages.all %}
+                            <li><strong>{{ message.role }}:</strong> {{ message.text }} at {{ message.timestamp }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function () {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function (event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="path_to_your_stylesheet.css">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <button><a href="dashboard">Upgrade your Plan</a></button>
+            <div class="account" id="account">
+                <img src="path_to_user_image" alt="User Image">
+                <span>U</span>
+            </div>
+            <div class="dropdown" id="account-dropdown">
+                <a href="{% url 'user_logout' %}">Logout</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h1>Chat History</h1>
+            </div>
+            <div class="history-section">
+                {% for session in chat_sessions %}
+                    <h2>Session with {{ session.personality }} on {{ session.created_at }}</h2>
+                    <ul>
+                        {% for message in session.messages.all %}
+                            <li><strong>{{ message.role }}:</strong> {{ message.text }} at {{ message.timestamp }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function () {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function (event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html> 

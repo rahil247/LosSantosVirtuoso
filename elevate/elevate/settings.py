@@ -285,6 +285,14 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend"
 )
+# changed LOGIN_REDIRECT_URL from '/' to 'welcome'
+LOGIN_REDIRECT_URL = "welcome"
+LOGOUT_REDIRECT_URL = "/index/"
 
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
+LOGIN_URL = '/login/'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = True
