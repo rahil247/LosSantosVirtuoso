@@ -4,16 +4,16 @@
   "version": 2,
   "builds": [
     {
-      "src": "elevate/wsgi.py",
-      "use": "@vercel/python",
-      "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    },
-    {
       "src": "setup.sh",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "staticfiles_build"
       }
+    },
+    {
+      "src": "elevate/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "maxLambdaSize": "50mb", "runtime": "python3.9" }
     }
   ],
   "routes": [
@@ -25,5 +25,6 @@
       "src": "/(.*)",
       "dest": "elevate/wsgi.py"
     }
-  ]
+  ],
+  "buildCommand": "./setup.sh && python3 elevate/manage.py collectstatic --noinput && python3 elevate/manage.py migrate"
 }
