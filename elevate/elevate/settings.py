@@ -10,7 +10,7 @@ dotenv.load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 # load_dotenv(os.path.join(BASE_DIR/".eVar",".env"))
 # Secret key for the Django project. This key should be kept secret in production.
-SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = 'django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi'
 
 # Debug mode setting. Should be set to False in production.
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
