@@ -1,2 +1,2 @@
-# from elevate.wsgi import application
-# app = application
+from elevate.wsgi import application
+app = application

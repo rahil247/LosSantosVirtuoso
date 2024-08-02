@@ -1,5 +1,17 @@
-runtime: python39
+runtime: python39 # or the Python version you're using
 
-basic_scaling:
-  idle_timeout:1m
-  max_instance:1
+entrypoint: gunicorn -b elevate.wsgi:application --host 0.0.0.0 --port 8080
+
+# Handlers
+handlers:
+- url: /static
+  static_dir: static/
+
+- url: /.*
+  script: auto
+
+# Environment variables
+env_variables:
+  DJANGO_SETTINGS_MODULE: "elevate.settings"
+
+# Optional: Configuring instance class

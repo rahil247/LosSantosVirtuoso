@@ -1,72 +1,3 @@
-# from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-# from django.contrib.auth.models import User
-# from django import forms
-# from django.forms.widgets import PasswordInput, TextInput
-# from .models import ChatSession, Message, Contact
-# # from .models import Contact
-
-# #create/register a user(model form)
-# # class CreateUserForm(UserCreationForm):
-# #     class Meta:
-# #         model = User
-# #         fields = ['username', 'email','password1','password2']
-
-# class CustomUserCreationForm(UserCreationForm):
-#     class Meta:
-#         model = User
-#         fields = ('username', 'email', 'password1', 'password2')
-#         widgets = {
-#             'username': forms.TextInput(attrs={'placeholder': 'Username'}),
-#             'email': forms.EmailInput(attrs={'placeholder': 'Email'}),
-#             'password1': forms.PasswordInput(attrs={'placeholder': 'Password'}),
-#             'password2': forms.PasswordInput(attrs={'placeholder': 'Confirm Password'}),
-#         }
-#         labels = {
-#             'username': '',
-#             'email': '',
-#             'password1': '',
-#             'password2': '',
-#         }
-#         help_texts = {
-#             'username': None,
-#             'password1': None,
-#             'password2': None,
-#         }
-
-
-# #authenticate a user
-# class Loginform(AuthenticationForm):
-#     username = forms.CharField(widget=TextInput(attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Username'
-#     }))
-#     password = forms.CharField(widget=PasswordInput(attrs={
-#         'class': 'form-control',
-#         'placeholder': 'Password'
-#     }))
-    
-
-# # class ContactForm(forms.ModelForm):
-# #     class Meta:
-# #         model = Contact
-# #         fields = ['name', 'email', 'message']
-        
-# class Mes(forms.ModelForm):
-#     class Meta:
-#         model = ChatSession
-#         fields = ['user','personality']
-
-# class Messagq(forms.ModelForm):
-#     class Meta:
-#         model = Message
-#         fields = ['chat_session','role','text']
-
-# class ContactForm(forms.ModelForm):
-#     class Meta:
-#         model = Contact
-#         fields = ['name', 'email', 'message']
-
-
 
 # Importing necessary classes and modules from Django for form handling and user authentication.
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -75,13 +6,6 @@ from django import forms
 from django.forms.widgets import PasswordInput, TextInput
 from .models import ChatSession, Message, Contact
 
-# The following commented-out section shows a basic user creation form that was previously defined.
-# This class is commented out but kept for reference.
-# create/register a user(model form)
-# class CreateUserForm(UserCreationForm):
-#     class Meta:
-#         model = User
-#         fields = ['username', 'email','password1','password2']
 
 # Creating a custom user creation form based on Django's built-in UserCreationForm.
 # This form is used to register a new user with additional customizations.
@@ -126,12 +50,6 @@ class Loginform(AuthenticationForm):
         'placeholder': 'Password'
     }))
 
-# The following commented-out section shows a basic contact form that was previously defined.
-# This class is commented out but kept for reference.
-# class ContactForm(forms.ModelForm):
-#     class Meta:
-#         model = Contact
-#         fields = ['name', 'email', 'message']
 
 # Creating a form for the ChatSession model.
 # This form is used to handle the creation and updating of chat sessions.
