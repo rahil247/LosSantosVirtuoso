@@ -20,7 +20,10 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 import os  # Importing the os module to interact with the operating system.
 
 from django.core.wsgi import get_wsgi_application  # Importing get_wsgi_application to get the WSGI application.
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Setting the default settings module for the 'elevate' project.
 # 'elevate.settings' refers to the settings.py file in the elevate project directory.
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "elevate.settings")
