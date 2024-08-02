@@ -17,7 +17,9 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/asgi/
 
 # Importing the os module, which provides a way to interact with the operating system.
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Importing get_asgi_application from django.core.asgi.
 # This function returns an ASGI callable for the project.
 from django.core.asgi import get_asgi_application
