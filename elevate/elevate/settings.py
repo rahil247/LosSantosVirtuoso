@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi'
 
 # Debug mode setting. Should be set to False in production.
-DEBUG = os.environ['DEBUG']
+DEBUG = True
 
 # Allowed hosts setting. Specifies the host/domain names that this Django site can serve.
 ALLOWED_HOSTS = ['wmc-5-0.onrender.com','127.0.0.1']
