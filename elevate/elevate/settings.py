@@ -65,6 +65,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Clickjacking protection middleware.
     "allauth.account.middleware.AccountMiddleware",  # Allauth account middleware.
     'crm.middleware.NoCacheMiddleware',  # Custom middleware to disable caching.
+    # 'django.middleware.timezone.TimeZoneMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 # Setting the root URL configuration for the project.
@@ -81,7 +83,8 @@ TEMPLATES = [
                 "django.template.context_processors.debug",  # Adds debug context processor.
                 "django.template.context_processors.request",  # Adds request context processor.
                 "django.contrib.auth.context_processors.auth",  # Adds auth context processor.
-                "django.contrib.messages.context_processors.messages",  # Adds messages context processor.
+                "django.contrib.messages.context_processors.messages", # Adds messages context processor.
+                  'django.template.context_processors.tz',  
             ],
         },
     },
@@ -172,3 +175,8 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_REQUIRED = True
+
+TIME_ZONE = 'Asia/Kolkata'
+USE_TZ = True
+USE_I18N = True
+USE_L10N = True

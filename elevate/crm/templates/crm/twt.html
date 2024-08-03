@@ -11,16 +11,17 @@
         <div class="navbar">
             <button><a href="dashboard">Upgrade your Plan</a></button>
             <div class="account" id="account">
-                <img src="path_to_user_image" alt="User Image">
-                <span>U</span>
+                <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
+                <span>{{ username }}</span>
             </div>
             <div class="history-section" id="chat-history">
                 
             </div>
             
             <div class="dropdown" id="account-dropdown">
-                <a href="#">Logout</a>
-                <a href="contact/">Contact Us</a>
+                <a href="user_logout">Logout</a>
+                <a href="contact">Contact Us</a>
+                <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
             </div>
             <button><a href="welcome">Change Character</a></button>
         </div>
@@ -39,6 +40,11 @@
                     
                     <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
                     <button type="submit">&#9658;</button>
+                </form>
+                <!-- Add a button to start a new session -->
+                <form action="{% url 'twm' %}" method="post" class="new-session-form">
+                    {% csrf_token %}
+                    <button type="submit" name="start_new_session" value="1">Start New Session</button>
                 </form>
             </div>
         </div>

@@ -23,6 +23,7 @@ urlpatterns = [
     # path('index/', views.welcome, name='welcome'),
     path('login/', login_view, name='login'),
     path('history/', views.chat_history, name='chat_history'),
+    path('delete_chat_history/<int:session_id>/', views.delete_chat_history, name='delete_chat_history'),
 ]
 
 # changes register.html to register/ , dashboard to dashboard/, index to index/, twt to chat/trevor/, twm to chat/michel/, twf to chat/franklin/, user_logout to user_logout/, added path('history/', views.chat_history, name='chat_history'),

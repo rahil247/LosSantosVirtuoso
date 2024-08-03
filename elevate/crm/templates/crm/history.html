@@ -1,5 +1,5 @@
 
-
+{% load tz %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,9 +31,14 @@
                     <h2>Session with {{ session.personality }} on {{ session.created_at }}</h2>
                     <ul>
                         {% for message in session.messages.all %}
-                            <li><strong>{{ message.role }}:</strong> {{ message.text }} at {{ message.timestamp }}</li>
+                            <!-- <li><strong>{{ message.role }}:</strong> {{ message.text }} at {{ message.timestamp }}</li> -->
+                            <li><strong>{{ message.role }}:</strong> {{ message.text }}</li>
                         {% endfor %}
                     </ul>
+                    <form method="post" action="{% url 'delete_chat_history' session.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Delete History</button>
+                    </form>
                 {% endfor %}
             </div>
         </div>

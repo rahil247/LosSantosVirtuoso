@@ -41,7 +41,7 @@ class Contact(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(default=timezone.now)
     # A field to automatically record the creation time of the contact entry.
-    created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
 
     # A string representation of the Contact model, returning the contact's name.
     def __str__(self):
