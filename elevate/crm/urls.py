@@ -4,6 +4,9 @@ from . import utils
 from django.urls import path
 from django.urls import path
 from .views import GoogleLoginView, GoogleCallbackView,login_view
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     # path('index',views.index,name='index'),
     path('register.html',views.register,name='register'),
@@ -24,6 +27,15 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('history/', views.chat_history, name='chat_history'),
     path('delete_chat_history/<int:session_id>/', views.delete_chat_history, name='delete_chat_history'),
+    path('face_recognition/', views.face_recognition_view, name='face_recognition'),
 ]
 
 # changes register.html to register/ , dashboard to dashboard/, index to index/, twt to chat/trevor/, twm to chat/michel/, twf to chat/franklin/, user_logout to user_logout/, added path('history/', views.chat_history, name='chat_history'),
+
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL,document_root = settings.STATIC_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    

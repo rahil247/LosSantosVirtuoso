@@ -180,3 +180,11 @@ TIME_ZONE = 'Asia/Kolkata'
 USE_TZ = True
 USE_I18N = True
 USE_L10N = True
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# import os
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
