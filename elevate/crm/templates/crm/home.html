@@ -1,4 +1,4 @@
-<!-- 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,6 +43,88 @@
         };
     </script>
 </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition Login</title>
+    <style>
+        video {
+            border: 1px solid black;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+        const csrftoken = getCookie('csrftoken');
+    </script>
+</head>
+<body>
+    <h1>Face Recognition Login</h1>
+    <video id="video" autoplay></video>
+    <button id="capture">Capture</button>
+    <script>
+        const video = document.getElementById('video');
+        const captureButton = document.getElementById('capture');
+
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.error('Error accessing the camera', err);
+            });
+
+        captureButton.addEventListener('click', () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+            canvas.toBlob(blob => {
+                const formData = new FormData();
+                formData.append('file', blob, 'capture.jpg');
+
+                fetch('/face_recognition/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': csrftoken,
+                    },
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.admin_detected) {
+                        alert('Admin detected. Would you like to do admin login?');
+                    } else {
+                        alert('Face not recognized as admin.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            }, 'image/jpeg');
+        });
+    </script>
+</body>
 </html> -->
 <!-- 
 <!DOCTYPE html>
@@ -126,85 +208,3 @@
     </script>
 </body>
 </html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Face Recognition Login</title>
-    <style>
-        video {
-            border: 1px solid black;
-            width: 100%;
-            height: auto;
-        }
-    </style>
-    <script>
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        const csrftoken = getCookie('csrftoken');
-    </script>
-</head>
-<body>
-    <h1>Face Recognition Login</h1>
-    <video id="video" autoplay></video>
-    <button id="capture">Capture</button>
-    <script>
-        const video = document.getElementById('video');
-        const captureButton = document.getElementById('capture');
-
-        navigator.mediaDevices.getUserMedia({ video: true })
-            .then(stream => {
-                video.srcObject = stream;
-            })
-            .catch(err => {
-                console.error('Error accessing the camera', err);
-            });
-
-        captureButton.addEventListener('click', () => {
-            const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-            const context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-            canvas.toBlob(blob => {
-                const formData = new FormData();
-                formData.append('file', blob, 'capture.jpg');
-
-                fetch('/face_recognition/', {
-                    method: 'POST',
-                    headers: {
-                        'X-CSRFToken': csrftoken,
-                    },
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.admin_detected) {
-                        alert('Admin detected. Would you like to do admin login?');
-                    } else {
-                        alert('Face not recognized as admin.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-            }, 'image/jpeg');
-        });
-    </script>
-</body>
-</html>

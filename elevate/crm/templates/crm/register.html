@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -88,6 +88,119 @@
             form.submit()
         }
         window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../../static/CSS/register.css">
+</head>
+<body>
+    {% load socialaccount %}
+    <div class="container">
+        <h1 id="welcome-message"></h1>
+        <div class="form-container">
+            <h2>Create an account</h2>
+            <form id="signup-form" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ registerform.username.label_tag }}
+                    {{ registerform.username }}
+                </div>
+                <div class="form-group">
+                    {{ registerform.email.label_tag }}
+                    {{ registerform.email }}
+                </div>
+                <div class="form-group">
+                    {{ registerform.password1.label_tag }}
+                    {{ registerform.password1 }}
+                </div>
+                <div class="form-group">
+                    {{ registerform.password2.label_tag }}
+                    {{ registerform.password2 }}
+                </div>
+                <button type="submit">Continue</button>
+                <div class="login-link">
+                    <p>Already have an account? <a href="/">Login</a></p>
+                </div>
+                <div class="separator">
+                    <hr class="left">
+                    <span>OR</span>
+                    <hr class="right">
+                </div>
+                <button type="button" class="google-btn" onclick="signInWithGoogle()">
+                    <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
+                </button>                
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const message = "Welcome to Chatbot";
+            let i = 0;
+            const speed = 170; // Speed of typing effect
+            const delay = 1000; // Delay before restarting the typing effect
+
+            function typeWriter() {
+                if (i < message.length) {
+                    document.getElementById("welcome-message").innerHTML += message.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                } else {
+                    setTimeout(() => {
+                        document.getElementById("welcome-message").innerHTML = "";
+                        i = 0;
+                        typeWriter();
+                    }, delay);
+                }
+            }
+
+            typeWriter();
+        });
+
+        function signInWithGoogle() {
+            const googleLoginUrl = "{% url 'google_login' %}";
+            window.location.href = googleLoginUrl;
+        }
+
+        function signIn() {
+            let oauthendpoint = "https://accounts.google.com/o/oauth2/v2/auth"
+
+            let form = document.createElement('form')
+            form.setAttribute('method', 'GET')
+            form.setAttribute('action', oauthendpoint)
+
+            let params = {
+                "client_id": "133402870707-nhuffft968a6jolttuq1b2b6jg42rk3p.apps.googleusercontent.com",
+                "redirect_uri": "http://127.0.0.1:8000/index",
+                "response_type": "token",
+                "scope": "https://www.googleapis.com/auth/drive.metadata.readonly",
+                "include_granted_scopes": "true",
+                "state": "pass-through-value"
+            }
+
+            for (var p in params) {
+                let input = document.createElement('input')
+                input.setAttribute('type', 'hidden')
+                input.setAttribute('name', p)
+                input.setAttribute('value', params[p])
+                form.appendChild(input)
+            }
+
+            document.body.appendChild(form)
+            form.submit()
+        }
+
+        window.onpageshow = function (event) {
             if (event.persisted) {
                 window.location.reload();
             }
