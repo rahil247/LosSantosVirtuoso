@@ -1,4 +1,4 @@
-
+<!-- 
 {% load tz %}
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +31,7 @@
                     <h2>Session with {{ session.personality }} on {{ session.created_at }}</h2>
                     <ul>
                         {% for message in session.messages.all %}
-                            <!-- <li><strong>{{ message.role }}:</strong> {{ message.text }} at {{ message.timestamp }}</li> -->
+                            
                             <li><strong>{{ message.role }}:</strong> {{ message.text }}</li>
                         {% endfor %}
                     </ul>
@@ -59,4 +59,95 @@
     </script>
 </body>
 
-</html> 
+</html>  -->
+
+<!-- {% load tz %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="../../static/CSS/history.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="header">
+                <h1>Chat History</h1>
+            </div>
+            <div class="history-section">
+                {% for session in chat_sessions %}
+                    <div class="collapsible">
+                        <input type="checkbox" id="collapsible-{{ forloop.counter }}">
+                        <label for="collapsible-{{ forloop.counter }}" class="collapsible-label">
+                            <span class="arrow">&#9654;</span>
+                            Session with {{ session.personality }} on {{ session.created_at }}
+                        </label>
+                        <div class="content">
+                            <ul>
+                                {% for message in session.messages.all %}
+                                    <li><strong>{{ message.role }}:</strong> {{ message.text }}</li>
+                                {% endfor %}
+                            </ul>
+                            <form method="post" action="{% url 'delete_chat_history' session.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">Delete History</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> -->
+
+
+{% load tz %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History</title>
+    <link rel="stylesheet" href="../../static/CSS/history.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <div class="header">
+                <h1>Chat History</h1>
+            </div>
+            <div class="history-section">
+                {% for session in chat_sessions|dictsortreversed:"created_at" %}
+                    <div class="collapsible">
+                        <input type="checkbox" id="collapsible-{{ forloop.counter }}">
+                        <label for="collapsible-{{ forloop.counter }}" class="collapsible-label">
+                            <span class="arrow">&#9654;</span>
+                            Session with {{ session.personality }} on {{ session.created_at }}
+                        </label>
+                        <div class="content">
+                            <ul>
+                                {% for message in session.messages.all %}
+                                    <li><strong>{{ message.role }}:</strong> {{ message.text }}</li>
+                                {% endfor %}
+                            </ul>
+                            <form method="post" action="{% url 'delete_chat_history' session.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="delete-button">Delete History</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+

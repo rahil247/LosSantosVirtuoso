@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.history-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.collapsible {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.collapsible input[type="checkbox"] {
+    display: none;
+}
+
+.collapsible-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #444;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #FFA500;
+    transition: background-color 0.3s ease;
+}
+
+.collapsible-label .arrow {
+    transition: transform 0.3s ease;
+}
+
+.collapsible input[type="checkbox"]:checked + .collapsible-label .arrow {
+    transform: rotate(90deg);
+}
+
+.collapsible .content {
+    display: none;
+    padding: 10px;
+    background-color: #444;
+}
+
+.collapsible input[type="checkbox"]:checked ~ .content {
+    display: block;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.delete-button {
+    background-color: #FF4500;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #FF6347;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+
