@@ -799,7 +799,7 @@
 </html> -->
 
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -861,4 +861,272 @@
         });
     </script>
 </body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michel</title>
+    <link rel="stylesheet" href="../../static/CSS/twm.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="account" id="account">
+            <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
+            <span>{{ username }}</span>
+        </div>
+        <div class="right-buttons">
+            <form action="{% url 'twm' %}" method="post" class="new-session-form">
+                {% csrf_token %}
+                <button class="animated-button" type="submit" name="start_new_session" value="1">Start New Session</button>
+            </form>
+        </div>
+        <div class="title">
+            <h1>Micheal</h1>
+        </div>
+        <div class="left-buttons">
+            <button class="upgrade-button"><a href="dashboard">Upgrade your Plan</a></button>
+            <button class="animated-button" onclick="location.href='welcome'">Change Character</button>
+        </div>
+        <div class="dropdown" id="account-dropdown">
+            <a href="user_logout">Logout</a>
+            <a href="contact">Contact Us</a>
+            <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="chat-history" id="chat-messages">
+                {% for entry in chat_history %}
+                <p><strong>{{ entry.role }}:</strong> {{ entry.text }}</p>
+                {% endfor %}
+            </div>
+            <form action="{% url 'twm' %}" method="post" class="chat-input-container">
+                {% csrf_token %}
+                <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
+                <button type="submit">&#9658;</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function() {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michel</title>
+    <link rel="stylesheet" href="../../static/CSS/twm.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="account" id="account">
+            <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
+            <span>{{ username }}</span>
+        </div>
+        <div class="right-buttons">
+            <form action="{% url 'twm' %}" method="post" class="new-session-form">
+                {% csrf_token %}
+                <button class="navbar-button animated-button" type="submit" name="start_new_session" value="1">Start New Session</button>
+            </form>
+        </div>
+        <div class="title">
+            <h1>Michel</h1>
+        </div>
+        <div class="left-buttons">
+            <button class="navbar-button upgrade-button" onclick="location.href='dashboard'">Upgrade your Plan</button>
+            <button class="navbar-button animated-button" onclick="location.href='welcome'">Change Character</button>
+        </div>
+        <div class="dropdown" id="account-dropdown">
+            <a href="user_logout">Logout</a>
+            <a href="contact">Contact Us</a>
+            <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="chat-history" id="chat-messages">
+                {% for entry in chat_history %}
+                <p><strong>{{ entry.role }}:</strong> {{ entry.text }}</p>
+                {% endfor %}
+            </div>
+            <form action="{% url 'twm' %}" method="post" class="chat-input-container">
+                {% csrf_token %}
+                <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
+                <button type="submit">&#9658;</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function() {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michel</title>
+    <link rel="stylesheet" href="../../static/CSS/twm.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="account" id="account">
+            <button class="navbar-button account-button">
+                <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
+                <span>{{ username }}</span>
+            </button>
+        </div>
+        <div class="right-buttons">
+            <form action="{% url 'twm' %}" method="post" class="new-session-form">
+                {% csrf_token %}
+                <button class="navbar-button animated-button" type="submit" name="start_new_session" value="1">Start New Session</button>
+            </form>
+        </div>
+        <div class="title">
+            <h1>Michel</h1>
+        </div>
+        <div class="left-buttons">
+            <button class="navbar-button upgrade-button" onclick="location.href='dashboard'">Upgrade your Plan</button>
+            <button class="navbar-button animated-button" onclick="location.href='welcome'">Change Character</button>
+        </div>
+        <div class="dropdown" id="account-dropdown">
+            <a href="user_logout">Logout</a>
+            <a href="contact">Contact Us</a>
+            <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="chat-history" id="chat-messages">
+                {% for entry in chat_history %}
+                <p><strong>{{ entry.role }}:</strong> {{ entry.text }}</p>
+                {% endfor %}
+            </div>
+            <form action="{% url 'twm' %}" method="post" class="chat-input-container">
+                {% csrf_token %}
+                <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
+                <button type="submit">&#9658;</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function() {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michel</title>
+    <link rel="stylesheet" href="../../static/CSS/twm.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="right-buttons">
+            <form action="{% url 'twm' %}" method="post" class="new-session-form">
+                {% csrf_token %}
+                <button class="navbar-button animated-button" type="submit" name="start_new_session" value="1">Start New Session</button>
+            </form>
+        </div>
+        <button class="navbar-button animated-button" onclick="location.href='index'">Change Character</button>
+        <div class="title">
+            <h1>Michel</h1>
+        </div>
+        <div class="left-buttons">
+            <button class="navbar-button animated-button" onclick="location.href='dashboard'">Upgrade your Plan</button>
+            
+        </div>
+        <div class="account" id="account">
+            <button class="navbar-button account-button">
+                <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
+                <span>{{ username }}</span>
+            </button>
+        </div>
+        <div class="dropdown" id="account-dropdown">
+            <a href="user_logout">Logout</a>
+            <a href="contact">Contact Us</a>
+            <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="chat-history" id="chat-messages">
+                {% for entry in chat_history %}
+                <p><strong>{{ entry.role }}:</strong> {{ entry.text }}</p>
+                {% endfor %}
+            </div>
+            <form action="{% url 'twm' %}" method="post" class="chat-input-container">
+                {% csrf_token %}
+                <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
+                <button type="submit">&#9658;</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById('account').addEventListener('click', function() {
+            const dropdown = document.getElementById('account-dropdown');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            const account = document.getElementById('account');
+            const dropdown = document.getElementById('account-dropdown');
+            if (!account.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
 </html>
+
