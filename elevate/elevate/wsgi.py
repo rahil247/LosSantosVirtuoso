@@ -34,4 +34,4 @@ application = get_wsgi_application()
 
 # Assigning the WSGI application instance to a variable named 'app'.
 # This can be useful for some WSGI servers or configurations that expect 'app'.
-app = application
+
