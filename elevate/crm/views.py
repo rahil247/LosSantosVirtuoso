@@ -22,7 +22,7 @@ from django.conf import settings
 from django.views.generic import RedirectView
 # import cv2
 # import face_recognition
-import numpy as npi
+# import numpy as npi
 
 
 # def face_recognition_view(request):
