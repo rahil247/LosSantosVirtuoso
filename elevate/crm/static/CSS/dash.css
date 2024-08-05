@@ -140,7 +140,7 @@ li {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 } */
-
+/* 
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -181,9 +181,9 @@ h2 {
     color: #FFA500;
     animation: glow 2s infinite;
     font-size: 24px;
-}
+} */
 
-@keyframes glow {
+/* @keyframes glow {
     0% {
         text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
     }
@@ -195,8 +195,8 @@ h2 {
     100% {
         text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
     }
-}
-
+} */
+/* 
 .btn {
     display: block;
     width: 100%;
@@ -280,7 +280,7 @@ li {
 
 .plans-container .container:hover {
     filter: none;
-}
+} */
 
 /* .container {
     position: relative;
@@ -297,7 +297,7 @@ li {
     backdrop-filter: blur(40px);
 } */
 
-
+/* 
 .container::before {
     content: "";
     position: absolute;
@@ -325,8 +325,9 @@ li {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
-    /* background-color: rgba(29, 178, 227, 0.85); */
-    background: transparent;
+  */
+ 
+    /* background-color: rgb(8, 232, 248);
     backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 20px;
@@ -378,4 +379,82 @@ li {
     right: 0;
     border-radius: 0 10px 10px 0;
 }
- 
+  */
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../../static/img/Dash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 30px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.amount {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #ff4500;
+}
+
+.btn-disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+    background-color: #888;
+}

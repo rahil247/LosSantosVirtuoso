@@ -3164,8 +3164,8 @@ pre {
     to { transform: translateY(0); opacity: 1; }
 } */
 
-
-body {
+/* yaha se chalu karo */
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -3195,7 +3195,7 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-right: 20px; /* Add space between the account button and other buttons */
+    margin-right: 20px; 
 }
 
 .navbar .account-button {
@@ -3209,8 +3209,8 @@ body {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    width: 160px; /* Set fixed width for all buttons */
-    height: 50px; /* Set fixed height for all buttons */
+    width: 160px; 
+    height: 50px; 
 }
 
 .navbar .account img {
@@ -3227,9 +3227,9 @@ body {
 .navbar .title {
     text-align: center;
     color: #FFA500;
-    flex-grow: 1; /* Allow the title to grow */
-    margin-left: auto; /* Ensure title is centered */
-    margin-right: auto; /* Ensure title is centered */
+    flex-grow: 1; 
+    margin-left: auto; 
+    margin-right: auto;
 }
 
 .navbar .title h1 {
@@ -3246,11 +3246,10 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: inline-block;
-    width: 160px; /* Set fixed width for all buttons */
-    height: 50px; /* Set fixed height for all buttons */
-    text-align: center; /* Center text horizontally */
-    line-height: 50px; /* Center text vertically */
-}
+    width: 160px; 
+    height: 50px; 
+    text-align: center;
+    line-height: 50px; 
 
 .animated-button {
     background-color: #FFA500;
@@ -3280,6 +3279,209 @@ body {
 
 .dropdown a:hover {
     background-color: #6a0dad;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+}
+
+.chat-history {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.chat-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 10px;
+}
+
+.chat-input-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+}
+
+.chat-input-container button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    padding: 10px;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.chat-input-container button:hover {
+    color: #FFA500;
+}
+
+pre {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+    font-family: 'Courier New', Courier, monospace;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+} */
+ 
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #1e1e1e;
+    color: #fff;
+    
+}
+
+.navbar {
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+
+.left-buttons, .right-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .account {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 10px; 
+    margin-left: 10px;
+}
+
+.navbar .account-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    border: none;
+    padding: 0;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    width: 200px; /* Set fixed width for all buttons */
+    height: 50px; /* Set fixed height for all buttons */
+}
+
+.navbar .account img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.navbar .account span {
+    font-size: 1.2em;
+}
+
+.navbar .title {
+    text-align: center;
+    color: #FFA500;
+    flex-grow: 1; /* Allow the title to grow */
+    margin-left: auto; /* Ensure title is centered */
+    margin-right: auto; /* Ensure title is centered */
+}
+
+.navbar .title h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+.navbar-button {
+    color: #fff;
+    text-decoration: none;
+    background-color: #FFA500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    width: 150px; /* Set fixed width for all buttons */
+    height: 50px; /* Set fixed height for all buttons */
+    text-align: center; /* Center text horizontally */
+    line-height: 50px; /* Center text vertically */
+    margin-left: 10px;
+}
+
+.animated-button {
+    background-color: #FFA500;
+}
+
+.navbar-button:hover {
+    background-color: #FF8C00;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 20px;
+    background-color: #FB8500;
+    border: 1px solid #D3D3D3;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background-color: #3cc63c;
 }
 
 .main-content {

@@ -20,51 +20,59 @@ from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from django.conf import settings
 from django.views.generic import RedirectView
-import cv2
-import face_recognition
-import numpy as npi
-
+# import cv2
+# import face_recognition
+# import numpy as npi
+# import os
+from django.conf import settings
+from django.shortcuts import render
+from django.http import JsonResponse
+# import os
+# import face_recognition
 
 # def face_recognition_view(request):
 #     if request.method == 'POST':
 #         file = request.FILES['file']
 #         img = face_recognition.load_image_file(file)
-#         img_admin = "../../media/img/aryan.jpg"
 #         face_encodings = face_recognition.face_encodings(img)
 #         if face_encodings:
-#             admin_image = face_recognition.load_image_file(img_admin)
-#             admin_face_encoding = face_recognition.face_encodings(admin_image)[0]
-#             matches = face_recognition.compare_faces([admin_face_encoding], face_encodings[0])
-#             if matches[0]:
-#                 return JsonResponse({'admin_detected': True})
+#             admin_image_path = os.path.join(settings.MEDIA_ROOT, 'img/aryan.jpg')
+#             if os.path.exists(admin_image_path):
+#                 admin_image = face_recognition.load_image_file(admin_image_path)
+#                 admin_face_encoding = face_recognition.face_encodings(admin_image)[0]
+#                 matches = face_recognition.compare_faces([admin_face_encoding], face_encodings[0])
+#                 if matches[0]:
+#                     return JsonResponse({'admin_detected': True})
+#                 else:
+#                     return JsonResponse({'admin_detected': False})
 #             else:
-#                 return JsonResponse({'admin_detected': False})
+#                 return JsonResponse({'error': 'Admin image not found'}, status=404)
 #         return JsonResponse({'admin_detected': False})
 #     return JsonResponse({'error': 'Invalid request'}, status=400)
-import os
-def face_recognition_view(request):
-    if request.method == 'POST':
-        file = request.FILES['file']
-        img = face_recognition.load_image_file(file)
-        face_encodings = face_recognition.face_encodings(img)
-        if face_encodings:
-            admin_image_path = os.path.join(settings.MEDIA_ROOT, 'img/aryan.jpg')
-            if os.path.exists(admin_image_path):
-                admin_image = face_recognition.load_image_file(admin_image_path)
-                admin_face_encoding = face_recognition.face_encodings(admin_image)[0]
-                matches = face_recognition.compare_faces([admin_face_encoding], face_encodings[0])
-                if matches[0]:
-                    return JsonResponse({'admin_detected': True})
-                else:
-                    return JsonResponse({'admin_detected': False})
-            else:
-                return JsonResponse({'error': 'Admin image not found'}, status=404)
-        return JsonResponse({'admin_detected': False})
-    return JsonResponse({'error': 'Invalid request'}, status=400)
 
-def send_email(request):
-    send_email_to_clients()
-    return redirect('/')
+# def face_recognition_view(request):
+#     if request.method == 'POST':
+#         file = request.FILES['file']
+#         img = face_recognition.load_image_file(file)
+#         face_encodings = face_recognition.face_encodings(img)
+#         if face_encodings:
+#             admin_image_path = os.path.join(settings.MEDIA_ROOT, 'img/aryan.jpg')
+#             if os.path.exists(admin_image_path):
+#                 admin_image = face_recognition.load_image_file(admin_image_path)
+#                 admin_face_encoding = face_recognition.face_encodings(admin_image)[0]
+#                 matches = face_recognition.compare_faces([admin_face_encoding], face_encodings[0])
+#                 if matches[0]:
+#                     return JsonResponse({'admin_detected': True})
+#                 else:
+#                     return JsonResponse({'admin_detected': False})
+#             else:
+#                 return JsonResponse({'error': 'Admin image not found'}, status=404)
+#         return JsonResponse({'admin_detected': False})
+#     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+# def send_email(request):
+#     send_email_to_clients()
+#     return redirect('/')
 
 # from razorpay import client
 from elevate.settings import RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY 
@@ -432,3 +440,48 @@ def delete_chat_history(request, session_id):
     if request.method == 'POST':
         chat_session.delete()
     return HttpResponseRedirect(reverse('chat_history'))
+
+# from django.shortcuts import render
+# from django.http import JsonResponse
+# import torch
+# from torchvision import models, transforms
+# from PIL import Image
+# import json
+
+# # Load pre-trained model and transformation pipeline
+# model = models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
+# model.eval()
+
+# def transform_image(image):
+#     transform = transforms.Compose([
+#         transforms.ToTensor(),
+#     ])
+#     return transform(image).unsqueeze(0)
+
+# def get_prediction(image_path):
+#     image = Image.open(image_path)
+#     image_tensor = transform_image(image)
+#     outputs = model(image_tensor)
+#     return outputs
+# import os 
+# from django.core.files.storage import default_storage
+# def image_captioning_view(request):
+#     if request.method == 'POST' and request.FILES['image']:
+#         image = request.FILES['image']
+#         image_path = os.path.join(settings.MEDIA_ROOT, 'Trevor_img.jpeg')
+
+#         # Ensure the media directory exists
+#         if not os.path.exists(settings.MEDIA_ROOT):
+#             os.makedirs(settings.MEDIA_ROOT)
+
+#         # Save the uploaded image
+#         with default_storage.open(image_path, 'wb+') as destination:
+#             for chunk in image.chunks():
+#                 destination.write(chunk)
+
+#         # Process the image as needed...
+
+#     return render(request, 'your_template.html')
+
+# def index(request):
+#     return render(request, 'crm/index.html')

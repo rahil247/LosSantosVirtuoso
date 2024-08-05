@@ -239,21 +239,22 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 20px ;
     box-sizing: border-box;
     position: relative;
 }
 
 .left-buttons, .right-buttons {
     display: flex;
-    gap: 10px;
+    gap: 20px;
 }
 
 .navbar .account {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-right: 20px; /* Add space between the account button and other buttons */
+    margin-right: 10px; 
+    margin-left: 10px;
 }
 
 .navbar .account-button {
@@ -267,7 +268,7 @@ body {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    width: 160px; /* Set fixed width for all buttons */
+    width: 200px; /* Set fixed width for all buttons */
     height: 50px; /* Set fixed height for all buttons */
 }
 
@@ -291,7 +292,7 @@ body {
 }
 
 .navbar .title h1 {
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0;
 }
 
@@ -304,7 +305,7 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: inline-block;
-    width: 160px; /* Set fixed width for all buttons */
+    width: 150px; /* Set fixed width for all buttons */
     height: 50px; /* Set fixed height for all buttons */
     text-align: center; /* Center text horizontally */
     line-height: 50px; /* Center text vertically */
@@ -337,7 +338,7 @@ body {
 }
 
 .dropdown a:hover {
-    background-color: #6a0dad;
+    background-color: #3cc63c;
 }
 
 .main-content {
