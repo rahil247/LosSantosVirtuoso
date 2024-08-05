@@ -20,8 +20,8 @@ from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from django.conf import settings
 from django.views.generic import RedirectView
-import cv2
-import face_recognition
+# import cv2
+# import face_recognition
 import numpy as npi
 
 
