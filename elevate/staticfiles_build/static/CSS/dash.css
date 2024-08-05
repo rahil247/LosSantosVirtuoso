@@ -201,21 +201,28 @@ h2 {
     display: block;
     width: 100%;
     padding: 10px 20px;
+    padding: 10px 20px;
     margin-top: 20px;
     background-color: #ff7300;
     color: rgb(8, 43, 242);
+    background-color: #ff7300;
+    color: rgb(8, 43, 242);
     border: none;
+    font-size: 16px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
     animation: fadeIn 2s ease-in-out;
+    background-color: #00ff33;
     background-color: #00ff33;
 }
 
 .btn:hover {
     background-color: #FF8C00;
+    transform: translateY(-3px);
     transform: translateY(-3px);
 }
 
@@ -226,16 +233,22 @@ h2 {
     padding: 10px 20px;
     font-size: 16px;
     border-radius: 5px;
+    color: #f6eef5;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .btn-disabled:hover {
     background-color: #808080;
+    transform: translateY(-3px);
     transform: translateY(-3px);
 }
 
 .amount {
     margin-bottom: 20px;
     font-size: 18px;
+    color: #0813f3;
     color: #0813f3;
 }
 

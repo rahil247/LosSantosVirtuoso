@@ -65,3 +65,4 @@ yarl==1.9.4
 mysqlclient==2.2.4 
 python-dotenv==1.0.1
 gunicorn==22.0.0
+gevent==24.2.1

@@ -1,4 +1,4 @@
-/* body {
+body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -139,9 +139,17 @@ li {
 .container:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+<<<<<<< HEAD
 } */
 /* 
 body {
+=======
+}
+
+
+
+/* body {
+>>>>>>> cf9d2bba7ceb06ac337cb0a37ea36bd593b46eb4
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -282,7 +290,7 @@ li {
     filter: none;
 } */
 
-/* .container {
+ .container {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
@@ -295,7 +303,7 @@ li {
     z-index: 1;
     background: transparent;
     backdrop-filter: blur(40px);
-} */
+} 
 
 /* 
 .container::before {
@@ -325,9 +333,14 @@ li {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
+<<<<<<< HEAD
   */
  
     /* background-color: rgb(8, 232, 248);
+=======
+    
+    background: transparent;
+>>>>>>> cf9d2bba7ceb06ac337cb0a37ea36bd593b46eb4
     backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 20px;
