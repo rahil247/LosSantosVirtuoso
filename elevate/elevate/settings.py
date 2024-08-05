@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi
 DEBUG = True
 
 # Allowed hosts setting. Specifies the host/domain names that this Django site can serve.
-ALLOWED_HOSTS = ['wmc-5-0.onrender.com','127.0.0.1']
+ALLOWED_HOSTS = ['wmc-5-0.onrender.com','127.0.0.1','lossantosvirtuoso.onrender.com']
 
 # Setting the site ID for the project.
 SITE_ID = 2
