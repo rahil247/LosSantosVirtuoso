@@ -1,4 +1,4 @@
-/* body {
+body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -139,9 +139,11 @@ li {
 .container:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-} */
+}
 
-body {
+
+
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -282,7 +284,7 @@ li {
     filter: none;
 }
 
-/* .container {
+ .container {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
@@ -295,7 +297,7 @@ li {
     z-index: 1;
     background: transparent;
     backdrop-filter: blur(40px);
-} */
+} 
 
 
 .container::before {
@@ -325,7 +327,7 @@ li {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
-    /* background-color: rgba(29, 178, 227, 0.85); */
+    
     background: transparent;
     backdrop-filter: blur(20px);
     border-radius: 10px;
@@ -378,4 +380,4 @@ li {
     right: 0;
     border-radius: 0 10px 10px 0;
 }
- 
+  */
