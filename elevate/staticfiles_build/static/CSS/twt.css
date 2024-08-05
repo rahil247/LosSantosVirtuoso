@@ -231,6 +231,7 @@ body {
     margin: 0;
     background-color: #1e1e1e;
     color: #fff;
+    
 }
 
 .navbar {
@@ -239,9 +240,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px ;
+    padding: 10px 20px;
     box-sizing: border-box;
     position: relative;
+    
 }
 
 .left-buttons, .right-buttons {
@@ -309,6 +311,7 @@ body {
     height: 50px; /* Set fixed height for all buttons */
     text-align: center; /* Center text horizontally */
     line-height: 50px; /* Center text vertically */
+    margin-left: 10px;
 }
 
 .animated-button {
@@ -324,7 +327,7 @@ body {
     position: absolute;
     top: 50px;
     right: 20px;
-    background-color: #4B0082;
+    background-color: #FB8500;
     border: 1px solid #D3D3D3;
     border-radius: 5px;
     z-index: 1;

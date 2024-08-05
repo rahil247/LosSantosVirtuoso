@@ -1,3 +1,464 @@
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: url('../img/Dash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #d8f809;
+    opacity: 0.85;
+    overflow: hidden;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+
+.plans-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    background-color: rgba(29, 178, 227, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
+
+}
+
+.container {
+    animation: fadeInUp 1s ease;
+}
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-20px);
+    }
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #FFA500;
+    animation: glow 2s infinite;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ff7300;
+    color: rgb(8, 43, 242);
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+    background-color: #00ff33;
+}
+
+.btn:hover {
+    background-color: #FF8C00;
+    transform: translateY(-3px);
+}
+
+.btn-disabled {
+    background-color: #808080;
+    cursor: not-allowed;
+    color: #f6eef5;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+
+
+}
+
+.btn-disabled:hover {
+    background-color: #808080;
+    transform: translateY(-3px);
+}
+
+.amount {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0813f3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+ul li {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #075618;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+ul li:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+ul li:nth-child(even) {
+    animation-delay: 0.4s;
+}
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+} */
+/* 
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background: url('../img/Dash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #d8f809;
+    opacity: 0.85;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.plans-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(70px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #FFA500;
+    animation: glow 2s infinite;
+    font-size: 24px;
+} */
+
+/* @keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
+    }
+
+    50% {
+        text-shadow: 0 0 10px #FFA500, 0 0 20px #FFA500, 0 0 30px #FFA500;
+    }
+
+    100% {
+        text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
+    }
+} */
+/* 
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #ff7300;
+    color: rgb(8, 43, 242);
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 2s ease-in-out;
+    background-color: #00ff33;
+}
+
+.btn:hover {
+    background-color: #FF8C00;
+    transform: translateY(-3px);
+}
+
+.btn-disabled {
+    background-color: #808080;
+    cursor: not-allowed;
+    color: #f6eef5;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-disabled:hover {
+    background-color: #808080;
+    transform: translateY(-3px);
+}
+
+.amount {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0813f3;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+ul li {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #075618;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+ul li:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+ul li:nth-child(even) {
+    animation-delay: 0.4s;
+}
+
+li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.plans-container .container:hover ~ .container,
+.plans-container .container:hover + .container {
+    filter: blur(4px);
+}
+
+.plans-container .container:hover {
+    filter: none;
+} */
+
+/* .container {
+    position: relative;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    background-color: rgba(29, 178, 227, 0.85);
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    z-index: 1;
+    background: transparent;
+    backdrop-filter: blur(40px);
+} */
+
+/* 
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, orange, yellow, green, cyan, blue, violet, red);
+    background-size: 300%;
+    animation: animateBorder 3s linear infinite;
+    z-index: -1;
+}
+
+@keyframes animateBorder {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+  */
+ 
+    /* background-color: rgb(8, 232, 248);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
+    overflow: hidden;
+}
+
+.container::before,
+.container::after {
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: linear-gradient(90deg, orange, yellow, green, cyan, blue, violet, red);
+    animation: animateBorder 3s linear infinite;
+}
+
+.container::before {
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+.container::after {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.container span::before,
+.container span::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(180deg, orange, yellow, green, cyan, blue, violet, red);
+    animation: animateBorder 3s linear infinite;
+}
+
+.container span::before {
+    top: 0;
+    left: 0;
+    border-radius: 10px 0 0 10px;
+}
+
+.container span::after {
+    top: 0;
+    right: 0;
+    border-radius: 0 10px 10px 0;
+}
+  */
+
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../../static/img/Dash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    text-align: center;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 30px;
+}
+
+.container {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff6347;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.amount {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+li {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+.btn {
+    padding: 10px 20px;
+    color: white;
+    background-color: #ff6347;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.btn:hover {
+    background-color: #ff4500;
+}
+
+.btn-disabled {
+    background-color: #888;
+    cursor: not-allowed;
+}
+
+.btn-disabled:hover {
+    background-color: #888;
+}
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -139,17 +600,11 @@ li {
 .container:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-<<<<<<< HEAD
-} */
-/* 
-body {
-=======
 }
 
 
 
 /* body {
->>>>>>> cf9d2bba7ceb06ac337cb0a37ea36bd593b46eb4
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -189,9 +644,9 @@ h2 {
     color: #FFA500;
     animation: glow 2s infinite;
     font-size: 24px;
-} */
+}
 
-/* @keyframes glow {
+@keyframes glow {
     0% {
         text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
     }
@@ -203,8 +658,8 @@ h2 {
     100% {
         text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
     }
-} */
-/* 
+}
+
 .btn {
     display: block;
     width: 100%;
@@ -288,7 +743,7 @@ li {
 
 .plans-container .container:hover {
     filter: none;
-} */
+}
 
  .container {
     position: relative;
@@ -305,7 +760,7 @@ li {
     backdrop-filter: blur(40px);
 } 
 
-/* 
+
 .container::before {
     content: "";
     position: absolute;
@@ -333,14 +788,8 @@ li {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
-<<<<<<< HEAD
-  */
- 
-    /* background-color: rgb(8, 232, 248);
-=======
     
     background: transparent;
->>>>>>> cf9d2bba7ceb06ac337cb0a37ea36bd593b46eb4
     backdrop-filter: blur(20px);
     border-radius: 10px;
     padding: 20px;
@@ -393,81 +842,3 @@ li {
     border-radius: 0 10px 10px 0;
 }
   */
-
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('../../static/img/Dash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    text-align: center;
-}
-
-.plans-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    gap: 30px;
-}
-
-.container {
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease-in-out;
-}
-
-.container:hover {
-    transform: scale(1.05);
-}
-
-h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: #ff6347;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.amount {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 20px 0;
-}
-
-li {
-    margin: 10px 0;
-    font-size: 1.1em;
-}
-
-.btn {
-    padding: 10px 20px;
-    color: white;
-    background-color: #ff6347;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    text-transform: uppercase;
-}
-
-.btn:hover {
-    background-color: #ff4500;
-}
-
-.btn-disabled {
-    background-color: #888;
-    cursor: not-allowed;
-}
-
-.btn-disabled:hover {
-    background-color: #888;
-}
