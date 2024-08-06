@@ -1,10 +1,3 @@
-# from django.apps import AppConfig
-
-
-# class CrmConfig(AppConfig):
-#     default_auto_field = "django.db.models.BigAutoField"
-#     name = "crm"
-
 # Importing AppConfig from django.apps. This class is used to configure application settings.
 from django.apps import AppConfig
 

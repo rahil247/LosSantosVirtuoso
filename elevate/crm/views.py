@@ -1,6 +1,5 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from django.shortcuts import render,redirect
 from . forms import Loginform, CustomUserCreationForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
@@ -9,51 +8,23 @@ import razorpay
 from django.shortcuts import render,HttpResponse
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.http import JsonResponse
-from .utils import send_email_to_clients
 from google import generativeai as genai
 import textwrap
-from .models import ChatSession, Message
-from django.conf import settings
-from django.shortcuts import redirect
-from django.views import View
 from allauth.socialaccount.providers.google.views import GoogleOAuth2Adapter
 from allauth.socialaccount.providers.oauth2.client import OAuth2Client
 from django.conf import settings
 from django.views.generic import RedirectView
-# import cv2
-# import face_recognition
-# import numpy as npi
-
-
-# def face_recognition_view(request):
-#     if request.method == 'POST':
-#         file = request.FILES['file']
-#         img = face_recognition.load_image_file(file)
-#         face_encodings = face_recognition.face_encodings(img)
-#         if face_encodings:
-#             admin_image_path = os.path.join(settings.MEDIA_ROOT, 'img/aryan.jpg')
-#             if os.path.exists(admin_image_path):
-#                 admin_image = face_recognition.load_image_file(admin_image_path)
-#                 admin_face_encoding = face_recognition.face_encodings(admin_image)[0]
-#                 matches = face_recognition.compare_faces([admin_face_encoding], face_encodings[0])
-#                 if matches[0]:
-#                     return JsonResponse({'admin_detected': True})
-#                 else:
-#                     return JsonResponse({'admin_detected': False})
-#             else:
-#                 return JsonResponse({'error': 'Admin image not found'}, status=404)
-#         return JsonResponse({'admin_detected': False})
-#     return JsonResponse({'error': 'Invalid request'}, status=400)
-
-# def send_email(request):
-#     send_email_to_clients()
-#     return redirect('/')
-
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import ChatSession, Message
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 # from razorpay import client
 from elevate.settings import RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY 
-
-
-from .forms import CustomUserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login as auth_login
+import requests
+from django.views import View
+from django.contrib.auth.models import User
 
 def register(request):
     if request.method == 'POST':
@@ -116,31 +87,7 @@ def contact_view(request):
     return render(request, 'crm/contact.html',context=context)
 
 
-# from django.conf import settings
-# from django.conf import settings
-# from django.shortcuts import redirect
-# from django.urls import reverse
-# from django.views import View
 
-# class GoogleLoginView(View):
-    # def get(self, request, *args, **kwargs):
-        # client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
-        # redirect_uri = request.build_absolute_uri(reverse('google_callback'))
-        # scope = " ".join(settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE'])
-        # auth_params = "&".join(f"{k}={v}" for k, v in settings.SOCIALACCOUNT_PROVIDERS['google']['AUTH_PARAMS'].items())
-# 
-        # google_auth_url = (f"https://accounts.google.com/o/oauth2/auth?"
-                        #    f"client_id={client_id}&response_type=code&scope={scope}&redirect_uri={redirect_uri}&{auth_params}")
-# 
-        # return redirect(google_auth_url)
-
-
-import requests
-from django.shortcuts import redirect
-from django.urls import reverse
-from django.views import View
-from django.conf import settings
-from django.contrib.auth.models import User
 class GoogleLoginView(View):
     def get(self, request, *args, **kwargs):
         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
@@ -199,100 +146,6 @@ class GoogleCallbackView(View):
             user.save()
         return user
 
-    # def save_user_to_db(self, user_name, user_email):
-    #     # Use email prefix as username and append a unique identifier if necessary
-    #     email_prefix = user_email.split('@')[0]
-    #     username = email_prefix
-    #     counter = 1
-    #     while User.objects.filter(username=username).exists():
-    #         username = f"{email_prefix}_{counter}"
-    #         counter += 1
-
-    #     user, created = User.objects.get_or_create(username=username, defaults={'first_name': user_name, 'email': user_email})
-    #     if not created:
-    #         user.first_name = user_name
-    #         user.email = user_email
-    #         user.save()
-    #     return user
-
-# class GoogleLoginView(View):
-#     def get(self, request, *args, **kwargs):
-#         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
-#         redirect_uri = request.build_absolute_uri(reverse('google_callback'))
-#         scope = " ".join(settings.SOCIALACCOUNT_PROVIDERS['google']['SCOPE'])
-#         auth_params = "&".join(f"{k}={v}" for k, v in settings.SOCIALACCOUNT_PROVIDERS['google']['AUTH_PARAMS'].items())
-
-#         google_auth_url = (f"https://accounts.google.com/o/oauth2/auth?"
-#                            f"client_id={client_id}&response_type=code&scope={scope}&redirect_uri={redirect_uri}&{auth_params}")
-
-#         return redirect(google_auth_url)
-
-# class GoogleCallbackView(View):
-#     def get(self, request, *args, **kwargs):
-#         code = request.GET.get('code')
-#         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
-#         client_secret = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['secret']
-#         redirect_uri = request.build_absolute_uri(reverse('google_callback'))
-
-#         token_url = 'https://oauth2.googleapis.com/token'
-#         token_data = {
-#             'code': code,
-#             'client_id': client_id,
-#             'client_secret': client_secret,
-#             'redirect_uri': redirect_uri,
-#             'grant_type': 'authorization_code'
-#         }
-#         token_response = requests.post(token_url, data=token_data)
-#         token_json = token_response.json()
-#         access_token = token_json.get('access_token')
-
-#         user_info_url = 'https://www.googleapis.com/oauth2/v1/userinfo'
-#         user_info_params = {'access_token': access_token}
-#         user_info_response = requests.get(user_info_url, params=user_info_params)
-#         user_info = user_info_response.json()
-
-#         user_id = user_info['id']
-#         user_name = user_info['name']
-#         user_email = user_info['email']
-
-#         # Save user info to database and log in the user
-#         user = self.save_user_to_db(user_id, user_name, user_email)
-
-#         # Log in the user
-#         login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
-
-#         # Redirect to /index after successful login
-#         return redirect('/index')
-
-    # def save_user_to_db(self, user_id, user_name, user_email):
-    #     user, created = User.objects.get_or_create(username=user_id, defaults={'first_name': user_name, 'email': user_email})
-    #     if not created:
-    #         user.first_name = user_name
-    #         user.email = user_email
-    #         user.save()
-    #     return user
-    
-    # def save_user_to_db(self, user_name, user_email):
-    #     # Use email prefix as username and append a unique identifier if necessary
-    #     email_prefix = user_email.split('@')[0]
-    #     username = email_prefix
-    #     counter = 1
-    #     while User.objects.filter(username=username).exists():
-    #         username = f"{email_prefix}_{counter}"
-    #         counter += 1
-
-    #     user, created = User.objects.get_or_create(username=username, defaults={'first_name': user_name, 'email': user_email})
-    #     if not created:
-    #         user.first_name = user_name
-    #         user.email = user_email
-    #         user.save()
-    #     return user
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login as auth_login
-from django.http import HttpResponse
-
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('/index')  # Redirect authenticated users to the index page
@@ -314,15 +167,6 @@ def login_view(request):
 
 
 
-# class GoogleLoginView(RedirectView):
-#     def get_redirect_url(self, *args, **kwargs):
-#         return self.request.build_absolute_uri('/accounts/google/login/')
-from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from .models import ChatSession, Message
-from google import generativeai as genai 
-from django.urls import reverse
-from django.http import HttpResponseRedirect
 
 # Ensure the genai API is configured
 genai.configure(api_key='AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo')
@@ -355,6 +199,7 @@ class ChatbotSession:
                 "Your life is chaotic, filled with dangerous adventures and a constant pursuit of power and thrills. "
                 "Only respond to questions related to GTA V with the intensity and erratic nature of Trevor Philips. "
                 "You are a character from GTA 5, not an AI model."
+                "Please reply safely do not use inappropriate language."
             ),
             'franklin': (
                 "You are Franklin Clinton from GTA V. You are a young, ambitious hustler from the streets of Los Santos, seeking a better life. "
@@ -441,47 +286,3 @@ def delete_chat_history(request, session_id):
 
 def know(request):
     return render(request,'crm/know.html')
-# from django.shortcuts import render
-# from django.http import JsonResponse
-# import torch
-# from torchvision import models, transforms
-# from PIL import Image
-# import json
-
-# # Load pre-trained model and transformation pipeline
-# model = models.detection.fasterrcnn_resnet50_fpn(pretrained=True)
-# model.eval()
-
-# def transform_image(image):
-#     transform = transforms.Compose([
-#         transforms.ToTensor(),
-#     ])
-#     return transform(image).unsqueeze(0)
-
-# def get_prediction(image_path):
-#     image = Image.open(image_path)
-#     image_tensor = transform_image(image)
-#     outputs = model(image_tensor)
-#     return outputs
-# import os 
-# from django.core.files.storage import default_storage
-# def image_captioning_view(request):
-#     if request.method == 'POST' and request.FILES['image']:
-#         image = request.FILES['image']
-#         image_path = os.path.join(settings.MEDIA_ROOT, 'Trevor_img.jpeg')
-
-#         # Ensure the media directory exists
-#         if not os.path.exists(settings.MEDIA_ROOT):
-#             os.makedirs(settings.MEDIA_ROOT)
-
-#         # Save the uploaded image
-#         with default_storage.open(image_path, 'wb+') as destination:
-#             for chunk in image.chunks():
-#                 destination.write(chunk)
-
-#         # Process the image as needed...
-
-#     return render(request, 'your_template.html')
-
-# def index(request):
-#     return render(request, 'crm/index.html')
