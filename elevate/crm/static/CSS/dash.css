@@ -68,7 +68,7 @@ h2 {
 
 /* Disabled button styling */
 .btn-disabled {
-    background-color: #410101; /* Dark background color */
+    background-color: #3c3939; /* Dark background color */
     cursor: not-allowed; /* Not allowed cursor */
     color: #f6eef5; /* Light text color */
     padding: 10px 20px; /* Padding inside button */
@@ -86,7 +86,7 @@ h2 {
 .amount {
     margin-bottom: 20px; /* Space below amount */
     font-size: 18px; /* Font size */
-    color: #d1ec08; /* Yellow text color */
+    color: #f4f4f0; /* Yellow text color */
 }
 
 /* Unordered list styling */
@@ -103,7 +103,7 @@ ul li {
     background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     margin-bottom: 10px; /* Space below list item */
     border-radius: 5px; /* Rounded corners */
-    color: #9b07f8c8; /* Text color */
+    color: #f0f1f0c8; /* Text color */
     animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
 }
 
