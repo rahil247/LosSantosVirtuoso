@@ -23,17 +23,16 @@
 
 # Screenshots
 
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/admin.jpg)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Chat%20history.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/chat%20with%20GTA%20Characters.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Flip%20chat%20with%20gta%20characters.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Franklin.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Login.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Michael.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/payment%20dashboard.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/popup_register.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/register.png)
-![Alt text](../WMC-5.0/elevate/crm/website%20photo/Trevor.png)
+
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/chat%20with%20GTA%20Characters.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/Flip%20chat%20with%20gta%20characters.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo//Franklin.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo//Login.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo//Michael.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/payment%20dashboard.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/popup_register.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/register.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/Chat%20history.png)
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/admin.jpg)
 
 
