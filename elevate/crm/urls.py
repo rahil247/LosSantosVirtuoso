@@ -30,6 +30,7 @@ urlpatterns = [
     # path('/face_recognition/', views.face_recognition_view, name='/face_recognition/'),
     # path('', views.index, name='index'),
     # path('image_captioning/', views.image_captioning_view, name='image_captioning'),
+    path('know/',views.know,name='know'),
 ]
 
 # changes register.html to register/ , dashboard to dashboard/, index to index/, twt to chat/trevor/, twm to chat/michel/, twf to chat/franklin/, user_logout to user_logout/, added path('history/', views.chat_history, name='chat_history'),
