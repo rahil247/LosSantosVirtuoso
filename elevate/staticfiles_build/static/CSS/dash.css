@@ -1,145 +1,3 @@
-/* body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 0;
-    margin: 0;
-    background: url('../img/Dash.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #d8f809;
-    opacity: 0.85;
-    overflow: hidden;
-}
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
-}
-
-
-.plans-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.container {
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-    position: relative;
-    background-color: rgba(29, 178, 227, 0.85);
-    border-radius: 10px;
-    padding: 20px;
-    width: 320px;
-    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
-
-}
-
-.container {
-    animation: fadeInUp 1s ease;
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(70px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(-20px);
-    }
-}
-
-h2 {
-    margin-bottom: 20px;
-    color: #FFA500;
-    animation: glow 2s infinite;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background-color: #ff7300;
-    color: rgb(8, 43, 242);
-    border: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease;
-    animation: fadeIn 2s ease-in-out;
-    background-color: #00ff33;
-}
-
-.btn:hover {
-    background-color: #FF8C00;
-    transform: translateY(-3px);
-}
-
-.btn-disabled {
-    background-color: #808080;
-    cursor: not-allowed;
-    color: #f6eef5;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-
-
-}
-
-.btn-disabled:hover {
-    background-color: #808080;
-    transform: translateY(-3px);
-}
-
-.amount {
-    margin-bottom: 20px;
-    font-size: 18px;
-    color: #0813f3;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-}
-
-ul li {
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin-bottom: 10px;
-    border-radius: 5px;
-    color: #075618;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-ul li:nth-child(odd) {
-    animation-delay: 0.2s;
-}
-
-ul li:nth-child(even) {
-    animation-delay: 0.4s;
-}
-li {
-    padding: 10px 0;
-    border-bottom: 1px solid #eee;
-}
-
-.container:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-} */
 
 body {
     font-family: Arial, sans-serif;
@@ -151,7 +9,7 @@ body {
     margin: 0;
     background: url('../img/Dash.jpg') no-repeat center center fixed;
     background-size: cover;
-    color: #d8f809;
+    color: #f6f7f1;
     opacity: 0.85;
     overflow: hidden;
     position: relative;
@@ -183,56 +41,31 @@ h2 {
     font-size: 24px;
 }
 
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
-    }
-
-    50% {
-        text-shadow: 0 0 10px #FFA500, 0 0 20px #FFA500, 0 0 30px #FFA500;
-    }
-
-    100% {
-        text-shadow: 0 0 5px #FFA500, 0 0 10px #FFA500, 0 0 15px #FFA500;
-    }
-}
-
 .btn {
     display: block;
     width: 100%;
     padding: 10px 20px;
-    padding: 10px 20px;
     margin-top: 20px;
     background-color: #ff7300;
-    color: rgb(8, 43, 242);
-    background-color: #ff7300;
-    color: rgb(8, 43, 242);
+    color: rgb(43, 51, 106);
     border: none;
-    font-size: 16px;
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1em;
     transition: background-color 0.3s ease, transform 0.3s ease;
-    transition: background-color 0.3s ease, transform 0.3s ease;
     animation: fadeIn 2s ease-in-out;
-    background-color: #00ff33;
-    background-color: #00ff33;
+    background-color: #e18d05;
 }
 
 .btn:hover {
     background-color: #FF8C00;
     transform: translateY(-3px);
-    transform: translateY(-3px);
 }
 
 .btn-disabled {
-    background-color: #808080;
+    background-color: #410101;
     cursor: not-allowed;
-    color: #f6eef5;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
     color: #f6eef5;
     padding: 10px 20px;
     font-size: 16px;
@@ -242,14 +75,12 @@ h2 {
 .btn-disabled:hover {
     background-color: #808080;
     transform: translateY(-3px);
-    transform: translateY(-3px);
 }
 
 .amount {
     margin-bottom: 20px;
     font-size: 18px;
-    color: #0813f3;
-    color: #0813f3;
+    color: #d1ec08;
 }
 
 ul {
@@ -264,7 +95,7 @@ ul li {
     background-color: rgba(255, 255, 255, 0.2);
     margin-bottom: 10px;
     border-radius: 5px;
-    color: #075618;
+    color: #9b07f8c8;
     animation: fadeIn 1.5s ease-in-out;
 }
 
@@ -278,7 +109,7 @@ ul li:nth-child(even) {
 
 li {
     padding: 10px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f6611c;
 }
 
 .container:hover {
@@ -295,20 +126,18 @@ li {
     filter: none;
 }
 
-/* .container {
+ .container {
     position: relative;
     text-align: center;
     animation: fadeIn 1.5s ease-in-out;
-    background-color: rgba(29, 178, 227, 0.85);
+    background-color: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
     padding: 20px;
     width: 320px;
-    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
     transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
     z-index: 1;
-    background: transparent;
-    backdrop-filter: blur(40px);
-} */
+    /* backdrop-filter: blur(40px); */
+} 
 
 
 .container::before {
@@ -319,7 +148,6 @@ li {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    background: linear-gradient(90deg, orange, yellow, green, cyan, blue, violet, red);
     background-size: 300%;
     animation: animateBorder 3s linear infinite;
     z-index: -1;
@@ -334,19 +162,6 @@ li {
     }
 }
 
-.container {
-    position: relative;
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-    /* background-color: rgba(29, 178, 227, 0.85); */
-    background: transparent;
-    backdrop-filter: blur(20px);
-    border-radius: 10px;
-    padding: 20px;
-    width: 320px;
-    box-shadow: 0 4px 8px rgba(242, 121, 29, 0.86);
-    overflow: hidden;
-}
 
 .container::before,
 .container::after {
@@ -354,7 +169,7 @@ li {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: linear-gradient(90deg, orange, yellow, green, cyan, blue, violet, red);
+    
     animation: animateBorder 3s linear infinite;
 }
 
@@ -376,7 +191,7 @@ li {
     position: absolute;
     width: 3px;
     height: 100%;
-    background: linear-gradient(180deg, orange, yellow, green, cyan, blue, violet, red);
+    
     animation: animateBorder 3s linear infinite;
 }
 
@@ -391,4 +206,4 @@ li {
     right: 0;
     border-radius: 0 10px 10px 0;
 }
- 
+
