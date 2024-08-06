@@ -1,17 +1,21 @@
+# Specifying the runtime environment for the application.
 runtime: python39 # or the Python version you're using
 
+# Entry point for the application. Using Gunicorn to serve the Django application.
 entrypoint: gunicorn -b elevate.wsgi:application --host 127.0.0.1 --port 8000
 
-# Handlers
+# Handlers for different URL patterns.
 handlers:
-- url: /static
-  static_dir: static/
+  # Handler for serving static files.
+  - url: /static
+    static_dir: static/
 
-- url: /.*
-  script: auto
+  # Handler for all other URLs. The script is set to 'auto' which means it will automatically 
+  # choose the appropriate handler for the URL.
+  - url: /.*
+    script: auto
 
-# Environment variables
+# Environment variables for the application.
 env_variables:
+  # Setting the Django settings module environment variable.
   DJANGO_SETTINGS_MODULE: "elevate.settings"
-
-# Optional: Configuring instance class

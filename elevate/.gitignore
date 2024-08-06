@@ -1,3 +1,4 @@
+# macOS specific files
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -8,8 +9,12 @@ Icon
 .AppleDB
 .AppleDesktop
 .apdisk
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.so
+
+# Python specific files
 .Python
 env/
 build/
@@ -25,25 +30,48 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# PyInstaller
 *.manifest
 *.spec
+
+# pip
 pip-log.txt
 pip-delete-this-directory.txt
+
+# Unit test / coverage reports
 htmlcov/
 .tox/
 .coverage
 .cache
 nosetests.xml
 coverage.xml
+
+# Translations
 *.mo
 *.pot
+
+# Sphinx documentation
 docs/_build/
+
+# Target directory for Maven builds
 target/
+
+# Log files
 *.log
+
+# Compiled translation files
 *.pot
+
+# Python bytecode files
 __pycache__/
+
+# Local settings file
 local_settings.py
-.env
+
+# SQLite database file
 db.sqlite3
+
+# Python cache files
 *.pyc
 .pyc

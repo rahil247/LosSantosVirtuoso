@@ -2,80 +2,112 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
     <title>Upgrade to Plus</title>
+    
+    <!-- Linking the favicon for the webpage -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the dashboard -->
     <link rel="stylesheet" href="../../static/CSS/dash.css">
 </head>
 
 <body>
+    <!-- Container for displaying the plans -->
     <div class="plans-container">
+        <!-- Container for the Free plan details -->
         <div class="container">
+            <!-- Heading for Free plan -->
             <h2>Free</h2>
+            <!-- Monthly cost of Free plan -->
             <p class="amount">INR 0/month</p>
+            <!-- List of features for Free plan -->
             <ul>
                 <li>No Early Access Available</li>
                 <li>Less Prompts Available</li>
                 <li>Limited access to the Chatbot</li>
                 <li>Upto 2GB cloud storage is Available</li>
             </ul>
+            <!-- Disabled button indicating current plan -->
             <button class="btn btn-disabled" disabled>Your Current Plan</button>
         </div>
+        
+        <!-- Container for the Plus plan details -->
         <div class="container">
+            <!-- Heading for Plus plan -->
             <h2>Plus</h2>
+            <!-- Monthly cost of Plus plan -->
             <p class="amount">INR 500/month</p>
+            <!-- List of features for Plus plan -->
             <ul>
                 <li>Early access to new features</li>
                 <li>Access to the Advanced model</li>
                 <li>5x more prompts for the New Version</li>
                 <li>Upto 5GB cloud storage is Available</li>
             </ul>
+            <!-- Button to initiate upgrade to Plus plan -->
             <button type="submit" id="rzp-button1" class="btn">Upgrade to Plus</button>
         </div>
     </div>
 
+    <!-- Including Razorpay checkout script -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script>
+        // Configuration options for Razorpay
         var options = {
-            "key": "{{api_key}}",
-            "name": "Let's Go",
-            "description": "Test Transaction",
-            "image": "https://example.com/your_logo",
-            "order_id": "{{order_id}}",
+            "key": "{{api_key}}", // API key from Razorpay
+            "name": "Let's Go", // Merchant name
+            "description": "Test Transaction", // Description of the transaction
+            "image": "https://example.com/your_logo", // URL of the merchant logo
+            "order_id": "{{order_id}}", // Order ID from server
+            // Handler function to handle payment success
             "handler": function (response) {
-                alert(response.razorpay_payment_id);
-                alert(response.razorpay_order_id);
-                alert(response.razorpay_signature)
+                alert(response.razorpay_payment_id); // Payment ID
+                alert(response.razorpay_order_id); // Order ID
+                alert(response.razorpay_signature); // Signature
             },
+            // Prefilled customer details
             "prefill": {
                 "name": "Aryan Sukhadia",
                 "email": "gaurav.kumar@example.com",
                 "contact": "9000090000"
             },
+            // Additional notes
             "notes": {
                 "address": "Razorpay Corporate Office"
             },
+            // Theme customization
             "theme": {
                 "color": "#3399cc"
             }
         };
+        // Initializing Razorpay with the options
         var rzp1 = new Razorpay(options);
+        // Handling payment failure
         rzp1.on('payment.failed', function (response) {
-            alert(response.error.code);
-            alert(response.error.description);
-            alert(response.error.source);
-            alert(response.error.step);
-            alert(response.error.reason);
-            alert(response.error.metadata.order_id);
-            alert(response.error.metadata.payment_id);
+            alert(response.error.code); // Error code
+            alert(response.error.description); // Error description
+            alert(response.error.source); // Error source
+            alert(response.error.step); // Error step
+            alert(response.error.reason); // Error reason
+            alert(response.error.metadata.order_id); // Order ID
+            alert(response.error.metadata.payment_id); // Payment ID
         });
+        // Attaching event listener to the upgrade button
         document.getElementById('rzp-button1').onclick = function (e) {
-            rzp1.open();
-            e.preventDefault();
+            rzp1.open(); // Open Razorpay checkout
+            e.preventDefault(); // Prevent default form submission
         }
     </script>
     
