@@ -7,7 +7,7 @@
 # Created by https://www.gitignore.io
 
 ### OSX ###
-# .DS_Store
+.DS_Store
 .AppleDouble
 .LSOverride
 
@@ -92,4 +92,4 @@ __pycache__/
 local_settings.py
 
 .env
-# db.sqlite3
+db.sqlite3

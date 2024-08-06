@@ -1,11 +1,21 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
     background-color: #1e1e1e;
     color: #fff;
+}
+
+h1{
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 3em;
 }
 
 .container {
@@ -44,6 +54,10 @@ body {
 }
 
 .collapsible-label {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -53,6 +67,7 @@ body {
     font-size: 1.2em;
     color: #FFA500;
     transition: background-color 0.3s ease;
+
 }
 
 .collapsible-label .arrow {
@@ -74,12 +89,20 @@ body {
 }
 
 .content ul {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
 .content ul li {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     margin: 10px 0;
     padding: 10px;
     background-color: #555;
@@ -87,6 +110,10 @@ body {
 }
 
 .delete-button {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     background-color: #FF4500;
     border: none;
     border-radius: 5px;

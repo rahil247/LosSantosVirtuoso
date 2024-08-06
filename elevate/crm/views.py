@@ -126,20 +126,14 @@ class GoogleCallbackView(View):
 
         user_name = user_info['name']
         user_email = user_info['email']
-        # first_name = user_info['first_name']
-
-        # Save user info to database and log in the user
         user = self.save_user_to_db(user_name, user_email)
 
-        # Log in the user
         login(request, user, backend='allauth.account.auth_backends.AuthenticationBackend')
 
-        # Redirect to /index after successful login
         return redirect('/index')
     
     def save_user_to_db(self, user_name, user_email):
         user, created = User.objects.get_or_create(username=user_name,  defaults={'first_name': user_name, 'email': user_email})
-        # user, created = User.objects.get_or_create(usern=user_id,  defaults={'first_name': user_name, 'email': user_email})
         if not created:
             user.first_name = user_name
             user.email = user_email
@@ -148,7 +142,7 @@ class GoogleCallbackView(View):
 
 def login_view(request):
     if request.user.is_authenticated:
-        return redirect('/index')  # Redirect authenticated users to the index page
+        return redirect('/index')  
 
     if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
@@ -160,9 +154,9 @@ def login_view(request):
         form = AuthenticationForm()
 
     response = render(request, 'crm/home.html', {'loginform': form})
-    response['Cache-Control'] = 'no-cache, no-store, must-revalidate'  # HTTP 1.1.
-    response['Pragma'] = 'no-cache'  # HTTP 1.0.
-    response['Expires'] = '0'  # Proxies.
+    response['Cache-Control'] = 'no-cache, no-store, must-revalidate'  
+    response['Pragma'] = 'no-cache'  
+    response['Expires'] = '0'  
     return response
 
 
@@ -179,12 +173,7 @@ class ChatbotSession:
         self.personality = personality
 
     def ask_question(self, question):
-        # Customize the prompt based on the personality
-        # personality_prompt = {
-        #     'michel': "You are Michel from GTA V, a balanced and rational character. Only respond to questions related to GTA V.You are a character from GTA 5, not an AI model. Reply to game-related questions only.",
-        #     'trevor': "You are Trevor from GTA V, known for bank robbery and a criminal. Only respond to questions related to GTA V.You are a character from GTA 5, not an AI model. Reply to game-related questions only.",
-        #     'franklin': "You are Franklin from GTA V, a clever and street-smart individual. Only respond to questions related to GTA V. You are a character from GTA 5, not an AI model. Reply to game-related questions only."
-        # }
+
         personality_prompt = {
             'michel': (
                 "You are Michael De Santa from GTA V. You are a retired bank robber turned family man, trying to navigate a midlife crisis. "

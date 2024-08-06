@@ -42,7 +42,7 @@ LosSantosVirtuoso brings the essence of GTA 5 to life through engaging dialogues
 - Login/Sign up Authentication for Admin as well the users
 - Chat History/Session is being stored for every personality
 - Biased Chatbot personality,limited to the knowledge of GTA5
-- 
+- GTA5 Theme song in the background of the choose character page
 -
 
 # User Features
@@ -52,8 +52,7 @@ LosSantosVirtuoso brings the essence of GTA 5 to life through engaging dialogues
 - User can start from the exact point where they left of the conversations 
 - User can start a new session anytime, but once a new session is started it cannot be undone
 - User can also upgrade their plan inorder to access our higher versions
--
--
+
 
 
 # Admin Features

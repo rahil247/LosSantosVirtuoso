@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Franklin</title>
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/CSS/twf.css">
 </head>
 <body>
@@ -44,7 +47,7 @@
             </div>
             <form action="{% url 'twf' %}" method="post" class="chat-input-container">
                 {% csrf_token %}
-                <input type="text" id="input_text" name="input_text" placeholder="Message ChatBot" required>
+                <input type="text" id="input_text" name="input_text" placeholder="Message Franklin" required>
                 <button type="submit">&#9658;</button>
             </form>
         </div>

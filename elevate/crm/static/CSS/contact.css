@@ -50,14 +50,18 @@
     }
 } */ 
  /* Basic reset */
-* {
+
+/* * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
+    /* box-sizing: border-box; 
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     background: #f4f4f4;
     color: #333;
     line-height: 1.6;
@@ -69,8 +73,8 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 20px;
-    padding: 20px;
+    margin: 25px;
+    padding: 50px;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -81,7 +85,15 @@ header {
     margin-bottom: 40px;
 }
 
-header h1 {
+h2{
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    font-size: 3em;
+}
+
+/* header h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
     color: #333;
@@ -92,24 +104,14 @@ header h1 {
 
 header h1:hover {
     color: #ff6347;
-}
+} */
 
-.video-preview {
-    margin: 20px 0;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
-}
 
-.video-preview:hover {
-    transform: scale(1.05);
-}
-
-section {
+/* section {
     margin-bottom: 40px;
-}
+} */
 
-section h2 {
+/* section h2 {
     font-size: 2em;
     margin-bottom: 10px;
     color: #333;
@@ -118,7 +120,7 @@ section h2 {
     position: relative;
     display: inline-block;
     transition: color 0.3s ease;
-}
+} 
 
 section h2:before {
     content: '';
@@ -140,7 +142,7 @@ section h2:hover:before {
 
 section h2:hover {
     color: #ff6347;
-}
+} 
 
 p {
     font-size: 1.1em;
@@ -174,6 +176,10 @@ form input:focus, form textarea:focus {
 }
 
 form button {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     padding: 10px 20px;
     border: none;
     background-color: #ff6347;
@@ -224,8 +230,159 @@ iframe {
         font-size: 1.5em;
     }
 
-    .video-preview iframe {
-        width: 100%;
-        height: auto;
+} */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    /* box-sizing: border-box; */
+}
+
+body {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    background: #2a2a2a;
+    color: #f4f4f4;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 25px;
+    padding: 50px;
+    background: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    align-items: center;
+    font-size: 3em;
+    color: #ff9c00;
+}
+
+section h2:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff9c00;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+section h2:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+section h2:hover {
+    color: #ff9c00;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin: 10px 0 20px;
+    transition: color 0.3s ease;
+}
+
+p:hover {
+    color: #ddd;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444;
+    color: #fff;
+    transition: border 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #ff9c00;
+    outline: none;
+}
+
+form button {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    padding: 10px 20px;
+    border: none;
+    background-color: #ff9c00;
+    color: #fff;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #e58c00;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
+
+section {
+    animation: fadeIn 1s ease-in-out;
+}
+
+iframe {
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    section h2 {
+        font-size: 1.5em;
+    }
+}
+
+
+

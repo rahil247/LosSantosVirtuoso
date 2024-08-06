@@ -139,7 +139,10 @@ a {
 } */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -193,12 +196,19 @@ body::before {
 }
 
 h1 {
-    font-size: 2em;
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.6em;
     margin-bottom: 20px;
     color: #FFA500;
 }
 
 h2 {
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2em;
     margin-top: 0;
     text-align: center;
     color: #FFA500;
@@ -228,6 +238,10 @@ input:focus {
 }
 
 button {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
     width: 100%;
     padding: 10px;
     background-color: #FFA500;
@@ -245,6 +259,10 @@ button:hover {
 }
 
 .google-btn {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -280,6 +298,13 @@ a {
 
 a:hover {
     color: #FFA500;
+}
+
+span{
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
 }
 
 .separator {

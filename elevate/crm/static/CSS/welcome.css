@@ -1,5 +1,8 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +15,10 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+    font-family: "Jaini Purva", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 4.5em;
     color: #FFD700;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -22,7 +28,7 @@ h1 {
 .container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 70px;
 }
 
 .flip-card {
@@ -46,7 +52,7 @@ h1 {
 }
 
 .flip-card-front,
-.flip-card-back{
+.flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -61,9 +67,9 @@ h1 {
 
 
 /* .flip-card-back {
-    background-color: rgba(51, 51, 51, 0.8);
-    color: #fff;
-    transform: rotateY(180deg);
+background-color: rgba(51, 51, 51, 0.8);
+color: #fff;
+transform: rotateY(180deg);
 } */
 
 .character-img {
@@ -71,6 +77,7 @@ h1 {
     height: 100%;
     border-radius: 10%;
 }
+
 .flip-card-back {
     background-color: rgba(51, 51, 51, 0.8);
     color: #fff;
@@ -93,6 +100,7 @@ h1 {
     font-size: 1.2em;
     margin: 5px 0;
 }
+
 /* General button styling */
 .button {
     display: inline-block;
@@ -103,72 +111,117 @@ h1 {
     text-align: center;
     text-decoration: none;
     color: #ffffff;
-    background-color: #FF8C00; /* Initial background color */
-    border: 2px solid transparent; /* For smooth transitions */
+    background-color: #FF8C00;
+    /* Initial background color */
+    border: 2px solid transparent;
+    /* For smooth transitions */
     border-radius: 8px;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
 }
 
 /* Hover and focus states */
-.button:hover, .button:focus {
-    background-color: #ffa31a; /* Lighter shade on hover */
+.button:hover,
+.button:focus {
+    background-color: #ffa31a;
+    /* Lighter shade on hover */
     color: #ffffff;
-    transform: translateY(-3px); /* Lift effect */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+    transform: translateY(-3px);
+    /* Lift effect */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    /* Slightly larger shadow */
 }
 
 /* Active state */
 .button:active {
-    background-color: #e67300; /* Darker shade on click */
-    transform: translateY(0); /* Neutralize lift effect */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Original shadow */
+    background-color: #e67300;
+    /* Darker shade on click */
+    transform: translateY(0);
+    /* Neutralize lift effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Original shadow */
 }
 
 /* Additional focus state for accessibility */
 .button:focus {
     outline: none;
-    border: 2px solid #ffd700; /* Gold border for focus */
+    border: 2px solid #ffd700;
+    /* Gold border for focus */
 }
 
 /* Button variations */
 .button.primary {
-    background-color: #007bff; /* Primary blue */
+    background-color: #007bff;
+    /* Primary blue */
 }
 
-.button.primary:hover, .button.primary:focus {
-    background-color: #3399ff; /* Lighter blue on hover */
+.button.primary:hover,
+.button.primary:focus {
+    background-color: #3399ff;
+    /* Lighter blue on hover */
 }
 
 .button.secondary {
-    background-color: #6c757d; /* Secondary gray */
+    background-color: #6c757d;
+    /* Secondary gray */
 }
 
-.button.secondary:hover, .button.secondary:focus {
-    background-color: #adb5bd; /* Lighter gray on hover */
+.button.secondary:hover,
+.button.secondary:focus {
+    background-color: #adb5bd;
+    /* Lighter gray on hover */
 }
 
 .button.success {
-    background-color: #28a745; /* Success green */
+    background-color: #28a745;
+    /* Success green */
 }
 
-.button.success:hover, .button.success:focus {
-    background-color: #5cd65c; /* Lighter green on hover */
+.button.success:hover,
+.button.success:focus {
+    background-color: #5cd65c;
+    /* Lighter green on hover */
 }
 
 .button.danger {
-    background-color: #dc3545; /* Danger red */
+    background-color: #dc3545;
+    /* Danger red */
 }
 
-.button.danger:hover, .button.danger:focus {
-    background-color: #ff6666; /* Lighter red on hover */
+.button.danger:hover,
+.button.danger:focus {
+    background-color: #ff6666;
+    /* Lighter red on hover */
 }
 
 /* Disabled state */
-.button.disabled, .button:disabled {
-    background-color: #c0c0c0; /* Disabled gray */
+.button.disabled,
+.button:disabled {
+    background-color: #c0c0c0;
+    /* Disabled gray */
     color: #ffffff;
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+}
+
+.audio-controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    /* background: rgba(255, 255, 255, 0.8); */
+    padding: 5px;
+    /* border-radius: 5px; */
+}
+
+.audio-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.audio-button img {
+    width: 50px;
+    height: 50px; 
 }
