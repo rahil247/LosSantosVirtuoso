@@ -34,6 +34,7 @@
 ![Alt text](../WMC-5.0/elevate/crm/website%20photo/popup_register.png)
 ![Alt text](../WMC-5.0/elevate/crm/website%20photo/register.png)
 ![Alt text](../WMC-5.0/elevate/crm/website%20photo/Trevor.png)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/WMC-5.0/elevate/crm/website%20photo/admin.jpg)
 
 
 
