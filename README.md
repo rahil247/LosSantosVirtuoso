@@ -1,6 +1,6 @@
 # Live Demo
 
-<!-- video link -->
+https://drive.google.com/file/d/1LxLFpCojzhmU4BuixuWt5O4zORmIDmGt/view?usp=drive_link
 
 
 ## You can login as per your choice according to the following credentials
@@ -11,15 +11,10 @@
 <br/>
 **Password:** admin
 
-### <u>User</u>
-
-**Username:**
-<br/>
-**Password:**
-
 ### <u>Link</u>:
 
-<!-- website link -->
+🔗 https://lossantosvirtuoso.onrender.com
+
 
 # Screenshots
 
@@ -51,7 +46,6 @@ LosSantosVirtuoso brings the essence of GTA 5 to life through engaging dialogues
 - Chat History/Session is being stored for every personality
 - Biased Chatbot personality,limited to the knowledge of GTA5
 - GTA5 Theme song in the background of the choose character page
--
 
 # User Features
 
@@ -94,3 +88,7 @@ pip install -r requirements.txt
 ```bash
 python manage.py runserver
 ```
+
+# Note
+- You may get an error while chatting with the perosnalities due to safety reasons of the Gemini API, but you can refresh your page or click on the back button you will get you response.
+- You may also get an error on clicking the **Upgrade your plan**, it is because Razorpay's servers might be experiencing downtime or issues. Just referesh your page, to see the page.
