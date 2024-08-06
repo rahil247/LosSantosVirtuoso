@@ -45,8 +45,8 @@ body::before {
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 10px;
     background-color: rgba(72, 61, 139, 0.85);
-    width: 90%;
-    max-width: 500px;
+    width: 400px;
+    /* max-width: 500px; */
 }
 
 @keyframes slideIn {
@@ -235,18 +235,18 @@ span{
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    display: none; /* Hidden by default */
+    display: none; 
     color: #fff;
 }
 
-/* Popup content */
+
 .popup-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Close button */
+
 .close-btn {
     background: none;
     border: none;
@@ -254,7 +254,7 @@ span{
     cursor: pointer;
 }
 
-/* Blur the background when the popup is active */
+
 .blurred {
     filter: blur(5px);
 }

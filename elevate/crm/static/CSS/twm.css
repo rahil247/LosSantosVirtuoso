@@ -48,7 +48,7 @@ body {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    width: 200px; /*Set fixed width for all buttons ..check karvanu che aa */
+    width: 250px; /*Set fixed width for all buttons ..check karvanu che aa */
     height: 50px; /* Set fixed height for all buttons */
 }
 
@@ -93,7 +93,7 @@ body {
     text-align: center; /* Center text horizontally */
     line-height: 50px; /* Center text vertically */
     margin-left: 10px;
-    font-size: 13px;
+    font-size: 12px;
     font-family: "Kode Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;

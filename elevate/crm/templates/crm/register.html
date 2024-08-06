@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -96,15 +96,18 @@
         };
     </script>
 </body>
-</html>
+</html> -->
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../../static/CSS/register.css">
 </head>
 <body>
@@ -116,10 +119,12 @@
             <form id="signup-form" method="POST" autocomplete="off">
                 {% csrf_token %}
                 <div class="form-group">
+                    <p>Username:</p>
                     {{ registerform.username.label_tag }}
                     {{ registerform.username }}
                 </div>
                 <div class="form-group">
+                    <p>Email:</p>
                     {{ registerform.email.label_tag }}
                     {{ registerform.email }}
                 </div>
@@ -147,7 +152,6 @@
         </div>
     </div>
 
-    <!-- Popup HTML -->
     <div class="popup" id="password-popup">
         <div class="popup-content">
             <p>Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
@@ -157,7 +161,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const message = "Welcome to Chatbot";
+            const message = "Welcome to LosSantosVirtuoso";
             let i = 0;
             const speed = 170; // Speed of typing effect
             const delay = 1000; // Delay before restarting the typing effect
