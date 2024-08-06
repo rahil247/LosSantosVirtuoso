@@ -7,9 +7,9 @@
 
 ### <u>Admin</u>
 
-**Username:** admin
+**Username:** Admin
 <br/>
-**Password:** AryanRahil
+**Password:** admin
 
 ### <u>User</u>
 
@@ -29,35 +29,38 @@
 ![Alt text](/docs/images/image-3.png)
 ![Alt text](/docs/images/image-6.png)
 
-# Los Santos ChatBot
+# Introduction to LosSantosVirtuoso
 
-<!-- text here -->
+Welcome to LosSantosVirtuoso, an interactive chatbot experience inspired by the vibrant and dynamic world of GTA 5. Step into the bustling streets of Los Santos and engage in lively conversations with three of the game's most iconic characters: Trevor Philips, Michael De Santa, and Franklin Clinton.
+
+# About LosSantosVirtuoso
+
+LosSantosVirtuoso brings the essence of GTA 5 to life through engaging dialogues and personalized interactions with the notorious trio of characters. Whether you're seeking Trevor's chaotic insights, Michael's reflective wisdom, or Franklin's street-smart advice, our chatbot offers a unique opportunity to delve deeper into their personas.
 
 ## Basic Features
 
+- Login/Sign up Authentication for Admin as well the users
+- Chat History/Session is being stored for every personality
+- Biased Chatbot personality,limited to the knowledge of GTA5
 - 
--
--
--
 -
 
 # User Features
 
--
--
--
--
+- User can chat with any of the three personalities
+- User can see chat sessions where recently created sessions are shown first
+- User can start from the exact point where they left of the conversations 
+- User can start a new session anytime, but once a new session is started it cannot be undone
+- User can also upgrade their plan inorder to access our higher versions
 -
 -
 
 
 # Admin Features
 
--
--
--
--
--
+- Admin can create/delete/update/read user details
+- Admin can delete/read the Chat history/session for any user
+- Admin can see the details of the contact us form
 
 
 # Tech Stack
