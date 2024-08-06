@@ -1,196 +1,220 @@
+/* Reset default margin and padding for all elements */
 * {
     margin: 0;
     padding: 0;
 }
 
+/* Styling for the body of the page */
 body {
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    background: #f4f4f4;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    font-family: "Fira Code", monospace; /* Font family for the body text */
+    font-optical-sizing: auto; /* Automatic optical sizing for font */
+    font-weight: 400; /* Normal font weight */
+    font-style: normal; /* Normal font style */
+    line-height: 1.6; /* Line height for readability */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    min-height: 100vh; /* Minimum height of the viewport */
+    background: #2a2a2a; /* Dark purple-blue background */
+    color: #f4f4f4; /* Light peach color for text */
 }
 
-h1{
-    font-family: "Jaini Purva", system-ui;
-    font-weight: 400;
-    font-style: normal;
+/* Styling for h1 headers */
+h1 {
+    font-family: "Jaini Purva", system-ui; /* Font family for h1 */
+    font-weight: 400; /* Normal font weight */
+    font-style: normal; /* Normal font style */
 }
 
-h2{
-    font-family: "Jaini Purva", system-ui;
-    font-weight: 400;
-    font-style: normal;
+/* Styling for h2 headers */
+h2 {
+    font-family: "Jaini Purva", system-ui; /* Font family for h2 */
+    font-weight: 400; /* Normal font weight */
+    font-style: normal; /* Normal font style */
 }
 
+/* Styling for the main container */
 .container {
-    max-width: 1200px;
-    margin: 20px;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 1200px; /* Maximum width */
+    margin: 20px; /* Margin around the container */
+    padding: 20px; /* Padding inside the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Drop shadow for depth */
+    background: #333; /* Semi-transparent dark background */
 }
 
+/* Styling for the header */
 header {
-    text-align: center;
-    margin-bottom: 40px;
+    text-align: center; /* Center text alignment */
+    margin-bottom: 40px; /* Space below header */
 }
 
+/* Styling for h1 inside the header */
 header h1 {
-    font-size: 3em;
-    margin-bottom: 10px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: color 0.3s ease;
+    font-size: 3em; /* Large font size */
+    margin-bottom: 10px; /* Space below header */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Space between letters */
+    transition: color 0.3s ease; /* Smooth color transition */
+    color: #fff; /* White text color */
 }
 
+/* Hover state for h1 inside the header */
 header h1:hover {
-    color: #ff6347;
+    color: #ff884d; /* Bright orange color on hover */
 }
 
+/* Styling for video preview section */
 .video-preview {
-    margin: 20px 0;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    margin: 20px 0; /* Space above and below video */
+    overflow: hidden; /* Hide overflow */
+    border-radius: 10px; /* Rounded corners */
+    transition: transform 0.3s ease; /* Smooth transformation */
 }
 
+/* Hover state for video preview */
 .video-preview:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+/* Styling for sections */
 section {
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Space below section */
 }
 
+/* Styling for h2 inside sections */
 section h2 {
-    font-size: 2.4em;
-    margin-bottom: 10px;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
+    font-size: 2.4em; /* Large font size */
+    margin-bottom: 10px; /* Space below header */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 1.5px; /* Space between letters */
+    position: relative; /* Relative positioning for pseudo-element */
+    display: inline-block; /* Inline-block display */
+    transition: color 0.3s ease; /* Smooth color transition */
+    color: #fff; /* White text color */
 }
 
+/* Styling for pseudo-element before h2 inside sections */
 section h2:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 3px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ff6347;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
+    content: ''; /* Empty content */
+    position: absolute; /* Absolute positioning */
+    width: 100%; /* Full width */
+    height: 3px; /* Height of pseudo-element */
+    bottom: -5px; /* Position below text */
+    left: 0; /* Align to the left */
+    background-color: #ff884d; /* Bright orange background */
+    visibility: hidden; /* Hidden by default */
+    transform: scaleX(0); /* Scale down by default */
+    transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
+/* Hover state for pseudo-element before h2 inside sections */
 section h2:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
+    visibility: visible; /* Make visible */
+    transform: scaleX(1); /* Scale up */
 }
 
+/* Hover state for h2 inside sections */
 section h2:hover {
-    color: #ff6347;
+    color: #ff884d; /* Bright orange color on hover */
 }
 
+/* Styling for paragraphs */
 p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin: 10px 0 20px;
-    transition: color 0.3s ease;
+    font-size: 1.1em; /* Slightly larger font size */
+    line-height: 1.8; /* Increased line height for readability */
+    margin: 10px 0 20px; /* Space around paragraphs */
+    transition: color 0.3s ease; /* Smooth color transition */
+    color: #c9a792; /* Light peach color */
 }
 
+/* Hover state for paragraphs */
 p:hover {
-    color: #555;
+    color: #fff; /* White color on hover */
 }
 
+/* Styling for forms */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Column layout */
+    align-items: flex-start; /* Align items to the start */
 }
 
+/* Styling for input and textarea inside forms */
 form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border 0.3s ease;
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside elements */
+    margin: 10px 0; /* Space above and below elements */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    transition: border 0.3s ease; /* Smooth border transition */
+    background: #3d2b3e; /* Slightly lighter than body background */
+    color: #fff; /* Light peach text */
+    border: 1px solid #5e4161; /* Subtle border color */
 }
 
+/* Focus state for input and textarea inside forms */
 form input:focus, form textarea:focus {
-    border-color: #ff6347;
-    outline: none;
+    border-color: #ff884d; /* Bright orange border on focus */
+    outline: none; /* Remove default outline */
 }
 
+/* Styling for buttons inside forms */
 form button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #ff6347;
-    color: #fff;
-    font-size: 1.1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Padding inside button */
+    border: none; /* Remove default border */
+    background-color: #ff884d; /* Bright orange button */
+    color: #2d1f2e; /* Dark text for contrast */
+    font-size: 1.1em; /* Slightly larger font size */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
+/* Hover state for buttons inside forms */
 form button:hover {
-    background-color: #e5533d;
+    background-color: #ffa76f; /* Lighter orange color on hover */
 }
 
-
+/* Keyframes for fadeIn animation */
 @keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-10px);
+        opacity: 0; /* Start invisible */
+        transform: translateY(-10px); /* Start above position */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* End visible */
+        transform: translateY(0); /* End at normal position */
     }
 }
 
-
+/* Apply fadeIn animation to sections */
 section {
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
+/* Styling for iframes */
 iframe {
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners */
 }
 
-
+/* Responsive styling for tablets and small desktops */
 @media (max-width: 768px) {
     .container {
-        margin: 10px;
-        padding: 10px;
+        margin: 10px; /* Smaller margin */
+        padding: 10px; /* Smaller padding */
     }
 
     header h1 {
-        font-size: 2em;
+        font-size: 2em; /* Smaller font size */
     }
 
     section h2 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Smaller font size */
     }
 
     .video-preview iframe {
-        width: 100%;
-        height: auto;
+        width: 100%; /* Full width */
+        height: auto; /* Auto height */
     }
-} 
-
-
-
+}

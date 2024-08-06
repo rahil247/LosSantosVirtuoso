@@ -1,59 +1,73 @@
+/* Global Styles */
 body {
+    /* Sets the base font for the entire page */
     font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    font-optical-sizing: auto; /* Ensures consistent font rendering */
+    font-weight: 400; /* Normal weight */
+    font-style: normal; /* Normal style */
+  
+    /* Sets the overall layout to a vertical column */
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-color: #1e1e1e;
-    color: #fff;
-}
-
-h1{
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Removes default margin */
+    background-color: #1e1e1e; /* Dark background */
+    color: #fff; /* White text color */
+  }
+  
+  /* Heading Styles */
+  h1 {
+    /* Sets the font for headings */
     font-family: "Jaini Purva", system-ui;
     font-weight: 400;
     font-style: normal;
-    font-size: 3em;
-}
-
-.container {
+    font-size: 3em; /* Large heading size */
+  }
+  
+  /* Container Styles */
+  .container {
+    /* Main container for layout */
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 100%;
-}
-
-.main-content {
+  }
+  
+  /* Main Content Styles */
+  .main-content {
+    /* Flexible content area */
     flex: 1;
     padding: 20px;
-    overflow-y: auto;
-}
-
-.header {
+    overflow-y: auto; /* Enables scrolling if content overflows */
+  }
+  
+  /* Header Styles */
+  .header {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.history-section {
+  }
+  
+  /* History Section Styles */
+  .history-section {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-.collapsible {
+  }
+  
+  /* Collapsible Section Styles */
+  .collapsible {
     background-color: #333;
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.collapsible input[type="checkbox"] {
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+  }
+  
+  .collapsible input[type="checkbox"] {
+    /* Hidden checkbox for controlling visibility */
     display: none;
-}
-
-.collapsible-label {
+  }
+  
+  .collapsible-label {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -63,32 +77,32 @@ h1{
     justify-content: space-between;
     padding: 10px;
     background-color: #444;
-    cursor: pointer;
+    cursor: pointer; /* Indicates clickable area */
     font-size: 1.2em;
-    color: #FFA500;
-    transition: background-color 0.3s ease;
-
-}
-
-.collapsible-label .arrow {
-    transition: transform 0.3s ease;
-}
-
-.collapsible input[type="checkbox"]:checked + .collapsible-label .arrow {
-    transform: rotate(90deg);
-}
-
-.collapsible .content {
-    display: none;
+    color: #FFA500; /* Orange color for label */
+    transition: background-color 0.3s ease; /* Smooth color change on hover */
+  }
+  
+  .collapsible-label .arrow {
+    transition: transform 0.3s ease; /* Smooth rotation animation */
+  }
+  
+  .collapsible input[type="checkbox"]:checked + .collapsible-label .arrow {
+    transform: rotate(90deg); /* Rotates arrow icon on click */
+  }
+  
+  .collapsible .content {
+    display: none; /* Initially hidden */
     padding: 10px;
     background-color: #444;
-}
-
-.collapsible input[type="checkbox"]:checked ~ .content {
-    display: block;
-}
-
-.content ul {
+  }
+  
+  .collapsible input[type="checkbox"]:checked ~ .content {
+    display: block; /* Shows content when checkbox is checked */
+  }
+  
+  /* Content List Styles */
+  .content ul {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -96,9 +110,9 @@ h1{
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-.content ul li {
+  }
+  
+  .content ul li {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -107,14 +121,15 @@ h1{
     padding: 10px;
     background-color: #555;
     border-radius: 5px;
-}
-
-.delete-button {
+  }
+  
+  /* Delete Button Styles */
+  .delete-button {
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background-color: #FF4500;
+    background-color: #FF4500; /* Orange background */
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -123,20 +138,20 @@ h1{
     transition: background-color 0.3s ease;
     display: inline-block;
     margin-top: 10px;
-}
-
-.delete-button:hover {
-    background-color: #FF6347;
-}
-
-@keyframes fadeIn {
+  }
+  
+  .delete-button:hover {
+    background-color: #FF6347; /* Darker orange on hover */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
-}
-
-@keyframes slideIn {
+  }
+  
+  @keyframes slideIn {
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
-}
-
-
+  }
+  
