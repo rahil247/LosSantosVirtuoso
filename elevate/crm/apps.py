@@ -5,9 +5,9 @@ from django.apps import AppConfig
 # This class inherits from AppConfig, which is the base class for application configurations.
 class CrmConfig(AppConfig):
     # Setting the default type for auto-incrementing primary keys to BigAutoField.
-    # BigAutoField is a 64-bit integer, which allows for a larger range of values.
+    # BigAutoField is a 64-bit integer, which allows for a larger range of values compared to AutoField (a 32-bit integer).
     default_auto_field = "django.db.models.BigAutoField"
     
     # Specifying the name of the application. This is used by Django to identify the app.
-    # The name should be the same as the directory name where this file is located.
+    # The name should be the same as the directory name where this file is located, unless you are using a custom name.
     name = "crm"

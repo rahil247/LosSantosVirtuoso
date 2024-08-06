@@ -1,3 +1,4 @@
+/* Set up basic body styling with font, layout, and colors */
 body {
     font-family: "Kode Mono", monospace;
     font-optical-sizing: auto;
@@ -9,9 +10,9 @@ body {
     margin: 0;
     background-color: #1e1e1e;
     color: #fff;
-    
 }
 
+/* Styling for the navigation bar */
 .navbar {
     width: 100%;
     background-color: #333;
@@ -21,22 +22,24 @@ body {
     padding: 10px 20px;
     box-sizing: border-box;
     position: relative;
-    
 }
 
+/* Containers for left and right buttons in the navbar */
 .left-buttons, .right-buttons {
     display: flex;
     gap: 20px;
 }
 
+/* Styling for the account section in the navbar */
 .navbar .account {
     display: flex;
     align-items: center;
     cursor: pointer;
-    margin-right: 10px; 
+    margin-right: 10px;
     margin-left: 10px;
 }
 
+/* Styling for the account button in the navbar */
 .navbar .account-button {
     display: flex;
     align-items: center;
@@ -48,21 +51,23 @@ body {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
-    width: 250px; /*Set fixed width for all buttons ..check karvanu che aa */
+    width: 250px; /* Set fixed width for all buttons */
     height: 50px; /* Set fixed height for all buttons */
 }
 
+/* Styling for the account image in the navbar */
 .navbar .account img {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    /* margin-right: 10px; */
 }
 
+/* Styling for the account text in the navbar */
 .navbar .account span {
     font-size: 1.2em;
 }
 
+/* Styling for the title section in the navbar */
 .navbar .title {
     text-align: center;
     color: #FFA500;
@@ -71,6 +76,7 @@ body {
     margin-right: auto; /* Ensure title is centered */
 }
 
+/* Styling for the title text in the navbar */
 .navbar .title h1 {
     font-family: "Jaini Purva", system-ui;
     font-weight: 400;
@@ -79,9 +85,9 @@ body {
     margin: 0;
 }
 
+/* General styling for navbar buttons */
 .navbar-button {
     color: #fff;
-    /* text-decoration: none; */
     background-color: #FFA500;
     border: none;
     border-radius: 5px;
@@ -98,17 +104,19 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    /* font-size: 1.2em; */
 }
 
+/* Specific styling for animated buttons */
 .animated-button {
     background-color: #FFA500;
 }
 
+/* Change navbar button background color on hover */
 .navbar-button:hover {
     background-color: #FF8C00;
 }
 
+/* Styling for dropdown menu */
 .dropdown {
     display: none;
     position: absolute;
@@ -120,6 +128,7 @@ body {
     z-index: 1;
 }
 
+/* Styling for dropdown links */
 .dropdown a {
     display: block;
     padding: 10px;
@@ -127,10 +136,12 @@ body {
     text-decoration: none;
 }
 
+/* Change dropdown link background color on hover */
 .dropdown a:hover {
     background-color: #3cc63c;
 }
 
+/* Main content area styling */
 .main-content {
     display: flex;
     flex-direction: column;
@@ -139,6 +150,7 @@ body {
     overflow: hidden;
 }
 
+/* Chat section styling */
 .chat-section {
     display: flex;
     flex-direction: column;
@@ -146,6 +158,7 @@ body {
     overflow: hidden;
 }
 
+/* Chat history area styling */
 .chat-history {
     flex: 1;
     overflow-y: auto;
@@ -155,6 +168,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+/* Chat input container styling */
 .chat-input-container {
     display: flex;
     align-items: center;
@@ -165,6 +179,7 @@ body {
     margin-top: 10px;
 }
 
+/* Chat input field styling */
 .chat-input-container input[type="text"] {
     flex: 1;
     padding: 10px;
@@ -180,6 +195,7 @@ body {
     font-size: 1.2em;
 }
 
+/* Chat send button styling */
 .chat-input-container button {
     background-color: transparent;
     border: none;
@@ -190,10 +206,12 @@ body {
     transition: color 0.3s ease;
 }
 
+/* Change chat send button color on hover */
 .chat-input-container button:hover {
     color: #FFA500;
 }
 
+/* Styling for preformatted text blocks */
 pre {
     background-color: rgba(255, 255, 255, 0.2);
     padding: 10px;
@@ -204,11 +222,13 @@ pre {
     margin: 10px 0;
 }
 
+/* Keyframe animation for fade-in effect */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
+/* Keyframe animation for slide-in effect */
 @keyframes slideIn {
     from { transform: translateY(100px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }

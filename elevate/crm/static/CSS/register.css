@@ -1,260 +1,286 @@
+/* Styling for the body of the page */
 body {
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background: url('../../static/img/GTA.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    opacity: 0.95;
-    overflow: hidden;
+    font-family: "Fira Code", monospace; /* Font family for the body text */
+    font-optical-sizing: auto; /* Automatic optical sizing for font */
+    font-weight: 500; /* Medium font weight */
+    font-style: normal; /* Normal font style */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background: url('../../static/img/GTA.jpg') no-repeat center center fixed; /* Background image */
+    background-size: cover; /* Cover the whole background */
+    color: #fff; /* White text color */
+    opacity: 0.95; /* Slight transparency */
+    overflow: hidden; /* Hide overflow */
 }
 
+/* Overlay with semi-transparency */
 body::before {
-    content: "";
-    position: absolute;
+    content: ""; /* Empty content */
+    position: absolute; /* Absolute positioning */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 0;
+    background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+    z-index: 0; /* Behind the container */
 }
 
+/* Container styling */
 .container {
-    text-align: center;
-    animation: fadeIn 1.5s ease-in-out;
-    position: relative;
-    z-index: 1;
+    text-align: center; /* Center text */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+    position: relative; /* Relative positioning */
+    z-index: 1; /* Above the overlay */
 }
 
+/* Fade-in animation keyframes */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; } /* Start invisible */
+    to { opacity: 1; } /* End visible */
 }
 
+/* Styling for the signup form */
 #signup-form {
-    display: inline-block;
-    text-align: left;
-    padding: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-    background-color: rgba(72, 61, 139, 0.85);
-    width: 400px;
-    /* max-width: 500px; */
+    display: inline-block; /* Inline-block display */
+    text-align: left; /* Left-aligned text */
+    padding: 20px; /* Padding inside form */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Light white border */
+    border-radius: 10px; /* Rounded corners */
+    background-color: rgba(72, 61, 139, 0.85); /* Semi-transparent background */
+    width: 400px; /* Fixed width */
+    /* max-width: 500px; */ /* Maximum width */
 }
 
+/* Slide-in animation keyframes */
 @keyframes slideIn {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from { transform: translateY(100px); opacity: 0; } /* Start below and invisible */
+    to { transform: translateY(0); opacity: 1; } /* End at normal position and visible */
 }
 
+/* Styling for h1 headers */
 h1 {
-    font-family: "Jaini Purva", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2.6em;
-    margin-bottom: 20px;
-    color: #FFA500;
+    font-family: "Jaini Purva", system-ui; /* Font family for h1 */
+    font-weight: 400; /* Normal font weight */
+    font-style: normal; /* Normal font style */
+    font-size: 2.6em; /* Large font size */
+    margin-bottom: 20px; /* Space below header */
+    color: #FFA500; /* Orange color */
 }
 
+/* Styling for h2 headers */
 h2 {
-    font-family: "Jaini Purva", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2em;
-    margin-top: 0;
-    text-align: center;
-    color: #FFA500;
+    font-family: "Jaini Purva", system-ui; /* Font family for h2 */
+    font-weight: 400; /* Normal font weight */
+    font-style: normal; /* Normal font style */
+    font-size: 2em; /* Font size */
+    margin-top: 0; /* No top margin */
+    text-align: center; /* Center text */
+    color: #FFA500; /* Orange color */
 }
 
+/* Styling for labels */
 label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #D3D3D3;
+    display: block; /* Block display */
+    margin: 10px 0 5px; /* Margin around labels */
+    color: #D3D3D3; /* Light gray color */
 }
 
+/* Styling for input fields */
 input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
-    box-sizing: border-box;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    margin-bottom: 10px; /* Space below input */
+    border: 1px solid #D3D3D3; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Box-sizing border-box */
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    color: #fff; /* White text color */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
+/* Focus state for input fields */
 input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 5px rgba(255, 165, 0, 0.8);
+    background-color: rgba(255, 255, 255, 0.3); /* Slightly lighter background */
+    box-shadow: 0 0 5px rgba(255, 165, 0, 0.8); /* Orange shadow */
 }
 
+/* Styling for buttons */
 button {
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    width: 100%;
-    padding: 10px;
-    background-color: #FFA500;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: "Fira Code", monospace; /* Font family for buttons */
+    font-optical-sizing: auto; /* Automatic optical sizing */
+    font-weight: 500; /* Medium font weight */
+    font-style: normal; /* Normal font style */
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside button */
+    background-color: #FFA500; /* Orange background */
+    color: #fff; /* White text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1em; /* Font size */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
+/* Hover state for buttons */
 button:hover {
-    background-color: #FF8C00;
-    transform: scale(1.05);
+    background-color: #FF8C00; /* Darker orange background */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+/* Styling for Google sign-in button */
 .google-btn {
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: "Fira Code", monospace; /* Font family */
+    font-optical-sizing: auto; /* Automatic optical sizing */
+    font-weight: 500; /* Medium font weight */
+    font-style: normal; /* Normal font style */
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    background-color: #fff; /* White background */
+    color: #000; /* Black text color */
+    border: 1px solid #ccc; /* Light gray border */
+    padding: 10px; /* Padding inside button */
+    margin-top: 10px; /* Space above button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
+/* Styling for image inside Google sign-in button */
 .google-btn img {
-    margin-right: 10px;
+    margin-right: 10px; /* Space to the right of image */
 }
 
+/* Hover state for Google sign-in button */
 .google-btn:hover {
-    background-color: #f1f1f1;
-    transform: scale(1.05);
+    background-color: #f1f1f1; /* Light gray background */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
+/* Styling for login and signup links */
 .login-link, .signup-link {
-    text-align: center;
-    margin-top: 10px;
-    color: #d3d3d3;
+    text-align: center; /* Center text */
+    margin-top: 10px; /* Space above links */
+    color: #d3d3d3; /* Light gray color */
 }
 
+/* Styling for anchor tags */
 a {
-    color: #d3d3d3;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: #d3d3d3; /* Light gray color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
+/* Hover state for anchor tags */
 a:hover {
-    color: #FFA500;
+    color: #FFA500; /* Orange color on hover */
 }
 
-span{
-    font-family: "Fira Code", monospace;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
+/* Styling for span elements */
+span {
+    font-family: "Fira Code", monospace; /* Font family */
+    font-optical-sizing: auto; /* Automatic optical sizing */
+    font-weight: 500; /* Medium font weight */
+    font-style: normal; /* Normal font style */
 }
 
+/* Styling for separator */
 .separator {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    margin: 10px 0;
-    color: #D3D3D3;
+    display: flex; /* Flexbox layout */
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text */
+    margin: 10px 0; /* Margin above and below */
+    color: #D3D3D3; /* Light gray color */
 }
 
+/* Styling for horizontal rule inside separator */
 .separator hr {
-    flex: 1;
-    border: 0;
-    height: 1px;
-    background: #D3D3D3;
+    flex: 1; /* Flexible width */
+    border: 0; /* Remove default border */
+    height: 1px; /* Height of the line */
+    background: #D3D3D3; /* Light gray background */
 }
 
+/* Styling for span inside separator */
 .separator span {
-    padding: 0 10px;
-    color: #D3D3D3;
+    padding: 0 10px; /* Padding around span */
+    color: #D3D3D3; /* Light gray color */
 }
 
+/* Responsive styling for screens smaller than 800px */
 @media (max-width: 800px) {
     #signup-form {
-        width: 80%;
-        padding: 15px;
+        width: 80%; /* 80% width */
+        padding: 15px; /* Padding inside form */
     }
 
     h1 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Smaller font size */
     }
 
     input, button {
-        padding: 8px;
+        padding: 8px; /* Smaller padding */
     }
 
     .google-btn {
-        padding: 8px;
+        padding: 8px; /* Smaller padding */
     }
 }
 
+/* Responsive styling for screens smaller than 480px */
 @media (max-width: 480px) {
     #signup-form {
-        width: 95%;
-        padding: 10px;
+        width: 95%; /* 95% width */
+        padding: 10px; /* Padding inside form */
     }
 
     h1 {
-        font-size: 1.2em;
+        font-size: 1.2em; /* Smaller font size */
     }
 
     input, button {
-        padding: 6px;
+        padding: 6px; /* Smaller padding */
     }
 
     .google-btn {
-        padding: 6px;
+        padding: 6px; /* Smaller padding */
     }
 }
 
+/* Popup styling */
 .popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    max-width: 600px;
-    background-color: rgb(152, 7, 242);
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    display: none; 
-    color: #fff;
+    position: fixed; /* Fixed positioning */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center using transform */
+    width: 80%; /* 80% width */
+    max-width: 600px; /* Maximum width */
+    background-color: rgb(152, 7, 242); /* Purple background */
+    padding: 20px; /* Padding inside popup */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    z-index: 1000; /* On top of everything */
+    display: none; /* Hidden by default */
+    color: #fff; /* White text color */
 }
 
-
+/* Styling for popup content */
 .popup-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Flexbox layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
 }
 
-
+/* Styling for close button */
 .close-btn {
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
+    background: none; /* No background */
+    border: none; /* No border */
+    font-size: 20px; /* Large font size */
+    cursor: pointer; /* Pointer cursor */
 }
 
-
+/* Blurred background effect */
 .blurred {
-    filter: blur(5px);
+    filter: blur(5px); /* 5px blur */
 }

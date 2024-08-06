@@ -1,215 +1,236 @@
-
+/* Set up the main body style */
 body {
-    font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    margin: 0;
-    background-color: #1e1e1e;
-    color: #fff;
-    
+    font-family: "Kode Mono", monospace; /* Set the font family */
+    font-optical-sizing: auto; /* Enable optical sizing for fonts */
+    font-weight: 400; /* Set the font weight */
+    font-style: normal; /* Set the font style */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margin */
+    background-color: #1e1e1e; /* Dark background color */
+    color: #fff; /* White text color */
 }
 
+/* Style for the navigation bar */
 .navbar {
-    width: 100%;
-    background-color: #333;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    position: relative;
-    
+    width: 100%; /* Full width */
+    background-color: #333; /* Dark background */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space items out */
+    padding: 10px 20px; /* Padding around the navbar */
+    box-sizing: border-box; /* Include padding in width calculation */
+    position: relative; /* Position relative for dropdown positioning */
 }
 
+/* Container for left and right buttons in the navbar */
 .left-buttons, .right-buttons {
-    display: flex;
-    gap: 20px;
+    display: flex; /* Use flexbox for layout */
+    gap: 20px; /* Space between buttons */
 }
 
+/* Style for the account section in the navbar */
 .navbar .account {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-right: 10px; 
-    margin-left: 10px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    cursor: pointer; /* Pointer cursor for clickable area */
+    margin-right: 10px; /* Right margin */
+    margin-left: 10px; /* Left margin */
 }
 
+/* Style for account button in the navbar */
 .navbar .account-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 5px;
-    border: none;
-    padding: 0;
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-    width: 250px; /* Set fixed width for all buttons */
-    height: 50px; /* Set fixed height for all buttons */
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 5px; /* Rounded corners */
+    border: none; /* No border */
+    padding: 0; /* No padding */
+    color: #fff; /* White text color */
+    text-decoration: none; /* No text decoration */
+    cursor: pointer; /* Pointer cursor for clickable area */
+    width: 250px; /* Fixed width */
+    height: 50px; /* Fixed height */
 }
 
+/* Style for the account image */
 .navbar .account img {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
+    border-radius: 50%; /* Circular image */
+    width: 40px; /* Fixed width */
+    height: 40px; /* Fixed height */
+    margin-right: 10px; /* Right margin */
 }
 
+/* Style for account text */
 .navbar .account span {
-    font-size: 1em;
+    font-size: 1em; /* Set font size */
 }
 
+/* Style for the title in the navbar */
 .navbar .title {
-    text-align: center;
-    color: #FFA500;
+    text-align: center; /* Center text */
+    color: #FFA500; /* Orange color */
     flex-grow: 1; /* Allow the title to grow */
-    margin-left: auto; /* Ensure title is centered */
-    margin-right: auto; /* Ensure title is centered */
+    margin-left: auto; /* Center the title */
+    margin-right: auto; /* Center the title */
 }
 
+/* Style for the title text */
 .navbar .title h1 {
-    font-family: "Jaini Purva", system-ui;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 2.8em;
-    margin: 0;
+    font-family: "Jaini Purva", system-ui; /* Set the font family */
+    font-weight: 400; /* Set the font weight */
+    font-style: normal; /* Set the font style */
+    font-size: 2.8em; /* Set the font size */
+    margin: 0; /* Remove default margin */
 }
 
+/* Style for the navbar buttons */
 .navbar-button {
-    color: #fff;
-    /* text-decoration: none; */
-    background-color: #FFA500;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    width: 150px; /* Set fixed width for all buttons */
-    height: 50px; /* Set fixed height for all buttons */
+    color: #fff; /* White text color */
+    background-color: #FFA500; /* Orange background */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor for clickable area */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    display: inline-block; /* Inline-block display */
+    width: 150px; /* Fixed width */
+    height: 50px; /* Fixed height */
     text-align: center; /* Center text horizontally */
     line-height: 50px; /* Center text vertically */
-    margin-left: 10px;
-    font-size: 12px;
-    font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+    margin-left: 10px; /* Left margin */
+    font-size: 12px; /* Set font size */
+    font-family: "Kode Mono", monospace; /* Set the font family */
+    font-optical-sizing: auto; /* Enable optical sizing for fonts */
+    font-weight: 400; /* Set the font weight */
+    font-style: normal; /* Set the font style */
 }
 
+/* Style for animated button */
 .animated-button {
-    background-color: #FFA500;
+    background-color: #FFA500; /* Orange background */
 }
 
+/* Style for navbar button on hover */
 .navbar-button:hover {
-    background-color: #FF8C00;
+    background-color: #FF8C00; /* Darker orange background on hover */
 }
 
+/* Style for the dropdown menu */
 .dropdown {
-    display: none;
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background-color: #FB8500;
-    border: 1px solid #D3D3D3;
-    border-radius: 5px;
-    z-index: 1;
+    display: none; /* Hidden by default */
+    position: absolute; /* Position relative to the navbar */
+    top: 50px; /* Position below the navbar */
+    right: 20px; /* Align to the right */
+    background-color: #FB8500; /* Orange background */
+    border: 1px solid #D3D3D3; /* Light grey border */
+    border-radius: 5px; /* Rounded corners */
+    z-index: 1; /* Ensure dropdown appears above other content */
 }
 
+/* Style for links in the dropdown menu */
 .dropdown a {
-    display: block;
-    padding: 10px;
-    color: #fff;
-    text-decoration: none;
+    display: block; /* Block display for full-width clickable area */
+    padding: 10px; /* Padding around links */
+    color: #fff; /* White text color */
+    text-decoration: none; /* No text decoration */
 }
 
+/* Style for links on hover in the dropdown menu */
 .dropdown a:hover {
-    background-color: #3cc63c;
+    background-color: #3cc63c; /* Green background on hover */
 }
 
+/* Style for the main content area */
 .main-content {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 20px;
-    overflow: hidden;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    flex: 1; /* Allow to grow and fill available space */
+    padding: 20px; /* Padding around content */
+    overflow: hidden; /* Hide overflow content */
 }
 
+/* Style for the chat section */
 .chat-section {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    overflow: hidden;
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange children in a column */
+    flex: 1; /* Allow to grow and fill available space */
+    overflow: hidden; /* Hide overflow content */
 }
 
+/* Style for the chat history area */
 .chat-history {
-    flex: 1;
-    overflow-y: auto;
-    background-color: #444;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    flex: 1; /* Allow to grow and fill available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    background-color: #444; /* Dark background */
+    padding: 10px; /* Padding around content */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
 }
 
+/* Style for the chat input container */
 .chat-input-container {
-    display: flex;
-    align-items: center;
-    background-color: #333;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    margin-top: 10px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    background-color: #333; /* Dark background */
+    padding: 10px; /* Padding around content */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Semi-transparent border */
+    margin-top: 10px; /* Top margin */
 }
 
+/* Style for the chat input text box */
 .chat-input-container input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
-    color: #fff;
-    font-family: "Kode Mono", monospace;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 1.2em;
+    flex: 1; /* Allow to grow and fill available space */
+    padding: 10px; /* Padding around text */
+    margin-right: 10px; /* Right margin */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #444; /* Dark background */
+    color: #fff; /* White text color */
+    font-family: "Kode Mono", monospace; /* Set the font family */
+    font-optical-sizing: auto; /* Enable optical sizing for fonts */
+    font-weight: 400; /* Set the font weight */
+    font-style: normal; /* Set the font style */
+    font-size: 1.2em; /* Set font size */
 }
 
+/* Style for the chat input button */
 .chat-input-container button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5em;
-    padding: 10px;
-    color: #fff;
-    transition: color 0.3s ease;
+    background-color: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor for clickable area */
+    font-size: 1.5em; /* Set font size */
+    padding: 10px; /* Padding around button */
+    color: #fff; /* White text color */
+    transition: color 0.3s ease; /* Smooth transition */
 }
 
+/* Style for the chat input button on hover */
 .chat-input-container button:hover {
-    color: #FFA500;
+    color: #FFA500; /* Orange text color on hover */
 }
 
+/* Style for preformatted text blocks */
 pre {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 10px;
-    border: 1px solid #ddd;
-    white-space: pre-wrap;
-    color: #fff;
-    border-radius: 5px;
-    margin: 10px 0;
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    padding: 10px; /* Padding around content */
+    border: 1px solid #ddd; /* Light grey border */
+    white-space: pre-wrap; /* Preserve whitespace */
+    color: #fff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    margin: 10px 0; /* Vertical margin */
 }
 
+/* Fade in animation */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; } /* Start with 0 opacity */
+    to { opacity: 1; } /* End with full opacity */
 }
 
+/* Slide in animation */
 @keyframes slideIn {
-    from { transform: translateY(100px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from { transform: translateY(100px); opacity: 0; } /* Start below with 0 opacity */
+    to { transform: translateY(0); opacity: 1; } /* End at original position with full opacity */
 }

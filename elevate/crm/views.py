@@ -1,11 +1,11 @@
 from typing import Any
 from django.db.models.query import QuerySet
-from . forms import Loginform, CustomUserCreationForm
+from .forms import Loginform, CustomUserCreationForm
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import razorpay
-from django.shortcuts import render,HttpResponse
+from django.shortcuts import render, HttpResponse
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
 from django.http import JsonResponse
 from google import generativeai as genai
@@ -26,6 +26,7 @@ import requests
 from django.views import View
 from django.contrib.auth.models import User
 
+# View to handle user registration
 def register(request):
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
@@ -36,9 +37,10 @@ def register(request):
         form = CustomUserCreationForm()
     return render(request, 'crm/register.html', {'registerform': form})
 
+# View for user login
 def home(request):
     form = Loginform()
-    if request.method =="POST":
+    if request.method == "POST":
         form = Loginform(request, data=request.POST)
         if form.is_valid():
             username = request.POST.get('username')
@@ -46,34 +48,37 @@ def home(request):
 
             user = authenticate(request, username=username, password=password)
             if user is not None:
-                auth.login(request,user)
+                auth.login(request, user)
                 return redirect('welcome')
-    context = {'loginform':form}
-    return render(request, 'crm/home.html',context=context)
+    context = {'loginform': form}
+    return render(request, 'crm/home.html', context=context)
+
+# View for user logout
 def user_logout(request):
     logout(request)
     return redirect('home')
 
+# Razorpay client setup for payment processing
+client = razorpay.Client(auth=(RAZORPAY_API_KEY, RAZORPAY_API_SECRET_KEY))
 
-client = razorpay.Client(auth=(RAZORPAY_API_KEY,RAZORPAY_API_SECRET_KEY ))
+# Dashboard view to handle payment orders
 def dashboard(request):
-
     order_amount = 50000
     order_currency = 'INR'
-    payment_order = client.order.create(dict(amount=order_amount,currency=order_currency,payment_capture=1))
+    payment_order = client.order.create(dict(amount=order_amount, currency=order_currency, payment_capture=1))
     payment_order_id = payment_order['id']
     context = {
-        'amount':500, 'api_key':RAZORPAY_API_KEY, 'order_id':payment_order_id
+        'amount': 500, 'api_key': RAZORPAY_API_KEY, 'order_id': payment_order_id
     }
+    return render(request, 'crm/dash.html', context)
 
-    return render(request,'crm/dash.html',context)
-
+# View for welcome page after login
 def welcome(request):
     if request.method == 'POST':
-        selected_personality = request.POST.get('personality','michel')
-    return render(request,'crm/welcome.html')
+        selected_personality = request.POST.get('personality', 'michel')
+    return render(request, 'crm/welcome.html')
 
-
+# View to handle contact form submissions
 from .forms import ContactForm
 def contact_view(request):
     if request.method == 'POST':
@@ -84,10 +89,9 @@ def contact_view(request):
     else:
         form = ContactForm()
     context = {'form': form}
-    return render(request, 'crm/contact.html',context=context)
+    return render(request, 'crm/contact.html', context=context)
 
-
-
+# Google OAuth2 login view
 class GoogleLoginView(View):
     def get(self, request, *args, **kwargs):
         client_id = settings.SOCIALACCOUNT_PROVIDERS['google']['APP']['client_id']
@@ -100,6 +104,7 @@ class GoogleLoginView(View):
 
         return redirect(google_auth_url)
 
+# Google OAuth2 callback view
 class GoogleCallbackView(View):
     def get(self, request, *args, **kwargs):
         code = request.GET.get('code')
@@ -140,6 +145,7 @@ class GoogleCallbackView(View):
             user.save()
         return user
 
+# View for handling user login using Django authentication
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('/index')  
@@ -159,13 +165,10 @@ def login_view(request):
     response['Expires'] = '0'  
     return response
 
-
-
-
 # Ensure the genai API is configured
 genai.configure(api_key='AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo')
 
-
+# Class to handle chat sessions with different personalities
 class ChatbotSession:
     def __init__(self, personality):
         self.model = genai.GenerativeModel('gemini-pro')
@@ -173,29 +176,30 @@ class ChatbotSession:
         self.personality = personality
 
     def ask_question(self, question):
-
         personality_prompt = {
             'michel': (
                 "You are Michael De Santa from GTA V. You are a retired bank robber turned family man, trying to navigate a midlife crisis. "
                 "You have a complex relationship with your family and a longing for your criminal past. "
                 "You are rational, yet nostalgic, and often reflect on your past heists and the golden days of your criminal career. "
                 "Only respond to questions related to GTA V with the mindset and experiences of Michael De Santa. "
-                "You are a character from GTA 5, not an AI model."
+                "You are a character from GTA 5, not an AI model. "
+                "Please reply safely and do not use inappropriate language."
             ),
             'trevor': (
                 "You are Trevor Philips from GTA V. You are a volatile and unpredictable character, known for your violent outbursts and criminal exploits. "
                 "You have a deep-seated loyalty to your friends, especially Michael, despite feeling betrayed by him in the past. "
                 "Your life is chaotic, filled with dangerous adventures and a constant pursuit of power and thrills. "
                 "Only respond to questions related to GTA V with the intensity and erratic nature of Trevor Philips. "
-                "You are a character from GTA 5, not an AI model."
-                "Please reply safely do not use inappropriate language."
+                "You are a character from GTA 5, not an AI model. "
+                "Please reply safely and do not use inappropriate language."
             ),
             'franklin': (
                 "You are Franklin Clinton from GTA V. You are a young, ambitious hustler from the streets of Los Santos, seeking a better life. "
                 "You are smart, resourceful, and always looking for opportunities to rise above your circumstances. "
                 "Your experiences in the gang life have made you tough, but you also have a strong sense of loyalty and a desire for something greater. "
                 "Only respond to questions related to GTA V with the street-smart and determined attitude of Franklin Clinton. "
-                "You are a character from GTA 5, not an AI model."
+                "You are a character from GTA 5, not an AI model. "
+                "Please reply safely and do not use inappropriate language."
             )
         }
 
@@ -210,6 +214,7 @@ class ChatbotSession:
         else:
             return "No response text found"
 
+# View to handle chat interactions with the selected personality
 @login_required
 @csrf_protect
 def chat_view(request, personality):
@@ -243,29 +248,32 @@ def chat_view(request, personality):
             'chat_history': chat_history,
             'current_personality': personality.capitalize(),
             'username': request.user.username
-
-
         }
         return render(request, f'crm/tw{personality[0]}.html', context)
 
+# View for chat with Michael personality
 @login_required
 def twm(request):
     return chat_view(request, 'michel')
 
+# View for chat with Trevor personality
 @login_required
 def twt(request):
     return chat_view(request, 'trevor')
 
+# View for chat with Franklin personality
 @login_required
 def twf(request):
     return chat_view(request, 'franklin')
 
+# View to display chat history
 @login_required
 def chat_history(request):
     chat_sessions = ChatSession.objects.filter(user=request.user).prefetch_related('messages')
     user_display_name = request.user.first_name if request.user.first_name else request.user.username
-    return render(request, 'crm/history.html', {'chat_sessions': chat_sessions, 'user_display_name':user_display_name})
+    return render(request, 'crm/history.html', {'chat_sessions': chat_sessions, 'user_display_name': user_display_name})
 
+# View to delete a specific chat history session
 @login_required
 def delete_chat_history(request, session_id):
     chat_session = get_object_or_404(ChatSession, id=session_id, user=request.user)
@@ -273,5 +281,6 @@ def delete_chat_history(request, session_id):
         chat_session.delete()
     return HttpResponseRedirect(reverse('chat_history'))
 
+# View to render the 'know' page
 def know(request):
-    return render(request,'crm/know.html')
+    return render(request, 'crm/know.html')

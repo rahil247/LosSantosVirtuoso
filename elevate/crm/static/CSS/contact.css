@@ -1,156 +1,174 @@
-
-
-
+/* Reset default margin and padding for all elements */
+/* box-sizing: border-box; is commented out, can be used if box-sizing is required */
 * {
     margin: 0;
     padding: 0;
-    /* box-sizing: border-box; */
 }
 
+/* Body styling for overall page */
 body {
-    font-family: "Fira Code", monospace;
+    font-family: "Fira Code", monospace; /* Monospace font for code-like appearance */
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    background: #2a2a2a;
-    color: #f4f4f4;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background: #2a2a2a; /* Dark background color */
+    color: #f4f4f4; /* Light text color */
+    line-height: 1.6; /* Improved readability */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Full viewport height */
 }
 
+/* Container styling for main content area */
 .container {
-    max-width: 1200px;
-    margin: 25px;
-    padding: 50px;
-    background: #333;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    max-width: 1200px; /* Maximum width for content */
+    margin: 25px; /* Outer margin */
+    padding: 50px; /* Inner padding */
+    background: #333; /* Slightly lighter background for contrast */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
 }
 
+/* Header styling */
 header {
-    text-align: center;
-    margin-bottom: 40px;
+    text-align: center; /* Center text alignment */
+    margin-bottom: 40px; /* Spacing below header */
 }
 
+/* Main heading (h2) styling */
 h2 {
-    font-family: "Jaini Purva", system-ui;
+    font-family: "Jaini Purva", system-ui; /* Custom font for headings */
     font-weight: 400;
     font-style: normal;
     align-items: center;
-    font-size: 3em;
-    color: #ff9c00;
+    font-size: 3em; /* Large font size */
+    color: #ff9c00; /* Orange text color */
 }
 
+/* Adding a hover effect to the heading */
 section h2:before {
     content: '';
     position: absolute;
     width: 100%;
-    height: 3px;
-    bottom: -5px;
+    height: 3px; /* Thin underline */
+    bottom: -5px; /* Positioning below the text */
     left: 0;
-    background-color: #ff9c00;
-    visibility: hidden;
-    transform: scaleX(0);
-    transition: all 0.3s ease-in-out;
+    background-color: #ff9c00; /* Orange color for underline */
+    visibility: hidden; /* Hidden by default */
+    transform: scaleX(0); /* Scale to zero */
+    transition: all 0.3s ease-in-out; /* Smooth transition */
 }
 
+/* Show underline on hover */
 section h2:hover:before {
-    visibility: visible;
-    transform: scaleX(1);
+    visibility: visible; /* Make underline visible */
+    transform: scaleX(1); /* Scale to full width */
 }
 
+/* Change text color on hover */
 section h2:hover {
     color: #ff9c00;
 }
 
+/* Paragraph styling */
 p {
-    font-size: 1.1em;
-    line-height: 1.8;
-    margin: 10px 0 20px;
-    transition: color 0.3s ease;
+    font-size: 1.1em; /* Slightly larger font */
+    line-height: 1.8; /* Increased line height for readability */
+    margin: 10px 0 20px; /* Spacing around paragraphs */
+    transition: color 0.3s ease; /* Smooth color transition */
+    color: #d1b3a7; /* Light peach text color */
 }
 
+/* Change paragraph color on hover */
 p:hover {
     color: #ddd;
 }
 
+/* Form styling */
 form {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    display: flex; /* Flexbox layout for form */
+    flex-direction: column; /* Column layout */
+    align-items: flex-start; /* Align items to the start */
 }
 
+/* Input and textarea styling */
 form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #555;
-    border-radius: 5px;
-    background-color: #444;
-    color: #fff;
-    transition: border 0.3s ease;
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside inputs */
+    margin: 10px 0; /* Margin around inputs */
+    border: 1px solid #555; /* Border color */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #444; /* Background color */
+    color: #fff; /* Text color */
+    transition: border 0.3s ease; /* Smooth border transition */
+    background: #2f2330; /* Slightly lighter than body background */
+    color: #f4d8c3; /* Light peach text */
+    border: 1px solid #5e4161; /* Subtle border color */
 }
 
+/* Change border color on focus */
 form input:focus, form textarea:focus {
-    border-color: #ff9c00;
-    outline: none;
+    border-color: #ff9c00; /* Orange border on focus */
+    outline: none; /* Remove default outline */
 }
 
+/* Button styling */
 form button {
-    font-family: "Fira Code", monospace;
+    font-family: "Fira Code", monospace; /* Monospace font for code-like appearance */
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    padding: 10px 20px;
-    border: none;
-    background-color: #ff9c00;
-    color: #fff;
-    font-size: 1.1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px 20px; /* Padding inside button */
+    border: none; /* Remove default border */
+    background-color: #ff9c00; /* Orange background */
+    color: #fff; /* White text color */
+    font-size: 1.1em; /* Slightly larger font */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    color: #2c1e2e; /* Dark text color */
 }
 
+/* Change button background color on hover */
 form button:hover {
-    background-color: #e58c00;
+    background-color: #e58c00; /* Darker orange on hover */
 }
 
+/* Fade-in animation for sections */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(-10px);
+        transform: translateY(-10px); /* Start slightly above */
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0); /* End at normal position */
     }
 }
 
+/* Apply fade-in animation to sections */
 section {
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1s ease-in-out; /* Smooth fade-in animation */
 }
 
+/* iFrame styling */
 iframe {
-    border-radius: 10px;
+    border-radius: 10px; /* Rounded corners */
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
     .container {
-        margin: 10px;
-        padding: 10px;
+        margin: 10px; /* Reduced margin */
+        padding: 10px; /* Reduced padding */
     }
 
     header h1 {
-        font-size: 2em;
+        font-size: 2em; /* Smaller font size for headings */
     }
 
     section h2 {
-        font-size: 1.5em;
+        font-size: 1.5em; /* Smaller font size for subheadings */
     }
 }
-
-
-
