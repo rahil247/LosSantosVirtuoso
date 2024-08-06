@@ -2,34 +2,55 @@
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character encoding and viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the web page -->
     <title>GTA Characters</title>
+    
+    <!-- Favicon for the web page -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Importing fonts from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking the external CSS file for styling -->
     <link rel="stylesheet" href="../../static/CSS/welcome.css">
 </head>
 
 <body>
+    <!-- Main heading of the page -->
     <h1>Chat with GTA Characters</h1>
+    
+    <!-- Background audio that plays automatically and loops -->
     <audio id="background-audio" autoplay loop>
         <source src="../../static/music/GTA-V-Welcome-to-Los-Santosx.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio> 
+    
+    <!-- Button to toggle the audio on and off -->
     <div class="audio-controls">
         <button class="audio-button" onclick="toggleAudio()">
             <img src="../../static/img/SOUND.png" alt="Toggle Audio">
         </button>
     </div>
    
+    <!-- Container for character cards -->
     <div class="container">
+        
+        <!-- Trevor's character card -->
         <div class="flip-card">
             <div class="flip-card-inner">
+                <!-- Front side of the card with character image -->
                 <div class="flip-card-front">
                     <img src="../../static/img/Trevor_img.jpeg" alt="Trevor" class="character-img">
                 </div>
+                <!-- Back side of the card with character details and action buttons -->
                 <div class="flip-card-back">
                     <span class="character-name">Trevor Philips</span>
                     <p>Occupation: Career criminal</p>
@@ -40,6 +61,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Michael's character card -->
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -55,6 +78,8 @@
                 </div>
             </div>
         </div>
+        
+        <!-- Franklin's character card -->
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -70,7 +95,10 @@
                 </div>
             </div>
         </div>
+        
     </div>
+    
+    <!-- JavaScript function to toggle audio play and pause -->
     <script>
         function toggleAudio() {
             var audio = document.getElementById('background-audio');

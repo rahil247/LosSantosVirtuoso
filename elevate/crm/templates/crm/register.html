@@ -1,33 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the signup page -->
     <title>Sign Up</title>
+    
+    <!-- Linking favicon for the page -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the signup page -->
     <link rel="stylesheet" href="../../static/CSS/register.css">
 </head>
 <body>
+    <!-- Loading socialaccount templates -->
     {% load socialaccount %}
+    
+    <!-- Main container for the signup form and content -->
     <div class="container" id="main-container">
         <h1 id="welcome-message"></h1>
         <h2>Create an account</h2>
+        
+        <!-- Form container for the signup form -->
         <div class="form-container">
             <form id="signup-form" method="POST" autocomplete="off">
+                <!-- CSRF token for form security -->
                 {% csrf_token %}
+                
+                <!-- Username field with label -->
                 <div class="form-group">
                     <p>Username:</p>
                     {{ registerform.username.label_tag }}
                     {{ registerform.username }}
                 </div>
+                
+                <!-- Email field with label -->
                 <div class="form-group">
                     <p>Email:</p>
                     {{ registerform.email.label_tag }}
                     {{ registerform.email }}
                 </div>
+                
+                <!-- Password fields with labels -->
                 <div class="form-group">
                     {{ registerform.password1.label_tag }}
                     {{ registerform.password1 }}
@@ -36,15 +59,23 @@
                     {{ registerform.password2.label_tag }}
                     {{ registerform.password2 }}
                 </div>
+                
+                <!-- Submit button for the form -->
                 <button type="submit">Continue</button>
+                
+                <!-- Link to the login page -->
                 <div class="login-link">
                     <p>Already have an account? <a href="/">Login</a></p>
                 </div>
+                
+                <!-- Separator for the alternative sign-in options -->
                 <div class="separator">
                     <hr class="left">
                     <span>OR</span>
                     <hr class="right">
                 </div>
+                
+                <!-- Button for Google sign-in -->
                 <button type="button" class="google-btn" onclick="signInWithGoogle()">
                     <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
                 </button>
@@ -52,6 +83,7 @@
         </div>
     </div>
 
+    <!-- Popup for password requirements -->
     <div class="popup" id="password-popup">
         <div class="popup-content">
             <p>Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.</p>
@@ -59,8 +91,10 @@
         </div>
     </div>
 
+    <!-- JavaScript for the interactive features of the page -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Typing effect for the welcome message
             const message = "Welcome to LosSantosVirtuoso";
             let i = 0;
             const speed = 170; // Speed of typing effect
@@ -84,11 +118,13 @@
             showPopup(); // Show the popup when the page loads
         });
 
+        // Function to redirect to Google login URL
         function signInWithGoogle() {
             const googleLoginUrl = "{% url 'google_login' %}";
             window.location.href = googleLoginUrl;
         }
 
+        // Function to show the password requirements popup
         function showPopup() {
             const popup = document.getElementById('password-popup');
             const mainContainer = document.getElementById('main-container');
@@ -96,6 +132,7 @@
             mainContainer.classList.add('blurred'); // Blur the background
         }
 
+        // Function to close the popup
         function closePopup() {
             const popup = document.getElementById('password-popup');
             const mainContainer = document.getElementById('main-container');
@@ -103,6 +140,7 @@
             mainContainer.classList.remove('blurred'); // Remove blur from the background
         }
 
+        // Reload the page if it's loaded from the cache
         window.onpageshow = function (event) {
             if (event.persisted) {
                 window.location.reload();

@@ -1,40 +1,60 @@
-
 {% load tz %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
     <title>Chat History</title>
+    
+    <!-- Linking the favicon for the webpage -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the chat history page -->
     <link rel="stylesheet" href="../../static/CSS/history.css">
 </head>
 <body>
+    <!-- Container for the entire page content -->
     <div class="container">
         <div class="main-content">
             <div class="header">
+                <!-- Header for the chat history section -->
                 <h1>Chat History</h1>
             </div>
             <div class="history-section">
+                <!-- Loop through each chat session and sort them in reverse order based on creation time -->
                 {% for session in chat_sessions|dictsortreversed:"created_at" %}
                     <div class="collapsible">
+                        <!-- Collapsible input for each chat session -->
                         <input type="checkbox" id="collapsible-{{ forloop.counter }}">
                         <label for="collapsible-{{ forloop.counter }}" class="collapsible-label">
+                            <!-- Arrow icon for collapsible and session details -->
                             <span class="arrow">&#9654;</span>
                             Session with {{ session.personality }} on {{ session.created_at }}
                         </label>
                         <div class="content">
+                            <!-- List of messages in the session -->
                             <ul>
                                 {% for message in session.messages.all %}
+                                    <!-- Display each message with role and text -->
                                     <li><strong>{{ message.role }}:</strong> {{ message.text }}</li>
                                 {% endfor %}
                             </ul>
+                            <!-- Form for deleting the chat history of the session -->
                             <form method="post" action="{% url 'delete_chat_history' session.id %}">
+                                <!-- CSRF token for security in Django applications -->
                                 {% csrf_token %}
+                                <!-- Button to submit the delete request -->
                                 <button type="submit" class="delete-button">Delete History</button>
                             </form>
                         </div>
@@ -46,5 +66,6 @@
 </body>
 
 </html>
+
 
 

@@ -1,45 +1,77 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
     <title>Login Page</title>
+    
+    <!-- Linking the favicon for the webpage -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the login page -->
     <link rel="stylesheet" href="../../static/CSS/home.css">
 </head>
 <body>
+    <!-- Loading social account templates for Django -->
     {% load socialaccount %}
+    
+    <!-- Main container for the login page content -->
     <div class="container">
+        <!-- Welcome message -->
         <h1>Welcome to LosSantosVirtuoso</h1>
+        
+        <!-- Container for the login form -->
         <div class="form-container">
+            <!-- Heading for the login section -->
             <h2>Login</h2>
+            
+            <!-- Login form; uses POST method and includes CSRF token for security -->
             <form id="login-form" method="POST" autocomplete="off">
                 {% csrf_token %}
+                <!-- Render the login form fields dynamically -->
                 {{ loginform.as_p }}
+                <!-- Submit button for the login form -->
                 <button type="submit">Continue</button>
+                
+                <!-- Link to the registration page -->
                 <div class="signup-link">
                     <p>Don't have an account? <a href="register.html">Sign Up</a></p>
                 </div>
+                
+                <!-- Separator with "OR" for alternate login methods -->
                 <div class="separator">
                     <hr class="left">
                     <span>OR</span>
                     <hr class="right">
                 </div>
+                
+                <!-- Button to initiate Google sign-in -->
                 <button type="button" class="google-btn" onclick="signInWithGoogle()">
                     <img src="https://www.google.com/favicon.ico" alt="Google icon"> Continue with Google
                 </button>
             </form>
         </div>
     </div> 
+    
+    <!-- JavaScript for handling Google sign-in and page reload on back navigation -->
     <script>
+        // Function to redirect to Google login URL
         function signInWithGoogle() {
             const googleLoginUrl = "{% url 'google_login' %}";
             window.location.href = googleLoginUrl;
         }
+
+        // Reload the page when navigating back to it to ensure form state is fresh
         window.onpageshow = function(event) {
             if (event.persisted) {
                 window.location.reload();
@@ -48,4 +80,3 @@
     </script>
 </body>
 </html>
-

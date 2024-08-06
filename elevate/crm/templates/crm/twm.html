@@ -1,49 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Michel</title>
+    
+    <!-- Title of the page -->
+    <title>Michael</title>
+    
+    <!-- Linking favicon for the page -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the page -->
     <link rel="stylesheet" href="../../static/CSS/twm.css">
+</head>
 <body>
+    <!-- Navigation bar section -->
     <div class="navbar">
+        <!-- Right-aligned buttons -->
         <div class="right-buttons">
             <form action="{% url 'twm' %}" method="post" class="new-session-form">
                 {% csrf_token %}
+                <!-- Button to start a new session -->
                 <button class="navbar-button animated-button" type="submit" name="start_new_session" value="1">Start New Session</button>
             </form>
         </div>
+        
+        <!-- Button to change character -->
         <button class="navbar-button animated-button" onclick="location.href='index'">Change Character</button>
+        
+        <!-- Title section -->
         <div class="title">
             <h1>Michael</h1>
         </div>
+        
+        <!-- Left-aligned buttons -->
         <div class="left-buttons">
+            <!-- Button to upgrade the plan -->
             <button class="navbar-button animated-button" onclick="location.href='dashboard'">Upgrade your Plan</button>
-            
         </div>
+        
+        <!-- User account section -->
         <div class="account" id="account">
             <button class="navbar-button account-button">
                 <img src="../../static/img/Sample_User_Icon.png" alt="User Image">
                 <span>{{ username }}</span>
             </button>
         </div>
+        
+        <!-- Dropdown menu for account actions -->
         <div class="dropdown" id="account-dropdown">
             <a href="user_logout">Logout</a>
             <a href="contact">Contact Us</a>
             <a href="{% url 'chat_history' %}" class="btn btn-primary">View Chat History</a>
         </div>
     </div>
+    
+    <!-- Main content section -->
     <div class="main-content">
+        <!-- Chat section -->
         <div class="chat-section">
+            <!-- Chat history display -->
             <div class="chat-history" id="chat-messages">
                 {% for entry in chat_history %}
                 <p><strong>{{ entry.role }}:</strong> {{ entry.text }}</p>
                 {% endfor %}
             </div>
+            
+            <!-- Chat input form -->
             <form action="{% url 'twm' %}" method="post" class="chat-input-container">
                 {% csrf_token %}
                 <input type="text" id="input_text" name="input_text" placeholder="Message Michael" required>
@@ -51,12 +82,16 @@
             </form>
         </div>
     </div>
+    
+    <!-- JavaScript for account dropdown and other interactions -->
     <script>
+        // Toggle account dropdown menu on click
         document.getElementById('account').addEventListener('click', function() {
             const dropdown = document.getElementById('account-dropdown');
             dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
         });
 
+        // Close the dropdown menu when clicking outside of it
         document.addEventListener('click', function(event) {
             const account = document.getElementById('account');
             const dropdown = document.getElementById('account-dropdown');
@@ -67,4 +102,3 @@
     </script>
 </body>
 </html>
-

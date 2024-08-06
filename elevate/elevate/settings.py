@@ -1,14 +1,12 @@
 import os
-# import dj_database_url
-# from dotenv import load_dotenv
 from pathlib import Path
-import dotenv
-
-dotenv.load_dotenv()
 
 # Setting the base directory for the project. BASE_DIR refers to the directory containing manage.py.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# load_dotenv(os.path.join(BASE_DIR/".eVar",".env"))
+
+# Loading environment variables from a .env file (commented out for now).
+# load_dotenv(os.path.join(BASE_DIR / ".eVar", ".env"))
+
 # Secret key for the Django project. This key should be kept secret in production.
 SECRET_KEY = 'django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi'
 
@@ -16,7 +14,7 @@ SECRET_KEY = 'django-insecure-#eo+&9jk!b%@)me=xdbz6&ses00s$^rr15095%ccn&7)ngf3fi
 DEBUG = True
 
 # Allowed hosts setting. Specifies the host/domain names that this Django site can serve.
-ALLOWED_HOSTS = ['wmc-5-0.onrender.com','127.0.0.1','lossantosvirtuoso.onrender.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'lossantosvirtuoso.onrender.com']
 
 # Setting the site ID for the project.
 SITE_ID = 2
@@ -65,8 +63,8 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",  # Clickjacking protection middleware.
     "allauth.account.middleware.AccountMiddleware",  # Allauth account middleware.
     'crm.middleware.NoCacheMiddleware',  # Custom middleware to disable caching.
-    # 'django.middleware.timezone.TimeZoneMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
+    # 'django.middleware.timezone.TimeZoneMiddleware',  # Time zone middleware (commented out).
+    'django.middleware.locale.LocaleMiddleware',  # Locale middleware.
 ]
 
 # Setting the root URL configuration for the project.
@@ -83,8 +81,8 @@ TEMPLATES = [
                 "django.template.context_processors.debug",  # Adds debug context processor.
                 "django.template.context_processors.request",  # Adds request context processor.
                 "django.contrib.auth.context_processors.auth",  # Adds auth context processor.
-                "django.contrib.messages.context_processors.messages", # Adds messages context processor.
-                  'django.template.context_processors.tz',  
+                "django.contrib.messages.context_processors.messages",  # Adds messages context processor.
+                'django.template.context_processors.tz',  # Adds time zone context processor.
             ],
         },
     },
@@ -105,15 +103,6 @@ DATABASES = {
         "PORT": "12277",  # Database port.
     }
 }
-
-# DATABASES = {
-#     'default' : dj_database_url.config(
-#         default = "sqlite:///" + os.path.join(BASE_DIR,"db.sqlite3")
-#     )
-# }
-
-# The following commented-out section shows a basic database configuration that was previously defined.
-# DATABASES["default"] = dj_database_url.parse("postgresql://chatbot_wmc_user:6EMiBvj0z0xY3NHwlCg8WIUzMYt6EWhs@dpg-cqja3maj1k6c739pguag-a.oregon-postgres.render.com/chatbot_wmc")
 
 # Defining the password validation settings for the project.
 AUTH_PASSWORD_VALIDATORS = [
@@ -162,30 +151,38 @@ RAZORPAY_API_SECRET_KEY = 'jy8T9rW0uIhp25NXxy67IhVE'
 # Defining the authentication backends for the project.
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",  # Default authentication backend.
-    "allauth.account.auth_backends.AuthenticationBackend"  # Allauth authentication backend.
+    "allauth.account.auth_backends.AuthenticationBackend",  # Allauth authentication backend.
 )
-# changed LOGIN_REDIRECT_URL from '/' to 'welcome'
+
+# Redirect URL after successful login.
+# Changed LOGIN_REDIRECT_URL from '/' to 'welcome'.
 LOGIN_REDIRECT_URL = "welcome"
+
+# Redirect URL after logout.
 LOGOUT_REDIRECT_URL = "/index/"
 
+# URL for login.
 LOGIN_URL = '/login/'
 
+# Setting the session engine to use the database for session data storage.
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
+# Account email verification settings.
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_AUTHENTICATION_METHOD = "username"
 ACCOUNT_EMAIL_REQUIRED = True
 
+# Additional settings.
 TIME_ZONE = 'Asia/Kolkata'
 USE_TZ = True
 USE_I18N = True
 USE_L10N = True
 
+# Setting the URL for media files.
 MEDIA_URL = '/media/'
+
+# Defining the media root directory for media files.
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# import os
-
-# MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# Setting the base directory for the project (repeated for clarity).
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

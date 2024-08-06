@@ -1,23 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character encoding and responsive design -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Title of the webpage -->
     <title>Contact Us</title>
+    
+    <!-- Preconnecting to Google Fonts for faster font loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Jaini+Purva&family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <!-- Linking external CSS file for styling the contact page -->
     <link rel="stylesheet" href="../../static/CSS/contact.css">
+    
+    <!-- Linking the favicon for the webpage -->
     <link rel="icon" href="../../static/img/logo.png" type="image/x-icon">
 </head>
 <body>
     <div class="container">
         <section id="contact">
+            <!-- Contact Us section heading -->
             <h2>Contact Us</h2>
+            
+            <!-- Form for submitting contact information; uses POST method -->
             <form method="post">
+                <!-- CSRF token for security in Django applications -->
                 {% csrf_token %}
+                
+                <!-- Render the form fields dynamically -->
                 {{ form.as_p }}
+                
+                <!-- Submit button for the form -->
                 <button type="submit">Submit</button>
             </form>
         </section>
