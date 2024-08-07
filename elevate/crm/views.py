@@ -25,6 +25,15 @@ from django.contrib.auth import login as auth_login
 import requests
 from django.views import View
 from django.contrib.auth.models import User
+import streamlit as st
+from google.generativeai import generative_models, types
+from google.generativeai import generative_models, configure
+from google.generativeai.types import HarmCategory, HarmBlockThreshold
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_protect
+from .models import ChatSession, Message
+
 
 # View to handle user registration
 def register(request):
@@ -165,8 +174,8 @@ def login_view(request):
     response['Expires'] = '0'  
     return response
 
-# Ensure the genai API is configured
-genai.configure(api_key='AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo')
+genai.configure(api_key="AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo")
+
 
 # Class to handle chat sessions with different personalities
 class ChatbotSession:
@@ -204,15 +213,67 @@ class ChatbotSession:
         }
 
         full_question = f"{personality_prompt[self.personality]} {question}"
-        response = self.chat.send_message(full_question)
+        # response = self.chat.send_message(full_question)
 
         # Attempt to extract the message from the response
-        if hasattr(response, 'message'):
-            return response.message
-        elif hasattr(response, 'text'):
-            return response.text
-        else:
-            return "No response text found"
+        # if hasattr(response, 'message'):
+            # return response.message
+        # elif hasattr(response, 'text'):
+            # return response.text
+        # else:
+            # return "No response text found"
+        try:
+            response = self.chat.send_message(
+                full_question,
+                safety_settings={
+                    HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
+                    HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
+                }
+            )
+
+            # Attempt to extract the message from the response
+            if hasattr(response, 'message'):
+                return response.message
+            elif hasattr(response, 'text'):
+                return response.text
+            else:
+                return "No response text found"
+
+        except types.StopCandidateException as e:
+            # Log the exception details for further analysis
+            print(f"StopCandidateException: {e}")
+            return "The response was blocked due to safety concerns."
+        
+def Gemini_vision(prompt):
+    st.markdown("<p style='text-align:center;'>Image will be used from here, Delete image when you are done ✅</p>", unsafe_allow_html=True)
+    genai.configure(api_key='AIzaSyBtvRKafcHnGfXlAndmP2azX_PPqPY9JKo')
+    model = genai.GenerativeModel('gemini-pro-vision')
+    safe = [
+        {
+            "category": "HARM_CATEGORY_DANGEROUS",
+            "threshold": "BLOCK_NONE",
+        },
+        {
+            "category": "HARM_CATEGORY_HARASSMENT",
+            "threshold": "BLOCK_NONE",
+        },
+        {
+            "category": "HARM_CATEGORY_HATE_SPEECH",
+            "threshold": "BLOCK_NONE",
+        },
+        {
+            "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
+            "threshold": "BLOCK_NONE",
+        },
+        {
+            "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
+            "threshold": "BLOCK_NONE",
+        },
+    ]
+    response = model.generate_content(safety_settings=safe)
+    return response.text
 
 # View to handle chat interactions with the selected personality
 @login_required
