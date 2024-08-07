@@ -11,6 +11,13 @@ https://drive.google.com/file/d/1LxLFpCojzhmU4BuixuWt5O4zORmIDmGt/view?usp=drive
 <br/>
 **Password:** admin
 
+### <u>User</u>
+
+**Username:** rahil11Q247
+<br/>
+**Password:** Qrps@1234
+
+
 ### <u>Link</u>:
 
 🔗 https://lossantosvirtuoso.onrender.com
