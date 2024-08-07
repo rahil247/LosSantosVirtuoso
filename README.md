@@ -97,5 +97,4 @@ python manage.py runserver
 ```
 
 # Note
-- You may get an error while chatting with the perosnalities due to safety reasons of the Gemini API, but you can refresh your page or click on the back button you will get your response.
-- You may also get an error on clicking the **Upgrade your plan**, it is because Razorpay's servers might be experiencing downtime or issues. Just referesh your page, to see the page.
+- You may also get an error on clicking the **Upgrade your plan**, it is because Razorpay's servers might be experiencing downtime or issues. Just referesh your page, to continue.
