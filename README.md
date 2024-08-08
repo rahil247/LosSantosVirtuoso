@@ -33,7 +33,6 @@ https://drive.google.com/file/d/1LxLFpCojzhmU4BuixuWt5O4zORmIDmGt/view?usp=drive
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo//Michael.png)
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/payment%20dashboard.png)
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/popup_register.png)
-![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/register.png)
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/Chat%20history.png)
 ![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/admin.jpg)
 
