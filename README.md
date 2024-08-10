@@ -1,6 +1,6 @@
 # Live Demo
 
-  https://github.com/rahil247/LosSantosVirtuoso/blob/eada1d547d18fb163ef0ebc8c266def9da80e3a2/elevate/crm/website%20photo/LosSantosVirtuoso-2.mp4
+ ![watch the video](https://github.com/rahil247/LosSantosVirtuoso/blob/eada1d547d18fb163ef0ebc8c266def9da80e3a2/elevate/crm/website%20photo/LosSantosVirtuoso-2.mp4)
 
 ## You can login as per your choice according to the following credentials
 
