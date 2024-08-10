@@ -1,6 +1,6 @@
 # Live Demo
 
-![Alt text](elevate/crm/website photo/LosSantosVirtuoso.mp4)
+![Alt text](https://github.com/rahil247/LosSantosVirtuoso/blob/main/elevate/crm/website%20photo/LosSantosVirtuoso.mp4)
 
 
 ## You can login as per your choice according to the following credentials
