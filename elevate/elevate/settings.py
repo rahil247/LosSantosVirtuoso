@@ -102,11 +102,11 @@ DATABASES = {
         "HOST": "mysql-3025ffe1-aryansukhadia2511-10f2.j.aivencloud.com",  # Database host.
         # "PORT": "12277",  # Database port.
         "PORT": "21878",  # Corrected port
-        "OPTIONS": {
-            "ssl": {
-                "ca": "/path/to/ca.pem"  # Only if Aiven requires SSL cert
-            }
-        }
+        # "OPTIONS": {
+        #     "ssl": {
+        #         "ca": "/path/to/ca.pem"  # Only if Aiven requires SSL cert
+        #     }
+        # }
     }
 }
 
