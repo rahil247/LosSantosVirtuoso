@@ -94,12 +94,12 @@ WSGI_APPLICATION = "elevate.wsgi.application"
 # Defining the database settings for the project.
 DATABASES = {
     "default": {
-        "URL": "mysql://avnadmin:AVNS_MC9pJexeUopA37T5pAE@mysql-36f76dc3-wmc-5.e.aivencloud.com:12277/defaultdb?ssl-mode=REQUIRED",
+        "URL": "mysql://avnadmin:AVNS_4oza3H0maLnKKveZgnN@mysql-3025ffe1-aryansukhadia2511-10f2.j.aivencloud.com:21878/defaultdb?ssl-mode=REQUIRED",
         "ENGINE": "django.db.backends.mysql",  # Using MySQL as the database engine.
         "NAME": "defaultdb",  # Database name.
         "USER": "avnadmin",  # Database user.
-        "PASSWORD": "AVNS_MC9pJexeUopA37T5pAE",  # Database password.
-        "HOST": "mysql-36f76dc3-wmc-5.e.aivencloud.com",  # Database host.
+        "PASSWORD": "AVNS_4oza3H0maLnKKveZgnN",  # Database password.
+        "HOST": "mysql-3025ffe1-aryansukhadia2511-10f2.j.aivencloud.com",  # Database host.
         "PORT": "12277",  # Database port.
     }
 }
